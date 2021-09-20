@@ -1,0 +1,20 @@
+Kleuren:
+
+- Titel kleur: #333333;
+- Tekst kleur: #333333;
+
+Opmaak teksten:
+
+- Titel = font-family: 'Akzidenz Grotesk',sans-serif; 
+- Tekst = font-family: baskerville-urw,sans-serif;
+
+Algemene opmaak:
+
+- Vierkant rechte lijnen in grid;
+- krant opmaak;
+- Verticale en horizontale lijnen tussen de grids;
+
+Animaties:
+
+- Hover clickable tekst animatie: alleen buiten lijn tonen;
+- Menu hover: opacity naar beneden aanpassen met transition time van ongeveer 0,5s;
