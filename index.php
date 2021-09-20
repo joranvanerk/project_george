@@ -1,9 +1,10 @@
 <!-- include framework css and bootstrap basic -->
-<?php includes_once("./includes/framework.php"); ?>
+<?php include_once("./includes/framework.php"); ?>
 <!-- include header -->
 <?php include_once("./includes/header.php"); ?>
 
 <body>
+
 
 
 </body>
