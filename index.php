@@ -4,8 +4,8 @@
 <?php include_once("./includes/header.php"); ?>
 
 <body>
-
-
+  <!-- Include Landing Page -->
+<?php include_once("./landingpage.php"); ?>
 
 </body>
 <!-- include footer -->
