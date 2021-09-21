@@ -10,3 +10,32 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>George Kanaleneiland</title>
   </head>
+
+<style>
+@font-face {
+  font-family: 'George-title';
+  src: URL('../css/george-title.ttf') format('truetype');
+}
+
+.george_title {
+  transform: scaleY(2);
+  font-family: 'George-title',sans-serif;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  color: #333333;
+}
+
+.george_title_animation:hover{
+  /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; */
+  -webkit-text-stroke: 1px black;
+  color: white;
+  transition-duration: 0.3s;
+}
+
+.george_title_animation{
+  -webkit-text-stroke: 1px black;
+  color: #333333;
+  transition-duration: 0.3s;
+}
+
+</style>
