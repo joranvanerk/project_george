@@ -14,7 +14,7 @@
         <div class="vl"></div>
         <a class="nav-link george_menu" href="contact.php">Contact</a>
         <div class="vl"></div>
-        <a class="nav-link george_menu" href="#">Menu</a>
+        <a class="nav-link george_menu" href="menu.php">Menu</a>
         <div class="vl"></div>
         <a class="nav-link george_menu" href="#">Reservation</a>
         <div class="vl"></div>
