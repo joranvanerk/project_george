@@ -17,6 +17,11 @@
   src: URL('../css/george-title.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'George-menu';
+  src: URL('../css/george-menu.ttf') format('truetype');
+}
+
 .george_title {
   transform: scaleY(2);
   font-family: 'George-title',sans-serif;
@@ -36,6 +41,36 @@
   -webkit-text-stroke: 1px black;
   color: #333333;
   transition-duration: 0.3s;
+}
+
+.vl {
+  border-left: 1px solid black;
+  /* height: 500px; */
+}
+
+.george_menu{
+  text-transform: uppercase;
+  font-family: george_menu;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #333333 !important;
+}
+
+.george_menu:hover{
+  text-transform: uppercase;
+  font-family: george_menu;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #878787 !important;
+}
+
+.george_menu_active{
+  text-transform: uppercase;
+  font-family: george_menu;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #000000 !important;
+  text-decoration: underline;
 }
 
 </style>
