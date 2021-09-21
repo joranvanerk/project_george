@@ -16,7 +16,7 @@
         <div class="vl"></div>
         <a class="nav-link george_menu" href="menu.php">Menu</a>
         <div class="vl"></div>
-        <a class="nav-link george_menu" href="#">Reservation</a>
+        <a class="nav-link george_menu" href="reservation.php">Reservation</a>
         <div class="vl"></div>
         <a class="nav-link george_menu" href="bookevent.php">Book an event</a>
       </div>
