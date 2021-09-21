@@ -3,9 +3,11 @@
 <!-- include header -->
 <?php include_once("./includes/header.php"); ?>
 <body>
-    
+
+<!-- bein banner-->
 <br>
 <img src="./img/banner.jpg" style="width:100%;"  alt="">
+<!--einde banner-->
 
 <html>
  <head>
@@ -13,7 +15,7 @@
     {
         box-sizing: border-box;
     }
-    /* Set additional styling options for the columns*/
+    /* style van de columns */
     .column {
     float: left;
     width: 50%;
@@ -24,9 +26,12 @@
     display: table;
     clear: both;
     }
+    /* einde style van de colmuns */
+
     </style>
  </head>
  <body>
+     <!--begin columns-->
     <div class="row">
         <div class="column" >
             <h2>Column 1</h2>
@@ -34,7 +39,7 @@
         </div>
         <div class="column">
             <h2>Column 2</h2>
-        
+        <!--einde columns-->
         </div>
     </div>
  </body>
