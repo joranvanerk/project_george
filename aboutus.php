@@ -35,12 +35,20 @@
     <div class="row">
         <div class="column" >
             <!--tekst die je kan aanpassen tussen h2 tags-->
-            <h2>Column 1</h2>
-            
+            <h4>about us about us about us about us about us 
+                about us about us about us about us about us 
+                about us about us about us about us about us 
+                about us about us about us about us about us 
+            </h4>
+        
         </div>
-        <div class="column">
+        <div class="column" >
             <!--tekst die je kunt aanpassen tussen h2 tags-->
-            <h2>Column 2</h2>
+            <h4>about us about us about us about us about us 
+                about us about us about us about us about us 
+                about us about us about us about us about us 
+                about us about us about us about us about us
+            </h4>
         <!--einde columns-->
         </div>
     </div>

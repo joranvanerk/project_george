@@ -10,7 +10,7 @@
       <div class="navbar-nav">
         <a class="nav-link george_menu george_menu_active" aria-current="page" href="#">Home</a>
         <div class="vl"></div>
-        <a class="nav-link george_menu" href="#">About us</a>
+        <a class="nav-link george_menu" href="aboutus.php">About us</a>
         <div class="vl"></div>
         <a class="nav-link george_menu" href="#">Contact</a>
         <div class="vl"></div>
@@ -18,7 +18,7 @@
         <div class="vl"></div>
         <a class="nav-link george_menu" href="#">Reservation</a>
         <div class="vl"></div>
-        <a class="nav-link george_menu" href="#">Book an event</a>
+        <a class="nav-link george_menu" href="bookevent.php">Book an event</a>
       </div>
     </div>
   </div>
