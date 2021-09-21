@@ -33,22 +33,36 @@
  <body>
      <!--begin columns-->
     <div class="row">
-        <div class="column" >
+        <div class="col-6" >
+            <br>
+            <!-- dit is de titel van de tekst -->
+            <h2> titel</h2>
             <!--tekst die je kan aanpassen tussen h2 tags-->
-            <h4>about us about us about us about us about us 
+            <p> 
                 about us about us about us about us about us 
                 about us about us about us about us about us 
-                about us about us about us about us about us 
-            </h4>
-        
-        </div>
-        <div class="column" >
-            <!--tekst die je kunt aanpassen tussen h2 tags-->
-            <h4>about us about us about us about us about us 
                 about us about us about us about us about us 
                 about us about us about us about us about us 
                 about us about us about us about us about us
-            </h4>
+                about us about us about us about us about us
+                about us about us about us about us about us
+            </P>
+        </div>
+        <div class="col-6" >
+            <br>
+            <!-- dit is de titel van de tekst -->
+            <h2>titel</h2>
+            <!--tekst die je kunt aanpassen tussen h2 tags-->
+            <p> 
+                about us about us about us about us about us 
+                about us about us about us about us about us 
+                about us about us about us about us about us 
+                about us about us about us about us about us
+                about us about us about us about us about us
+                about us about us about us about us about us
+                about us about us about us about us about us
+            </p>
+            
         <!--einde columns-->
         </div>
     </div>
