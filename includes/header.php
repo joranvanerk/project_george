@@ -12,7 +12,7 @@
         <div class="vl"></div>
         <a class="nav-link george_menu" href="aboutus.php">About us</a>
         <div class="vl"></div>
-        <a class="nav-link george_menu" href="#">Contact</a>
+        <a class="nav-link george_menu" href="contact.php">Contact</a>
         <div class="vl"></div>
         <a class="nav-link george_menu" href="#">Menu</a>
         <div class="vl"></div>
