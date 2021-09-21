@@ -51,24 +51,24 @@
 .george_menu{
   text-transform: uppercase;
   font-family: george_menu;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
   color: #333333 !important;
 }
 
 .george_menu:hover{
   text-transform: uppercase;
   font-family: george_menu;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
   color: #878787 !important;
 }
 
 .george_menu_active{
   text-transform: uppercase;
   font-family: george_menu;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
   color: #000000 !important;
   text-decoration: underline;
 }
