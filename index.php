@@ -9,4 +9,4 @@
 
 </body>
 <!-- include footer -->
-<?php include("./layout-basic/footer.php"); ?>
+<?php include("./includes/footer.php"); ?>
