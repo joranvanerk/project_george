@@ -4,7 +4,7 @@
 <?php include_once("./includes/header.php"); ?>
 <body>
 
-<!-- bein banner-->
+<!-- begin banner-->
 <br>
 <img src="./img/banner.jpg" style="width:100%;"  alt="">
 <!--einde banner-->
@@ -15,7 +15,7 @@
     {
         box-sizing: border-box;
     }
-    /* style van de columns */
+    /* begin style van de columns */
     .column {
     float: left;
     width: 50%;
@@ -34,10 +34,12 @@
      <!--begin columns-->
     <div class="row">
         <div class="column" >
+            <!--tekst die je kan aanpassen tussen h2 tags-->
             <h2>Column 1</h2>
             
         </div>
         <div class="column">
+            <!--tekst die je kunt aanpassen tussen h2 tags-->
             <h2>Column 2</h2>
         <!--einde columns-->
         </div>
