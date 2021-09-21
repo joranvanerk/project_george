@@ -1,6 +1,15 @@
 /* Google maps  */
 #map {
     height: 400px;
-    width: 100%;
+    width: 50%;
   }
   
+#black_line {
+  border-left: 6px solid rgb(0, 0, 0);
+  height: 800px;
+  position: relative;
+  /* text-align: left; */
+  left: 50%;
+  margin-left: -3px;
+  top: 0;
+}
