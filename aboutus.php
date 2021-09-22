@@ -17,7 +17,7 @@
         <div class=" col-sm-12 col-md-6" >
             <br>
             <!-- dit is de titel van de tekst -->
-            <h2> titel</h2>
+            <h2>The beginning</h2>
             <!--tekst die je kan aanpassen tussen h2 tags-->
             <p> 
                 about us about us about us about us about us 
@@ -37,7 +37,7 @@
         <div class=" col-6 col-sm-12 col-md-6" >
             <br>
             <!-- dit is de titel van de tekst -->
-            <h2>titel</h2>
+            <h2>Mission and Succes</h2>
             <!--tekst die je kunt aanpassen tussen h2 tags-->
             <p> 
                 about us about us about us about us about us 
