@@ -1,11 +1,12 @@
 /* Google maps  */
 #map {
     height: 400px;
-    width: 50%;
+    width: 100%;
   }
   
+  /* Black line in the middle */
 #black_line {
-  border-left: 6px solid rgb(0, 0, 0);
+  border-left: 1px solid rgb(0, 0, 0);
   height: 800px;
   position: relative;
   /* text-align: left; */
