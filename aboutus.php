@@ -29,8 +29,12 @@
                 about us about us about us about us about us
             </P>
         </div>
-        
-        <div class="offset-md-6 offset-sm-0 col-sm-12 col-md-6" >
+</div>
+    <div class="row">
+        <div class="col-6 col-sm-12 col-md-6">
+
+        </div>
+        <div class=" col-6 col-sm-12 col-md-6" >
             <br>
             <!-- dit is de titel van de tekst -->
             <h2>titel</h2>
@@ -47,6 +51,7 @@
             
         <!--einde columns-->
         </div>
+    </div>
     </div>
     </div>
 
