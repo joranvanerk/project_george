@@ -2,38 +2,19 @@
 <?php include_once("./includes/framework.php"); ?>
 <!-- include header -->
 <?php include_once("./includes/header.php"); ?>
-<body>
 
 <!-- begin banner-->
+<div class="container">
+
+
 <br>
 <img src="./img/banner.jpg" style="width:100%;"  alt="">
 <!--einde banner-->
-
-<html>
- <head>
-    <style>
-    {
-        box-sizing: border-box;
-    }
-    /* begin style van de columns */
-    .column {
-    float: left;
-    width: 50%;
-    }
-
-    .row:after {
-    content: "";
-    display: table;
-    clear: both;
-    }
-    /* einde style van de colmuns */
-
-    </style>
- </head>
- <body>
+</div>
      <!--begin columns-->
+     <div class="container">
     <div class="row">
-        <div class="col-6" >
+        <div class=" col-sm-12 col-md-6" >
             <br>
             <!-- dit is de titel van de tekst -->
             <h2> titel</h2>
@@ -48,7 +29,8 @@
                 about us about us about us about us about us
             </P>
         </div>
-        <div class="col-6" >
+        
+        <div class="offset-md-6 offset-sm-0 col-sm-12 col-md-6" >
             <br>
             <!-- dit is de titel van de tekst -->
             <h2>titel</h2>
@@ -66,9 +48,7 @@
         <!--einde columns-->
         </div>
     </div>
- </body>
-</html>
-</body>
+    </div>
 
 <!-- include footer -->
 <?php include_once("./includes/footer.php"); ?>
