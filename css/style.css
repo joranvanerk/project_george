@@ -13,4 +13,7 @@
   left: 50%;
   margin-left: -3px;
   top: 0;
+  
+.landingPageSale {
+  max-height: 80vh;
 }
