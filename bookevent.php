@@ -7,7 +7,7 @@
 
 <div class="container">
   <div class="col-8">
-    <h2>Hey kid</h2>
+    <h2>Main titel</h2>
   </div>
   <div class="col-1">
     <div class="vl"></div>
