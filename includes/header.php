@@ -10,15 +10,15 @@
       <div class="navbar-nav">
         <a class="nav-link george_menu george_menu_active" aria-current="page" href="#">Home</a>
         <div class="vl"></div>
-        <a class="nav-link george_menu" href="aboutus.php">About us</a>
+        <a class="nav-link george_menu" href="aboutus">About us</a>
         <div class="vl"></div>
-        <a class="nav-link george_menu" href="contact.php">Contact</a>
+        <a class="nav-link george_menu" href="contact">Contact</a>
         <div class="vl"></div>
-        <a class="nav-link george_menu" href="menu.php">Menu</a>
+        <a class="nav-link george_menu" href="menu">Menu</a>
         <div class="vl"></div>
-        <a class="nav-link george_menu" href="reservation.php">Reservation</a>
+        <a class="nav-link george_menu" href="reservation">Reservation</a>
         <div class="vl"></div>
-        <a class="nav-link george_menu" href="bookevent.php">Book an event</a>
+        <a class="nav-link george_menu" href="bookevent">Book an event</a>
       </div>
     </div>
   </div>
