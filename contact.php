@@ -11,7 +11,6 @@
     <?php include_once("./includes/framework.php"); ?>
     <!-- include header -->
     <?php include_once("./includes/header.php"); ?>
-    <!--The div element for the map -->
     <div class="container">
       <br>
       <div class="row">
@@ -30,33 +29,18 @@
           <div id="black_line"></div>
         </div>
         <div class="col-5">
-          <div  id="map"></div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2452.8834394903515!2d5.099663918471286!3d52.06364600999879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6659441e470cb%3A0x741aaacd4a1e0a0c!2sColumbuslaan%20540%2C%203526%20EP%20Utrecht!5e0!3m2!1snl!2snl!4v1632394215177!5m2!1snl!2snl" 
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
         </div>
       </div>
     </div>
 </div>
-    <!--Google maps fix later-->
-
-
-
-
     </div>
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5mH2r2cVrDH2p3n97i4tqFCa3wrACXSo&callback=initMap&libraries=&v=weekly"
-      async
-    ></script>
-
-    <script
-      function initMap() {
-          var location = {lat: 52.063780, lng:5.100000};
-          var map = new google.maps.Map(document.getElementById("map"), {
-              zoom: 4,
-              center: location
-          });
-      }
-    ></script>
-
   </body>
   <!-- include footer -->
 <?php include_once("./includes/footer.php"); ?>
