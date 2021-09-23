@@ -10,7 +10,7 @@
     <h2>Main titel</h2>
   </div>
   <div class="col-1">
-    <div class="vl"></div>
+    <div class="vl">line testing</div>
   </div>
   <div class="col-3">
 
