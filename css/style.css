@@ -1,10 +1,4 @@
-/* Google maps  */
-#map {
-    height: 400px;
-    width: 100%;
-  }
-  
-  /* Black line in the middle */
+    /* Black line in the middle */
 #black_line {
   border-left: 1px solid rgb(0, 0, 0);
   height: 800px;
