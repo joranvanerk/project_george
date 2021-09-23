@@ -1,9 +1,3 @@
-<!-- include framework css and bootstrap basic -->
-<?php include_once("./includes/framework.php"); ?>
-
-<!-- include header -->
-<?php include_once("./includes/header.php"); ?>
-
 <!-- Landing Page Content -->
 <div class="container-fluid">
   <div class="container">
@@ -34,12 +28,9 @@
         <p class="george">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ut ipsam nesciunt dolorum fugiat nihil repudiandae esse, omnis quisquam quidem nemo fugit placeat? Animi repellendus, ad nostrum porro exercitationem cum!</p>
         </div>
       <div class="col-6">
-        <img src="." class="landingPageSale img-fluid" alt="Landing Page Sale"> 
+        <img src="." class="landingPageSale img-fluid" alt="Landing Page Sale">
         </div>
     </div>
 
   </div>
 </div>
-
-<!-- include footer -->
-<?php include("./includes/footer.php"); ?>
