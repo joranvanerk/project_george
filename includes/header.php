@@ -1,7 +1,7 @@
 <!-- container with content added -->
 <div class="container">
   <!-- simple horizontal line -->
-  <div style="background-color:#000000; height:1px; width:100%;"><br>
+  <div style="background-color:#000000; height:1px; width:100%;"></div><br>
     <!-- start of the navbar in the header -->
     <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
@@ -38,5 +38,5 @@
   <!-- end of the navbar in the header -->
 </nav>
 <!-- simple horizontal line -->
-<br><div style="background-color:#000000; height:1px; width:100%;">
+<br><div style="background-color:#000000; height:1px; width:100%;"></div>
 </div>
