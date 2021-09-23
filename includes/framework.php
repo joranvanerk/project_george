@@ -48,6 +48,11 @@
   /* height: 500px; */
 }
 
+.vll {
+  border-left: 2px solid black;
+  /* height: 500px; */
+}
+
 .george_menu{
   text-transform: uppercase;
   font-family: george_menu;
