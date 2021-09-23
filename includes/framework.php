@@ -73,4 +73,18 @@
   text-decoration: underline;
 }
 
+@media screen and (max-width: 768px) {
+.mobielhide {
+visibility: hidden;
+clear: both;
+float: left;
+margin: 10px auto 5px 20px;
+width: 28%;
+display: none;
+}
+}
+
+.formstyle{
+  border-radius: 0
+}
 </style>
