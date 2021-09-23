@@ -18,10 +18,10 @@
         <div class="col-5">
           <h3>
             Wilt uw contact nemen met ons?
-            <br>Dat kunt uw op: contact@george-kanaleneiland.nl
+            <br>Dat kunt uw op: <br>contact@george-kanaleneiland.nl<br>
             <br>Uw kunt met ons telefonisch contact nemen.
             <br>Dat kan op: 030 – 28 15 100<br>
-            <br>Waar kunt ons bezoeken?
+            <br>Waar zijn wij te vinden?
             <br>Dat kan op de Columbuslaan 540
             <br>Maandag tot met vrijdag 18 tot 21 uur
           </h3>
