@@ -5,8 +5,7 @@
 
         <!-- begin banner-->
         <div class="container">
-        <br>
-        <img src="./img/banner.jpg" style="width:100%;"  alt=""> 
+        <img src="./img/banner.jpg" class= "img-fluid"  alt=""> 
         <!--einde banner-->
         </div>
         <!--begin columns-->
@@ -14,7 +13,7 @@
         <div class="container">
         <div class="row">
         <div class="col-sm-12 col-md-6" >
-            <br>
+            
             <!-- dit is de titel van de tekst -->
             <h2>The beginning</h2>
             <!--tekst die je kan aanpassen tussen p tags-->
@@ -32,15 +31,19 @@
                 about us about us about us about us about us
             </P>
         </div>
-        <img src="./img/begin.jpg" class=" " style="width:40%;"  alt=""> 
+
+        <div class="col-sm-12 col-md-6">
+            <img src="./img/begin.jpg" class="img-fluid" alt="">
+        </div>
+         
         </div>
         <div class="row">
         <div class="col-sm-12 col-md-6">
-        <img src="./img/mission .jpg" style="width:100%; height: auto;"  alt=""> 
+        <img src="./img/mission .jpg" class="img-fluid"  alt=""> 
         </div>
         <div class="col-sm-12 col-md-6" >
         
-        
+        <br>
             <!-- dit is de titel van de tekst -->
             <h2>Mission and Succes</h2>
             <!--tekst die je kunt aanpassen tussen p tags-->
