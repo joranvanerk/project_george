@@ -4,16 +4,13 @@
     <!-- First row of content -->
     <div class="row mb-2 mt-4">
       <div class="col-4">
-        <div class="mb-2" style="background-color:#000000; height:1px; width:100%;"></div>
         <h2 class="george_title">Nieuwe sensatie</h2>
         <p class="george">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo tenetur unde reprehenderit quia, architecto modi quidem ipsam molestiae dolorem sit enim dolores vitae eum culpa? Perferendis, tempore reprehenderit. Dolorum, asperiores.</p>
       </div>
       <div class="col-4 vl">
-        <div class="mb-2" style="background-color:#000000; height:1px; width:100%;"></div>
         <img src="./image/landingPageSaleV1.png" class="img-fluid rounded mx-auto d-block" alt="...">
       </div>
       <div class="col-4 vl">
-        <div class="mb-2" style="background-color:#000000; height:1px; width:100%;"></div>
         <h2 class="george_title">Reserveer nu!</h2>
         <p class="george">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo maiores reprehenderit earum tenetur aliquid ipsam, vero ipsa quam voluptate, aspernatur inventore officia ex modi autem voluptatem illo, laudantium ea mollitia?</p>
       </div>
