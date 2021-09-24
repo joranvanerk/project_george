@@ -11,7 +11,7 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="nav">
       <div class="navbar-nav">
-        <a class="nav-link george_menu george_menu_active" aria-current="page" href="#">Home</a>
+        <a class="nav-link george_menu george_menu_active" aria-current="page" href="landingpage">Home</a>
         <!-- simple vertical line -->
         <div class="vl"></div>
         <!-- navigation element for redirection to page -->
