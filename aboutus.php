@@ -14,7 +14,7 @@
         <div class="container">
         <div class="row">
         <div class="col-sm-12 col-md-6" >
-        <div style="background-color:#000000; height:3px; width:100%;"></div>
+        <div style="background-color:#000000; height:1px; width:100%;"></div>
             <!-- dit is de titel van de tekst -->
             <h2>The beginning</h2>
             <!--tekst die je kan aanpassen tussen p tags-->
@@ -34,7 +34,7 @@
         </div>
 
         <div class="vll col-sm-12 col-md-6">
-        <div class="mb-2" style="background-color:#000000; height:3px; width:100%;"></div>
+        <div class="mb-2" style="background-color:#000000; height:1px; width:100%;"></div>
             <img src="./img/begin.jpg" class="img-fluid" alt="">
         </div>
          
