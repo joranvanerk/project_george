@@ -23,9 +23,24 @@
       <h2 class="george_title" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">Book <u>your</u> event</h2>
       <form>
         <div class="form-floating mb-3">
-          <input type="email" class="form-control formstyle" id="floatingInput" placeholder="Team meeting">
+          <input type="text" class="form-control formstyle" id="floatingInput" placeholder="George">
           <label for="floatingInput">Name of your event</label>
         </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control formstyle" id="floatingInput" placeholder="George">
+          <label for="floatingInput">Your full name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control formstyle" id="floatingInput" placeholder="George">
+          <label for="floatingInput">Phone number</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control formstyle" id="floatingInput" placeholder="George">
+          <label for="floatingInput">Email adress</label>
+        </div>
+        <div class="d-grid gap-2">
+        <button type="submit" class="btn formstyle btn-h">Submit</button>
+      </div>
       </form>
     </div>
   </div>
