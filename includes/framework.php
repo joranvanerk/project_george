@@ -90,6 +90,12 @@ display: none;
 }
 
 .formstyle{
-  border-radius: 0
+  border-radius: 0;
+  border-color: black;
+  transition: 0.5s;
+}
+
+.btn-h:hover{
+  border-radius: 10px;
 }
 </style>
