@@ -5,6 +5,7 @@
 
         <!-- begin banner-->
         <div class="container">
+            <br>
         <img src="./img/banner.jpg" class= "img-fluid"  alt=""> 
         <!--einde banner-->
         
