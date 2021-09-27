@@ -50,7 +50,7 @@
 }
 
 .vll {
-  border-left: 2px solid black;
+  border-left: 1px solid black;
   /* height: 500px; */
 }
 

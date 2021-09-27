@@ -12,7 +12,9 @@
       </div>
       <div class="col-4 vl">
         <h2 class="george_title">Reserveer nu!</h2>
-        <p class="george">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo maiores reprehenderit earum tenetur aliquid ipsam, vero ipsa quam voluptate, aspernatur inventore officia ex modi autem voluptatem illo, laudantium ea mollitia?</p>
+        <br>
+        <a class="btn btn-outline-george btn-lg" href="#" role="button">Reserveer zitplaatsen</a>
+        <p class="george"></p>
       </div>
     </div>
     <!-- Second row of content -->
