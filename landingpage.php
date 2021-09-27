@@ -25,13 +25,13 @@
     </div>
     <!-- Third row of content -->
     <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-6">
-        <div class="mb-2" style="background-color:#000000; height:1px; width:100%;"></div>
-        <h2 class="george_title">69 December gaan wij open!</h2>
+      <div class="col-sm-12 col-md-6 col-lg-6 mt-2">
+        <div class="mb-3" style="background-color:#000000; height:1px; width:100%;"></div>
+        <h2 class="george_title mt-2">69 December gaan wij open!</h2>
         <p class="george">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ut ipsam nesciunt dolorum fugiat nihil repudiandae esse, omnis quisquam quidem nemo fugit placeat? Animi repellendus, ad nostrum porro exercitationem cum!</p>
         </div>
-      <div class="col-sm-12 col-md-6 col-lg-6 vl">
-        <div class="mb-2" style="background-color:#000000; height:1px; width:100%;"></div>
+      <div class="col-sm-12 col-md-6 col-lg-6 vl mt-2">
+        <div class="mb-3" style="background-color:#000000; height:1px; width:100%;"></div>
         <img src="./img/flower.png" class="landingPageSale img-fluid" alt="Landing Page Sale">
         </div>
     </div>
