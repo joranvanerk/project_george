@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>George Kanaleneiland</title>
   </head>
 
@@ -97,5 +98,34 @@ display: none;
 
 .btn-h:hover{
   border-radius: 10px;
+}
+
+.fab{
+  transition: 0.5s;
+}
+
+.fab:hover{
+  color: red;
+  transition: 0.5s;
+}
+
+.fab{
+  padding-right: 10px;
+}
+
+@keyframes drop_Joran {
+  0% {
+    opacity: 0%;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+.bookeventani{
+  animation: drop_Joran 250ms ease-in-out;
 }
 </style>
