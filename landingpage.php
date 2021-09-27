@@ -8,7 +8,7 @@
         <p class="george">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo tenetur unde reprehenderit quia, architecto modi quidem ipsam molestiae dolorem sit enim dolores vitae eum culpa? Perferendis, tempore reprehenderit. Dolorum, asperiores.</p>
       </div>
       <div class="col-sm-12 col-md-4 cold-lg-4 vl">
-        <img src="./image/landingPageSaleV1.png" class="img-fluid rounded mx-auto d-block" alt="...">
+        <img src="./img/landingPageSale.png" class="img-fluid rounded mx-auto d-block" alt="...">
       </div>
       <div class="col-sm-12 col-md-4 cold-lg-4 vl">
         <h2 class="george_title">Reserveer nu!</h2>
@@ -20,7 +20,7 @@
     <div class="row">
       <div class="col-12">
         <div class="mb-2" style="background-color:#000000; height:1px; width:100%;"></div>
-        <img src="./image/landingPageBannerV2.png" class="landingPageBanner img-fluid" alt="Landing Page Banner">
+        <img src="./img/landingPageBanner.png" class="landingPageBanner img-fluid" alt="Landing Page Banner">
         </div>
     </div>
     <!-- Third row of content -->
@@ -32,7 +32,7 @@
         </div>
       <div class="col-sm-12 col-md-6 col-lg-6 vl">
         <div class="mb-2" style="background-color:#000000; height:1px; width:100%;"></div>
-        <img src="." class="landingPageSale img-fluid" alt="Landing Page Sale">
+        <img src="./img/flower.png" class="landingPageSale img-fluid" alt="Landing Page Sale">
         </div>
     </div>
 
