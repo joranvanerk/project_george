@@ -13,7 +13,7 @@
       <div class="col-4 vl">
         <h2 class="george_title">Reserveer nu!</h2>
         <br>
-        <a class="btn btn-outline-george btn-lg" href="#" role="button">Reserveer zitplaatsen</a>
+        <a class="btn btn-outline-george btn-lg" href="reservation" role="button">Reserveer zitplaatsen</a>
         <p class="george"></p>
       </div>
     </div>
