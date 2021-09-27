@@ -1,4 +1,4 @@
-    /* Black line in the middle */
+/* General CSS */
 #black_line {
   border-left: 1px solid rgb(0, 0, 0);
   height: 800px;
@@ -7,6 +7,16 @@
   left: 50%;
   margin-left: -3px;
   top: 0;
+}
+
+.btn-outline-george {
+  color: #333333;
+  border-color: #333333;
+}
+
+.btn-outline-george:active, .btn-outline-george:hover {
+  background-color: #333333;
+  color: #fff;
 }
 
 /* LandingsPage CSS */
