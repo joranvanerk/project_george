@@ -9,6 +9,11 @@
   top: 0;
 }
 
+.no-margin {
+  margin-left: 0!important;
+  margin-right: 0!important;
+}
+
 .btn-outline-george {
   color: #333333;
   border-radius: 0;
