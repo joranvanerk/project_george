@@ -62,15 +62,26 @@ $active_page_filename = basename(__FILE__);
             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
             <label for="floatingTextarea2">Opmerkingen</label>
             </div>
-
-        </div>
+            </div>
+            <!-- einde formelier voor reserveren -->
+            
         <!-- Foto/tekst -->
         <div class=" vl col-sm-12 col-md-6">
         <h3 style="text-align:center">Informatie</h3>
+        <img src="./img/corona.jpg" class= "img-fluid"  alt="">
+        <br> <br>
+        <!-- begin text voor corona informatie -->
+        <p>corona info corona info corona info corona info corona info corona info
+            corona info corona info corona info corona info corona info corona info
+            corona info corona info corona info corona info corona info corona info
+            corona info corona info corona info corona info corona info corona info
+            corona info corona info corona info corona info corona info corona info
+        </p>
+        <!-- einde corona informatie -->
         </div>
     </div>
 </div>
-<!-- form einde naam achternaam -->
+
 
 
 
