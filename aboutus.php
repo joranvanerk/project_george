@@ -1,14 +1,18 @@
 <!-- include framework css and bootstrap basic -->
-<?php include_once("./includes/framework.php"); ?>
+<?php include_once("./includes/framework.php");
+
+$active_page_filename = basename(__FILE__);
+
+?>
 <!-- include header -->
 <?php include_once("./includes/header.php"); ?>
 
         <!-- begin banner-->
         <div class="container">
             <br>
-        <img src="./img/banner.jpg" class= "img-fluid"  alt=""> 
+        <img src="./img/banner.jpg" class= "img-fluid"  alt="">
         <!--einde banner-->
-        
+
         </div>
         <!--begin columns-->
         <br><br>
@@ -19,11 +23,11 @@
             <!-- dit is de titel van de tekst -->
             <h2>The beginning</h2>
             <!--tekst die je kan aanpassen tussen p tags-->
-            <p> 
-                about us about us about us about us about us 
-                about us about us about us about us about us 
-                about us about us about us about us about us 
-                about us about us about us about us about us 
+            <p>
+                about us about us about us about us about us
+                about us about us about us about us about us
+                about us about us about us about us about us
+                about us about us about us about us about us
                 about us about us about us about us about us
                 about us about us about us about us about us
                 about us about us about us about us about us
@@ -38,22 +42,22 @@
         <div class="mb-2" style="background-color:#000000; height:1px; width:100%;"></div>
             <img src="./img/begin.jpg" class="img-fluid" alt="">
         </div>
-         
+
         </div>
         <div class="row">
         <div class="col-sm-12 col-md-6">
-        <img src="./img/mission .jpg" class="img-fluid"  alt=""> 
+        <img src="./img/mission .jpg" class="img-fluid"  alt="">
         </div>
         <div class="vll col-sm-12 col-md-6" >
-        
+
         <br>
             <!-- dit is de titel van de tekst -->
             <h2>Mission and Succes</h2>
             <!--tekst die je kunt aanpassen tussen p tags-->
-            <p> 
-                about us about us about us about us about us 
-                about us about us about us about us about us 
-                about us about us about us about us about us 
+            <p>
+                about us about us about us about us about us
+                about us about us about us about us about us
+                about us about us about us about us about us
                 about us about us about us about us about us
                 about us about us about us about us about us
                 about us about us about us about us about us
@@ -62,7 +66,7 @@
                 about us about us about us about us about us
                 about us about us about us about us about us
             </p>
-            
+
         <!--einde columns-->
         </div>
         </div>

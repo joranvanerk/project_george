@@ -128,4 +128,13 @@ display: none;
 .bookeventani{
   animation: drop_Joran 250ms ease-in-out;
 }
+
+.imgani:hover{
+  transition: 0.5s;
+  transform: rotate(20deg);
+}
+
+.imgani{
+  transition: 0.5s;
+}
 </style>

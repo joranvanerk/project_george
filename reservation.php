@@ -1,12 +1,16 @@
 <!-- include framework css and bootstrap basic -->
-<?php include_once("./includes/framework.php"); ?>
+<?php include_once("./includes/framework.php");
+
+$active_page_filename = basename(__FILE__);
+
+ ?>
 <!-- include header -->
 <?php include_once("./includes/header.php"); ?>
 
         <!-- begin banner-->
         <div class="container">
             <br>
-        <img src="./img/reserveren.jpg" class= "img-fluid"  alt=""> 
+        <img src="./img/reserveren.jpg" class= "img-fluid"  alt="">
         </div>
          <!--einde banner-->
 
@@ -70,6 +74,6 @@
 
 
 
-       
+
 <!-- include footer -->
 <?php include_once("./includes/footer.php"); ?>
