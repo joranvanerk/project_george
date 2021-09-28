@@ -24,43 +24,43 @@ $active_page_filename = basename(__FILE__);
         <div class="col-sm-12 col-md-6 ">
             <h3 style="text-align: center">Reserveren</h3>
             <br>
-            <p>hoeveel persoons wilt u reserveren</p>
+            <p>Hoeveel persoons wilt u reserveren</p>
             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-            <option selected value="1">1 persoon</option>
-            <option selected value="2">2 personen</option>
-            <option selected value="3">3 personen</option>
-            <option selected value="3">4 personen</option>
-            <option selected value="3">5 personen</option>
-            <option selected value="3">6 personen</option>
-            <option selected value="3">7 personen</option>
-            <option selected value="3">8 personen</option>
-            <option selected value="3">9 peronen</option>
-            <option selected value="3">10 personen</option>
+            <option selected value="1">1 Persoon</option>
+            <option selected value="2">2 Personen</option>
+            <option selected value="3">3 Personen</option>
+            <option selected value="3">4 Personen</option>
+            <option selected value="3">5 Personen</option>
+            <option selected value="3">6 Personen</option>
+            <option selected value="3">7 Personen</option>
+            <option selected value="3">8 Personen</option>
+            <option selected value="3">9 Peronen</option>
+            <option selected value="3">10 Personen</option>
             </select>
 
             <div class="form-floating mb-3">
             <input type="voornaam" class="form-control" id="floatingInput" placeholder="voornaam">
-            <label for="floatingInput">vul hier uw voornaam in</label>
+            <label for="floatingInput">Vul hier uw voornaam in</label>
             </div>
 
             <div class="form-floating mb-3">
             <input type="achternaam" class="form-control" id="floatingInput" placeholder="achternaam">
-            <label for="floatingInput">vul hier uw achternaam in</label>
+            <label for="floatingInput">Vul hier uw achternaam in</label>
             </div>
 
             <div class="form-floating mb-3">
             <input type="email" class="form-control" id="floatingInput" placeholder="email">
-            <label for="floatingInput">vul hier uw email adress in</label>
+            <label for="floatingInput">Vul hier uw email adress in</label>
             </div>
 
             <div class="form-floating mb-3">
             <input type="telnummer" class="form-control" id="floatingPassword" placeholder="tel nummer">
-            <label for="floatingPassword">vul hier uw mobile nummer in</label>
+            <label for="floatingPassword">Vul hier uw mobile nummer in</label>
             </div>
 
             <div class="form-floating">
             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-            <label for="floatingTextarea2">opmerkingen</label>
+            <label for="floatingTextarea2">Opmerkingen</label>
             </div>
 
         </div>
