@@ -4,7 +4,8 @@
   <div class="mt-4 mb-4" style="background-color:#000000; height:1px; width:100%;"></div>
     <!-- Newsletter -->
     <div class="col-4">
-      <h5 class="mt-2 mb-4 george_title">Join our newsletter</h5>
+      <h5 class="mt-2 mb-4 george_title ">Join our newsletter</h5>
+      <span class="george_menu no-margin">Stay updated on our latest sales!</span>
       <form action="#">
         <div class="form-group">
           <input type="email" class="form-control formstyle" id="emailNewsletter" placeholder="Enter email here">
