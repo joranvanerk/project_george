@@ -5,7 +5,7 @@
     <!-- Newsletter -->
     <div class="col-4">
       <h5 class="mt-2 mb-4 george_title">Join our newsletter</h5>
-      <form>
+      <form action="#">
         <div class="form-group">
           <input type="email" class="form-control formstyle" id="emailNewsletter" placeholder="Enter email here">
         </div>
@@ -40,7 +40,7 @@
 <div class="container">
   <div class="row">
     <div class="mt-4 mb-4" style="background-color:#000000; height:1px; width:100%;"></div>
-    <h4 class="george_title mt-2 cr">Copyright 2021</h4>
+    <h4 class="george_menu mt-2 cr">© Copyright 2021</h4>
     <div class="mt-4" style="background-color:#000000; height:1px; width:100%;"></div>
   </div>
 </div>
