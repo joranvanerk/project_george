@@ -11,6 +11,6 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
-ErrorDocument 401 "Toegang geweigerd tot bron"
+ErrorDocument 401 "Sorry, deze pagina is gesloten."
 ErrorDocument 403 /
 ErrorDocument 404 "Sorry, deze pagina bestaat niet."
