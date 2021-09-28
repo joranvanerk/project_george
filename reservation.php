@@ -67,6 +67,15 @@ $active_page_filename = basename(__FILE__);
         <!-- Foto/tekst -->
         <div class=" vl col-sm-12 col-md-6">
         <h3 style="text-align:center">Informatie</h3>
+        <img src="./img/corona.jpg" class= "img-fluid"  alt="">
+        <br> <br>
+        
+        <p>corona info corona info corona info corona info corona info corona info
+            corona info corona info corona info corona info corona info corona info
+            corona info corona info corona info corona info corona info corona info
+            corona info corona info corona info corona info corona info corona info
+            corona info corona info corona info corona info corona info corona info
+        </p>
         </div>
     </div>
 </div>
