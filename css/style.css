@@ -20,6 +20,24 @@
   color: #fff;
 }
 
+/* Footer CSS */
+.footer_item {
+  border: none;
+}
+
+.footer_item>a {
+  color: #333333;
+  text-decoration: none;
+}
+
+.footer_item>a:hover, .footer_item>a:active {
+  text-decoration: underline;
+}
+
+.cr {
+  text-align: center;
+}
+
 /* LandingsPage CSS */
 .landingPageSale {
   max-height: 80vh;
