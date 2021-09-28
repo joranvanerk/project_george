@@ -13,4 +13,4 @@ RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
 ErrorDocument 401 "Toegang geweigerd tot bron"
 ErrorDocument 403 /
-ErrorDocument 404 "Pagina bestaat niet"
+ErrorDocument 404 "Sorry, deze pagina bestaat niet."
