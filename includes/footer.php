@@ -4,21 +4,22 @@
   <div class="mt-4 mb-4" style="background-color:#000000; height:1px; width:100%;"></div>
     <!-- Newsletter -->
     <div class="col-4">
-      <h5 class="mt-4 george_title">Join our newsletterrrrrr</h5>
+      <h5 class="mt-2 mb-4 george_title">Join our newsletter</h5>
       <form>
         <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <input type="email" class="form-control formstyle" id="emailNewsletter" placeholder="Enter email here">
         </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <div class="form-group mt-2">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input formstyle" id="formCheck">
+            <label class="form-check-label formstyle formtext" for="formCheck">Sign me up!</label>
+            <button type="submit" class="btn btn-outline-george">Submit</button>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
     <div class="col-4 vl">
-      <ul class="list-group">
+      <ul class="list-group george_menu">
         <li class="list-group-item footer_item"><a href="aboutus">About us</a></li>
         <li class="list-group-item footer_item"><a href="menu">Our Menu</a></li>
         <li class="list-group-item footer_item"><a href="reservation">Reserve a spot</a></li>
@@ -26,7 +27,7 @@
       </ul>
     </div>
     <div class="col-4 vl">
-      <ul class="list-group">
+      <ul class="list-group george_menu">
         <li class="list-group-item footer_item"><a href="general-terms">General Terms</a></li>
         <li class="list-group-item footer_item"><a href="privacy-policy">Privacy Policy</a></li>
         <li class="list-group-item footer_item"><a href="cookies">Cookies Policy</a></li>
@@ -40,6 +41,7 @@
   <div class="row">
     <div class="mt-4 mb-4" style="background-color:#000000; height:1px; width:100%;"></div>
     <h4 class="george_title mt-2 cr">Copyright 2021</h4>
+    <div class="mt-4" style="background-color:#000000; height:1px; width:100%;"></div>
   </div>
 </div>
 
