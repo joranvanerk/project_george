@@ -31,6 +31,8 @@
         <p class="george_menu no-margin mt-4">
           Mis je kans niet om op onze openingsdag voor de halve prijs te kunnen dineren! Reserveer nu!
         </p>
+        <p class="george_menu" style="font-weight: 600; margin-left: 0; margin-top: 5rem;">Ik zie je laterrr!</p>
+        <p class="george_menu" style="font-weight: 600; margin-left: 0; color: red !important;">XOXO 💋</p>
         </div>
       <div class="col-sm-12 col-md-6 col-lg-6 vl mt-2">
         <div class="mb-3" style="background-color:#000000; height:1px; width:100%;"></div>
