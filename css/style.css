@@ -54,7 +54,7 @@
 
 /* LandingsPage CSS */
 .landingPageSale {
-  max-height: 80vh;
+  max-width: 50%;
 }
 
 #title_menu {
