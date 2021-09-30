@@ -3,7 +3,7 @@
   <div class="row">
   <div class="mt-4 mb-4" style="background-color:#000000; height:1px; width:100%;"></div>
     <!-- Newsletter -->
-    <div class="col-4">
+    <div class="col-sm-12 col-md-12 col-lg-4">
       <h5 class="mt-2 mb-4 george_title ">Join our newsletter</h5>
       <span class="george_menu no-margin">Stay updated on our latest sales!</span>
       <form action="#">
@@ -19,7 +19,7 @@
         </div>
       </form>
     </div>
-    <div class="col-4 vl">
+    <div class="col-sm-12 col-md-6 col-lg-4 vl">
       <ul class="list-group george_menu">
         <li class="list-group-item footer_item"><a href="aboutus">About us</a></li>
         <li class="list-group-item footer_item"><a href="menu">Our Menu</a></li>
@@ -27,7 +27,7 @@
         <li class="list-group-item footer_item"><a href="bookevent">Book a venue</a></li>
       </ul>
     </div>
-    <div class="col-4 vl">
+    <div class="col-sm-12 col-md-6 col-lg-4 vl">
       <ul class="list-group george_menu">
         <li class="list-group-item footer_item"><a href="general-terms">General Terms</a></li>
         <li class="list-group-item footer_item"><a href="privacy-policy">Privacy Policy</a></li>
