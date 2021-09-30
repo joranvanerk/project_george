@@ -133,7 +133,7 @@ display: none;
 
 .imgani:hover{
   transition: 0.5s;
-  transform: rotate(20deg);
+  transform: rotate(360deg);
 }
 
 .imgani{

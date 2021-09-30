@@ -19,7 +19,8 @@
         </div>
       </form>
     </div>
-    <div class="col-sm-12 col-md-6 col-lg-4 vl">
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <div class="vl mobielhide"></div>
       <ul class="list-group george_menu">
         <li class="list-group-item footer_item"><a href="aboutus">About us</a></li>
         <li class="list-group-item footer_item"><a href="menu">Our Menu</a></li>
@@ -27,7 +28,8 @@
         <li class="list-group-item footer_item"><a href="bookevent">Book a venue</a></li>
       </ul>
     </div>
-    <div class="col-sm-12 col-md-6 col-lg-4 vl">
+    <div class="col-sm-12 col-md-6 col-lg-4">
+      <div class="vl mobielhide"></div>
       <ul class="list-group george_menu">
         <li class="list-group-item footer_item"><a href="general-terms">General Terms</a></li>
         <li class="list-group-item footer_item"><a href="privacy-policy">Privacy Policy</a></li>
