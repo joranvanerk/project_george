@@ -19,7 +19,7 @@ $active_page_filename = basename(__FILE__);
       <h3 class="george_menu bookeventani" style="font-weight: 600; margin-left: 0; margin-top: 5rem;">Greetings from <u>Amsterdam</u></h3>
       <h3 class="george_menu bookeventani" style="font-weight: 600; margin-left: 0; color: red !important;">XOXO 💋</h3>
     </div>
-    <div class="col-1" style="margin-right: -5rem;">
+    <div class="col-1" style="margin-right: -5rem;"> 
       <div class="vl mobielhide" style="height: 95%;"></div>
     </div>
     <div class="col-md-4 col-sm-12">
