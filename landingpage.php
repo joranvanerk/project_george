@@ -29,12 +29,13 @@
         <div class="mb-3" style="background-color:#000000; height:1px; width:100%;"></div>
         <h2 class="george_title mt-2">12 December gaan wij open!</h2>
         <p class="george_menu no-margin mt-4">
-          Mis je kans niet om op onze openingsdag voor de halve prijs te kunnen dineren! Reserveer nu!
+          Mis je kans niet om op onze <u>openingsdag</u> voor de halve prijs te kunnen <u>dineren</u>! Reserveer nu! 
         </p>
-        <p class="george_menu" style="font-weight: 600; margin-left: 0; margin-top: 5rem;">Ik zie je laterrr!</p>
-        <p class="george_menu" style="font-weight: 600; margin-left: 0; color: red !important;">XOXO 💋</p>
+        <a class="btn btn-outline-george btn-lg" href="reservation" role="button">Reserveren</a>
+        <p class="george_menu" style="font-weight: 600; margin-left: 0; margin-top: 2rem;">Ik zie je laterrr!</p>
+        <p class="george_menu" style="font-weight: 600; margin-left: 0; color: red !important;">🖤 XOXO 🖤</p>
         </div>
-      <div class="col-sm-12 col-md-6 col-lg-6 vl mobielhide mt-2">
+      <div class="col-sm-12 col-md-6 col-lg-6 vl mobielhide mt-2 text-center">
         <div class="mb-3" style="background-color:#000000; height:1px; width:100%;"></div>
         <img src="./img/flower.png" class="landingPageSale img-fluid imgani" alt="Landing Page Sale">
       </div>
