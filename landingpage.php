@@ -7,10 +7,10 @@
         <h2 class="george_title">Nieuwe sensatie</h2>
         <p class="george_menu no-margin mt-4">Op onze openingsdag gaan wij spectaculaire gerechten aanbieden van de hoogste kwaliteit, maar voor de halve prijs!</p>
       </div>
-      <div class="col-sm-12 col-md-4 cold-lg-4 vl">
+      <div class="col-sm-12 col-md-4 cold-lg-4 vl mobielhide">
         <img src="./img/landingPageSale.png" class="img-fluid rounded mx-auto d-block" alt="...">
       </div>
-      <div class="col-sm-12 col-md-4 cold-lg-4 vl">
+      <div class="col-sm-12 col-md-4 cold-lg-4 vl mobielhide">
         <h2 class="george_title">Reserveer nu!</h2>
         <br>
         <a class="btn btn-outline-george btn-lg" href="reservation" role="button">Reserveer zitplaatsen</a>
@@ -34,7 +34,7 @@
         <p class="george_menu" style="font-weight: 600; margin-left: 0; margin-top: 5rem;">Ik zie je laterrr!</p>
         <p class="george_menu" style="font-weight: 600; margin-left: 0; color: red !important;">XOXO 💋</p>
         </div>
-      <div class="col-sm-12 col-md-6 col-lg-6 vl mt-2">
+      <div class="col-sm-12 col-md-6 col-lg-6 vl mobielhide mt-2">
         <div class="mb-3" style="background-color:#000000; height:1px; width:100%;"></div>
         <img src="./img/flower.png" class="landingPageSale img-fluid" alt="Landing Page Sale">
       </div>
