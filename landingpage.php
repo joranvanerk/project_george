@@ -36,7 +36,7 @@
         </div>
       <div class="col-sm-12 col-md-6 col-lg-6 vl mobielhide mt-2">
         <div class="mb-3" style="background-color:#000000; height:1px; width:100%;"></div>
-        <img src="./img/flower.png" class="landingPageSale img-fluid" alt="Landing Page Sale">
+        <img src="./img/flower.png" class="landingPageSale img-fluid imgani" alt="Landing Page Sale">
       </div>
     </div>
 
