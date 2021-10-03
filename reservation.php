@@ -29,13 +29,13 @@ $active_page_filename = basename(__FILE__);
             <option selected value="1">1 Persoon</option>
             <option selected value="2">2 Personen</option>
             <option selected value="3">3 Personen</option>
-            <option selected value="3">4 Personen</option>
-            <option selected value="3">5 Personen</option>
-            <option selected value="3">6 Personen</option>
-            <option selected value="3">7 Personen</option>
-            <option selected value="3">8 Personen</option>
-            <option selected value="3">9 Peronen</option>
-            <option selected value="3">10 Personen</option>
+            <option selected value="4">4 Personen</option>
+            <option selected value="5">5 Personen</option>
+            <option selected value="6">6 Personen</option>
+            <option selected value="7">7 Personen</option>
+            <option selected value="8">8 Personen</option>
+            <option selected value="9">9 Peronen</option>
+            <option selected value="10">10 Personen</option>
             </select>
 
             <div class="form-floating mb-3">
@@ -72,11 +72,9 @@ $active_page_filename = basename(__FILE__);
         <img src="./img/corona.jpg" class= "img-fluid"  alt="">
         <br> <br>
         <!-- begin text voor corona informatie -->
-        <p>corona info corona info corona info corona info corona info corona info
-            corona info corona info corona info corona info corona info corona info
-            corona info corona info corona info corona info corona info corona info
-            corona info corona info corona info corona info corona info corona info
-            corona info corona info corona info corona info corona info corona info
+        <p> U dient een geldig corona toegangs bewijst te hebben om binnen plaats te kunnen nemen.
+            Voor het teras heeft u geen corona toegangs bewijs te hebben maar u kunt dan geen gebruik
+            maken van de toilet helaas.
         </p>
         <!-- einde corona informatie -->
         </div>
