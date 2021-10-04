@@ -72,7 +72,7 @@ $active_page_filename = basename(__FILE__);
         <br>
         <img src="./img/seating.png" class= "img-fluid"  alt="">
         <br> 
-
+        <!-- zit plaatsen form tafel nummers -->
         <p>Kies hier uw tafel nummer</p>
             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
             <option selected value="1">tafel 1</option>
@@ -95,7 +95,7 @@ $active_page_filename = basename(__FILE__);
             <option selected value="18">tafel 18</option>
             <option selected value=""></option>
             </select>
-
+            <!-- einde form zitplaatsen -->
         
         </div>
     </div>
