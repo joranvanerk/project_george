@@ -98,6 +98,8 @@ display: none;
 
 .btn-h:hover{
   border-radius: 10px;
+  background-color: black;
+  color: white;
 }
 
 .fab{
@@ -127,5 +129,14 @@ display: none;
 
 .bookeventani{
   animation: drop_Joran 250ms ease-in-out;
+}
+
+.imgani:hover{
+  transition: 0.5s;
+  transform: rotate(360deg);
+}
+
+.imgani{
+  transition: 0.5s;
 }
 </style>
