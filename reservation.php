@@ -36,6 +36,7 @@ $active_page_filename = basename(__FILE__);
             <option selected value="8">8 Personen</option>
             <option selected value="9">9 Peronen</option>
             <option selected value="10">10 Personen</option>
+            <option selected value=""></option>
             </select>
 
             <div class="form-floating mb-3">
@@ -67,16 +68,35 @@ $active_page_filename = basename(__FILE__);
             
         <!-- Foto/tekst -->
         <div class=" vl col-sm-12 col-md-6">
-        <h3 style="text-align:center">Informatie</h3>
+        <h3 style="text-align:center">reserveer hier uw Zitplaatsen</h3>
         <br>
-        <img src="./img/corona.jpg" class= "img-fluid"  alt="">
-        <br> <br>
-        <!-- begin text voor corona informatie -->
-        <p> U dient een geldig corona toegangs bewijst te hebben om binnen plaats te kunnen nemen.
-            Voor het teras heeft u geen corona toegangs bewijs te hebben maar u kunt dan geen gebruik
-            maken van de toilet helaas.
-        </p>
-        <!-- einde corona informatie -->
+        <img src="./img/seating.png" class= "img-fluid"  alt="">
+        <br> 
+
+        <p>Kies hier uw tafel nummer</p>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option selected value="1">tafel 1</option>
+            <option selected value="2">tafel 2</option>
+            <option selected value="3">tafel 3</option>
+            <option selected value="4">tafel 4</option>
+            <option selected value="5">tafel 5</option>
+            <option selected value="6">tafel 6</option>
+            <option selected value="7">tafel 7</option>
+            <option selected value="8">tafel 8</option>
+            <option selected value="9">tafel 9</option>
+            <option selected value="10">tafel 10</option>
+            <option selected value="11">tafel 11</option>
+            <option selected value="12">tafel 12</option>
+            <option selected value="13">tafel 13</option>
+            <option selected value="14">tafel 14</option>
+            <option selected value="15">tafel 15</option>
+            <option selected value="16">tafel 16</option>
+            <option selected value="17">tafel 17</option>
+            <option selected value="18">tafel 18</option>
+            <option selected value=""></option>
+            </select>
+
+        
         </div>
     </div>
 </div>
