@@ -19,6 +19,7 @@ $active_page_filename = basename(__FILE__);
         <br><br>
 <!-- form begin naam achternaam  -->
 <div class="container">
+    <form>
     <div class=" row"> <div style="background-color:#000000; height:1px; width:100%;"></div>
         <!-- Formulier voor reserveren -->
         <div class="col-sm-12 col-md-6 ">
@@ -64,11 +65,12 @@ $active_page_filename = basename(__FILE__);
             <label for="floatingTextarea2">Opmerkingen</label>
             </div>
             </div>
+            
             <!-- einde formelier voor reserveren -->
             
         <!-- Foto/tekst -->
         <div class=" vl col-sm-12 col-md-6">
-        <h3 style="text-align:center">Reserveer hier uw Zitplaatsen</h3>
+        <h3 style="text-align:center">Reserveer hier uw zitplaatsen</h3>
         <br>
         <img src="./img/seating.png" class= "img-fluid"  alt="">
         <br> 
@@ -95,10 +97,12 @@ $active_page_filename = basename(__FILE__);
             <option selected value="18">tafel 18</option>
             <option selected value=""></option>
             </select>
+            <button type="button" class="btn-lg btn-success">Verstuur</button>
             <!-- einde form zitplaatsen -->
         
         </div>
     </div>
+</form>
 </div>
 
 
