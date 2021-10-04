@@ -68,7 +68,7 @@ $active_page_filename = basename(__FILE__);
             
         <!-- Foto/tekst -->
         <div class=" vl col-sm-12 col-md-6">
-        <h3 style="text-align:center">reserveer hier uw Zitplaatsen</h3>
+        <h3 style="text-align:center">Reserveer hier uw Zitplaatsen</h3>
         <br>
         <img src="./img/seating.png" class= "img-fluid"  alt="">
         <br> 
