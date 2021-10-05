@@ -1,6 +1,7 @@
 <!-- include framework css and bootstrap basic -->
 <?php include_once("./includes/framework.php");
 
+// basefile management system for header
 $active_page_filename = basename(__FILE__);
 
  ?>
