@@ -24,17 +24,7 @@ $active_page_filename = basename(__FILE__);
             <h2>The beginning</h2>
             <!--tekst die je kan aanpassen tussen p tags-->
             <p>
-                about us about us about us about us about us
-                about us about us about us about us about us
-                about us about us about us about us about us
-                about us about us about us about us about us
-                about us about us about us about us about us
-                about us about us about us about us about us
-                about us about us about us about us about us
-                about us about us about us about us about us
-                about us about us about us about us about us
-                about us about us about us about us about us
-                about us about us about us about us about us
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quis elementum orci. Morbi at ligula ex. Nunc elementum libero nibh, sit amet condimentum orci vulputate sed. In sit amet congue justo. Vivamus et justo commodo, viverra diam et, fermentum nunc. Duis massa justo, elementum eu commodo vitae, vestibulum a felis. Integer fringilla id mi eu tincidunt. Sed dapibus non orci vitae blandit. Donec ullamcorper vehicula enim. Curabitur a interdum lorem. Praesent fermentum neque ut lacus vestibulum, vel dictum quam egestas. Mauris dignissim, arcu vehicula auctor rutrum, massa arcu blandit eros, commodo pulvinar orci elit quis dui. Duis lobortis, velit sed malesuada aliquet, sem sapien laoreet sem, quis blandit erat metus sed lectus. Morbi rutrum sodales nunc, eu lacinia ligula fermentum non.
             </P>
         </div>
 
@@ -55,16 +45,7 @@ $active_page_filename = basename(__FILE__);
             <h2>Mission and Succes</h2>
             <!--tekst die je kunt aanpassen tussen p tags-->
             <p>
-                about us about us about us about us about us
-                about us about us about us about us about us
-                about us about us about us about us about us
-                about us about us about us about us about us
-                about us about us about us about us about us
-                about us about us about us about us about us
-                about us about us about us about us about us
-                about us about us about us about us about us
-                about us about us about us about us about us
-                about us about us about us about us about us
+            Morbi ac tellus erat. Duis ut quam id ligula vestibulum pharetra sed non est. Proin rhoncus tortor ac magna pharetra, cursus consectetur risus laoreet. Suspendisse potenti. Aenean id lorem et magna vestibulum rhoncus. Sed velit metus, venenatis vel porttitor ut, varius posuere ipsum. Vestibulum luctus tristique ligula vel aliquet.
             </p>
 
         <!--einde columns-->
