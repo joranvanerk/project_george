@@ -63,40 +63,38 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-
             <form action=".../register.php" method="POST">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" name="naam" required placeholder="name@example.com" value="">
+                <input type="text" class="form-control" id="floatingInput" name="naam" value="name">
                 <label for="floatingInput">Naam</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" name="titel" required placeholder="name@example.com">
+                <input type="email" class="form-control" id="floatingInput" name="titel" value="email">
                 <label for="floatingInput">E-mail Address</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" name="artiest" required placeholder="name@example.com">
+                <input type="email" class="form-control" id="floatingInput" name="artiest" value="confirmemail">
                 <label for="floatingInput">Confirm E-mail Address</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="number" class="form-control" id="floatingInput" name="bericht" placeholder="name@example.com">
+                <input type="tel" class="form-control" id="floatingInput" name="bericht" value="phonenumber">
                 <label for="floatingInput">Phone number</label>
               </div>
               <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" value="" id="CheckNewsletter">
+                <input class="form-check-input" type="checkbox" value="newsletter" id="CheckNewsletter">
                 <label class="form-check-label" for="CheckNewsletter">
                   Subscribe to Newsletter.
                 </label>
               </div>
               <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" value="" id="CheckGeneralterms">
+                <input class="form-check-input" type="checkbox" value="generalterms" id="CheckGeneralterms">
                 <label class="form-check-label" for="CheckGeneralterms">
                   I agree to the <b>General Terms</b> of George Marina.
                 </label>
               </div>
-
           </div>
           <div class="modal-footer">
-            <button type="submit" name="aanvraag" class="btn btn-primary">Register</button>
+            <button type="submit" value="register" name="register" class="btn btn-primary">Register</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
             </form>
           </div>
