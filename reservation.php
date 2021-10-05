@@ -65,15 +65,15 @@ $active_page_filename = basename(__FILE__);
             <label for="floatingTextarea2">Opmerkingen</label>
             </div>
             </div>
-            
+
             <!-- einde formelier voor reserveren -->
-            
+
         <!-- Foto/tekst -->
         <div class=" vl col-sm-12 col-md-6">
         <h3 style="text-align:center">Reserveer hier uw zitplaatsen</h3>
         <br>
         <img src="./img/seating.png" class= "img-fluid"  alt="">
-        <br> 
+        <br>
         <!-- zit plaatsen form tafel nummers -->
         <p>Kies hier uw tafel nummer</p>
             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
@@ -97,9 +97,9 @@ $active_page_filename = basename(__FILE__);
             <option selected value="18">tafel 18</option>
             <option selected value=""></option>
             </select>
-            <button type="button" class="btn-lg btn-success">Verstuur</button>
+            <button type="button" class="btn-lg btn-outline-george">Verstuur</button>
             <!-- einde form zitplaatsen -->
-        
+
         </div>
     </div>
 </form>
