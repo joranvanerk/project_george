@@ -1,6 +1,7 @@
 <!-- include framework css and bootstrap basic -->
 <?php include_once("./includes/framework.php");
 
+// base name for menu arrangement
 $active_page_filename = basename(__FILE__);
 
  ?>
