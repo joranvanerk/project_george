@@ -59,7 +59,7 @@
       <div class="modal-dialog">
         <div class="modal-content george_modal">
           <div class="modal-header">
-            <h5 class="modal-title" id="registerModal">Register</h5>
+            <h5 class="modal-title george_title" id="registerModal">Register</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -94,8 +94,8 @@
               </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" name="register" class="btn btn-primary">Register</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" name="register" class="btn btn-outline-george">Register</button>
+            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
             </form>
           </div>
         </div>
