@@ -1,15 +1,14 @@
 <?php
-// Start Registration
+// Grabs all the values from the form and puts it in variables.
 $name = $_POST["name"];
 $email = $_POST["email"];
 $cemail = $_POST["confirmemail"];
 $phonenumber = $_POST["phonenumber"];
-// Created booleans of the Newsletter and Generalterms questions
 $newsletter = (isset($_POST["checkNewsletter"])) ? true : false;
 $generalterms = (isset($_POST["checkGeneralterms"])) ? true : false;
 
-// Include register function
-include_once("./classes/registerAccount");
+// Include register function and creates a new register user.
+include_once("./classes/registerAccount.php");
 $user = new registerAccount();
 $user->name = $name;
 $user->email = $email;
@@ -18,17 +17,24 @@ $user->phonenumber = $phonenumber;
 $user->newsletter = $newsletter;
 $user->generalterms = $generalterms;
 
+// Start register process
 if ($user) {
-  //Check if all data is filled in and does not match to any existing accounts.
+  //Check if all data is filled in and does not match to any existing accounts. If not successfull, return an error message.
   $checkData = $user->registerControl();
 
   if ($checkData) {
+    //Add User to Database. If not successfull, return an error message regarding database fail.
     $registerUser = $user->registerToDB();
 
     if ($registerUser) {
+      //Send e-mail for verification of the register process. If not successfull, return error message unable to send verify e-mail.
       $registermail = $user->registerMail();
 
-      header("Refresh:5 ; index.php");
+      //If successfull, automatically log in the user and save his details.
+      session_start();ob_start();
+      $_SESSION["login"] = "true";
+      $_SESSION["name"] = $user->name;
+      $_SESSION["email"] = $user->email;
     } else {
       // Error for unable to send e-mail
     }
@@ -38,6 +44,4 @@ if ($user) {
 } else {
   // Error for $checkdata registerControl()
 }
-
-
 ?>

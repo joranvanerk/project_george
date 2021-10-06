@@ -1,3 +1,29 @@
+<?php
+//Check if user has submitted a form
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  if (isset($_POST["register"])) {
+    //If user send a register $_POST, include register.php
+    include_once("./register.php");
+
+  } else if (isset($_POST["login"])) {
+    //If user send a login $_POST, include login.php 
+    include_once("./login.php");
+
+  } else {
+    //Some error for not submitting a valid $_POST variable.
+    include_once("./classes/registerMessage.php");
+    $regError = new registerError;
+    $regError->msg = "Something went wrong! (Error 2: User did not POST Request register or login.)";
+  }
+  
+} else {
+  // No POST request has been made. (Form not send)
+  include_once("./classes/registerMessage.php");
+  $regError = new registerError;
+  $regError->msg = "Something went wrong! (Error 1: No POST Request has been made.)";
+}
+?>
+
 <!-- container with content added -->
 <div class="container">
   <!-- simple horizontal line -->
@@ -54,8 +80,14 @@
 <br><div style="background-color:#000000; height:1px; width:100%;"></div>
 </div>
 
+<div class="msg">
+  <?php
+    if (isset($regError)) $regError->show();
+  ?>
+</div>
+
 <!-- Modal for Registering -->
-<div class="modal fade" id="register" tabindex="-1" aria-labelledby="registerModal" aria-hidden="true">
+<div class="modal show" id="register" tabindex="-1" aria-labelledby="registerModal" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content george_modal">
           <div class="modal-header">
@@ -63,10 +95,10 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="./register.php" method="POST">
+            <form action="" method="POST">
               <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="floatingInput" name="name" required>
-                <label for="floatingInput">Naam</label>
+                <label for="floatingInput">Name</label>
               </div>
               <div class="form-floating mb-3">
                 <input type="email" class="form-control" id="floatingInput" name="email" required>

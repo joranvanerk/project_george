@@ -1,6 +1,10 @@
 <?php
 class registerAccount {
-  public $name, $email, $cemail, $phonenumber, $newsletter, $generalterms;
+  public $name, $email, $cemail, $phonenumber, $newsletter, $generalterms, $message;
+
+  public function hello() {
+    return $message = "Function has been successfully initiated from registerAccount.php";
+  }
 
   //Connect with the database
   public function connectDB() {
