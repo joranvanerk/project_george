@@ -101,7 +101,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <!-- Display message for registration or login situations -->
 <div class="msg">
   <?php
-    if (isset($_POST["register"]) || isset($_POST["login"])) $msg->show();
+    if (isset($_POST["register"])) {
+      $msg->show();
+      unset($_POST["register"]);
+    } elseif (isset($_POST["login"])) {
+      $msg->show();
+      unset($_POST["login"]);
+    } else {
+      //Nothing is even set KEKW.
+    }
   ?>
 </div>
 

@@ -1,6 +1,16 @@
 <?php
-class registerAccount {
-  public $name, $email, $cemail, $phonenumber, $newsletter, $generalterms, $message;
+class checkDatabase {
+  public $name;
+  public $email;
+  public $cemail;
+  public $phonenumber;
+  public $newsletter;
+  public $generalterms;
+  public $message;
+
+  public function __construct() {
+    $this->hello();
+  }
 
   public function hello() {
     return $message = "Function has been successfully initiated from registerAccount.php";

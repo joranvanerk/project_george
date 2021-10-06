@@ -8,8 +8,8 @@ $newsletter = (isset($_POST["checkNewsletter"])) ? true : false;
 $generalterms = (isset($_POST["checkGeneralterms"])) ? true : false;
 
 // Include register function and creates a new register user.
-include_once("./classes/registerAccount.php");
-$user = new registerAccount();
+include_once("./classes/checkUserData.php");
+$user = new checkDatabase;
 $user->name = $name;
 $user->email = $email;
 $user->cemail = $cemail;
@@ -32,7 +32,7 @@ if ($user) {
 
       //If successfull, automatically log in the user and save his details.
       session_start();ob_start();
-      $_SESSION["login"] = "true";
+      $_SESSION["login"] === true;
       $_SESSION["name"] = $user->name;
       $_SESSION["email"] = $user->email;
     } else {
