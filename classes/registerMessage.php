@@ -3,9 +3,6 @@
 class Message {
 
   public $html;
-
-  //Status must be defined by an error or success.
-  public $status;
   //CSS values set depending on $status
   public $msgType;
   public $msgCSS;
@@ -36,8 +33,6 @@ class Message {
 }
 
 class registerError extends Message {
-    //Status must be defined by an error or success.
-    public $status = "error";
     //CSS values set depending on $status
     public $msgType = "error-message";
     public $msgCSS = "error-button";
@@ -47,19 +42,15 @@ class registerError extends Message {
 }
 
 class registerSuccess extends Message {
-    //Status must be defined by an error or success.
-    public $status = "success";
     //CSS values set depending on $status
-    public $msgType = "";
-    public $msgCSS = "";
-    public $btnCSS = "";
+    public $msgType = "success-message";
+    public $msgCSS = "success-button";
+    public $btnCSS = "success-btn";
     //Message string that should be send with the popup.
-    public $msg = "";
+    public $msg = "You have successfully registered! Please check your e-mail to verify your account.";
 }
 
 class loginError extends Message {
-    //Status must be defined by an error or success.
-    public $status;
     //CSS values set depending on $status.
     public $msgType = "";
     public $msgCSS = "";
@@ -69,8 +60,6 @@ class loginError extends Message {
 }
 
 class loginSuccess extends Message {
-  //Status must be defined by an error or success.
-  public $status;
   //CSS values set depending on $status.
   public $msgType = "";
   public $msgCSS = "";

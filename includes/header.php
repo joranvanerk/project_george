@@ -1,26 +1,38 @@
 <?php
 //Check if user has submitted a form
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  echo "request method found";
   if (isset($_POST["register"])) {
     //If user send a register $_POST, include register.php
     include_once("./register.php");
+    //Start all the register functions, FUNCTIONALITIES TO BE ADDED DOWN BELOW
+    $successfullyregistered = true;
+    echo "post register found";
 
-  } else if (isset($_POST["login"])) {
-    //If user send a login $_POST, include login.php 
-    include_once("./login.php");
+    if ($successfullyregistered) {
+      include_once("./classes/registerMessage.php");
+      $msg = new registerSuccess;
+    }
+
+
+  } elseif (isset($_POST["login"])) {
+    //If user send a login $_POST, include login.php
+    $succesfullyloggedin = true;
+    echo "post login found";
+
+    if ($succesfullyloggedin) {
+      include_once("./classes/registerMessage.php");
+      $msg = new loginSuccess;
+    }
 
   } else {
-    //Some error for not submitting a valid $_POST variable.
+    // $_POST value is not register or login
     include_once("./classes/registerMessage.php");
-    $regError = new registerError;
-    $regError->msg = "Something went wrong! (Error 2: User did not POST Request register or login.)";
+    $msg = new registerError;
+    $msg->msg = "Something went wrong! (Error 2: User did not POST Request register or login.)";
   }
-  
 } else {
-  // No POST request has been made. (Form not send)
-  include_once("./classes/registerMessage.php");
-  $regError = new registerError;
-  $regError->msg = "Something went wrong! (Error 1: No POST Request has been made.)";
+  //No POST request
 }
 ?>
 
@@ -82,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <div class="msg">
   <?php
-    if (isset($regError)) $regError->show();
+    if (isset($_POST["register"]) || isset($_POST["login"])) $msg->show();
   ?>
 </div>
 
