@@ -20,7 +20,7 @@ class Message {
   public function generate_msg() 
   { 
     $this->html = '<div class="register '. $this->msgType .'" id="errorMessage">';
-    $this->html .= '<button class="'. $this->msgCSS .'" onclick="disableError()">' . $this->msg . ' <span class="' . $this->btnCSS . '">x</span>';
+    $this->html .= '<button class="'. $this->msgCSS .'" onclick="disableMessage()">' . $this->msg . ' <span class="' . $this->btnCSS . '">x</span>';
     $this->html .= '</button>';
     $this->html .= '</div>';
   }
@@ -47,7 +47,7 @@ class registerSuccess extends Message {
     public $msgCSS = "success-button";
     public $btnCSS = "success-btn";
     //Message string that should be send with the popup.
-    public $msg = "You have successfully registered! Please check your e-mail to verify your account.";
+    public $msg = "Successfully registered. Check your e-mail to verify.";
 }
 
 class loginError extends Message {

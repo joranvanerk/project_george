@@ -1,38 +1,33 @@
 <?php
 //Check if user has submitted a form
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  echo "request method found";
+  //If user send a register $_POST, include register.php
   if (isset($_POST["register"])) {
-    //If user send a register $_POST, include register.php
     include_once("./register.php");
     //Start all the register functions, FUNCTIONALITIES TO BE ADDED DOWN BELOW
     $successfullyregistered = true;
-    echo "post register found";
 
     if ($successfullyregistered) {
-      include_once("./classes/registerMessage.php");
+      include_once("./classes/sendMessage.php");
       $msg = new registerSuccess;
     }
 
-
+  //If user send a login $_POST, include login.php
   } elseif (isset($_POST["login"])) {
-    //If user send a login $_POST, include login.php
+    include_once("./login.php");
     $succesfullyloggedin = true;
-    echo "post login found";
 
     if ($succesfullyloggedin) {
-      include_once("./classes/registerMessage.php");
+      include_once("./classes/sendMessage.php");
       $msg = new loginSuccess;
     }
 
   } else {
     // $_POST value is not register or login
-    include_once("./classes/registerMessage.php");
+    include_once("./classes/sendMessage.php");
     $msg = new registerError;
     $msg->msg = "Something went wrong! (Error 2: User did not POST Request register or login.)";
   }
-} else {
-  //No POST request
 }
 ?>
 
@@ -78,11 +73,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <!-- simple vertical line -->
         <div class="vl"></div>
         <!-- navigation element for redirection to page -->
-        <a type="button" class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#register">Register</a>
-        <!-- simple vertical line -->
-        <div class="vl"></div>
-        <!-- navigation element for redirection to page -->
-        <a class="nav-link george_menu" href="login">Login</a>
+        <?php 
+        if (isset($_SESSION["login"])) {
+          if ($_SESSION["login"] === true) {
+            echo '<a class="nav-link george_menu" href="mygeorge">My George</a>' ;
+            echo '<div class="vl"></div>';
+            echo '<a class="nav-link george_menu" href="logout">Log Out</a>';
+          } else {
+            echo '<a type="button" class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#register">Register</a>';
+            echo '<div class="vl"></div>';
+            echo '<a class="nav-link george_menu" href="login">Login</a>';
+          }
+        } else {
+            echo '<a type="button" class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#register">Register</a>';
+            echo '<div class="vl"></div>';
+            echo '<a class="nav-link george_menu" href="login">Login</a>';
+        }?>
       </div>
     </div>
   </div>
@@ -92,6 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <br><div style="background-color:#000000; height:1px; width:100%;"></div>
 </div>
 
+<!-- Display message for registration or login situations -->
 <div class="msg">
   <?php
     if (isset($_POST["register"]) || isset($_POST["login"])) $msg->show();
@@ -99,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </div>
 
 <!-- Modal for Registering -->
-<div class="modal show" id="register" tabindex="-1" aria-labelledby="registerModal" aria-hidden="true">
+<div class="modal fade" id="register" tabindex="-1" aria-labelledby="registerModal" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content george_modal">
           <div class="modal-header">
