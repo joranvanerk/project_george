@@ -16,7 +16,7 @@
         <div class="vl"></div>
         <!-- navigation element for redirection to page -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle george_menu" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle george_menu" href="aboutus" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             About us
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -29,7 +29,7 @@
         <div class="vl"></div>
         <!-- navigation element for redirection to page -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle george_menu" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle george_menu" href="reservation" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Reservation
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -40,7 +40,7 @@
         <!-- simple vertical line -->
         <div class="vl"></div>
         <!-- navigation element for redirection to page -->
-        <a type="button" class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#aanvraag">Register</a>
+        <a type="button" class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#register">Register</a>
         <!-- simple vertical line -->
         <div class="vl"></div>
         <!-- navigation element for redirection to page -->
@@ -55,46 +55,46 @@
 </div>
 
 <!-- Modal for Registering -->
-<div class="modal fade" id="aanvraag" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="register" tabindex="-1" aria-labelledby="registerModal" aria-hidden="true">
       <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content george_modal">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+            <h5 class="modal-title" id="registerModal">Register</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action=".../register.php" method="POST">
+            <form action="./register.php" method="POST">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" name="naam" value="name">
+                <input type="text" class="form-control" id="floatingInput" name="name" required>
                 <label for="floatingInput">Naam</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" name="titel" value="email">
+                <input type="email" class="form-control" id="floatingInput" name="email" required>
                 <label for="floatingInput">E-mail Address</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" name="artiest" value="confirmemail">
+                <input type="email" class="form-control" id="floatingInput" name="confirmemail" required>
                 <label for="floatingInput">Confirm E-mail Address</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="tel" class="form-control" id="floatingInput" name="bericht" value="phonenumber">
+                <input type="tel" class="form-control" id="floatingInput" name="phonenumber" required>
                 <label for="floatingInput">Phone number</label>
               </div>
               <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" value="newsletter" id="CheckNewsletter">
-                <label class="form-check-label" for="CheckNewsletter">
+                <input class="form-check-input" type="checkbox" id="checkNewsletter" name="checkNewsletter">
+                <label class="form-check-label" for="checkNewsletter">
                   Subscribe to Newsletter.
                 </label>
               </div>
               <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" value="generalterms" id="CheckGeneralterms">
-                <label class="form-check-label" for="CheckGeneralterms">
+                <input class="form-check-input" type="checkbox" id="checkGeneralterms" name="checkGeneralterms" required>
+                <label class="form-check-label" for="checkGeneralterms">
                   I agree to the <b>General Terms</b> of George Marina.
                 </label>
               </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" value="register" name="register" class="btn btn-primary">Register</button>
+            <button type="submit" name="register" class="btn btn-primary">Register</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
             </form>
           </div>

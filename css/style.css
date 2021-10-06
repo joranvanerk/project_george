@@ -9,6 +9,19 @@
   top: 0;
 }
 
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+.george_modal {
+  border-radius: 0;
+}
+
+.george_modal .form-control {
+  border-radius: 0;
+}
+
 .no-margin {
   margin-left: 0!important;
   margin-right: 0!important;
