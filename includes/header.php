@@ -3,7 +3,7 @@
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   //If user send a register $_POST, include register.php
   if (isset($_POST["register"])) {
-    include_once("./register.php");
+    include_once("./register-short.php");
     //Start all the register functions, FUNCTIONALITIES TO BE ADDED DOWN BELOW
     $successfullyregistered = true;
 
@@ -115,48 +115,48 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <!-- Modal for Registering -->
 <div class="modal fade" id="register" tabindex="-1" aria-labelledby="registerModal" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content george_modal">
-          <div class="modal-header">
-            <h5 class="modal-title george_title" id="registerModal">Register</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="modal-dialog">
+    <div class="modal-content george_modal">
+      <div class="modal-header">
+        <h5 class="modal-title george_title" id="registerModal">Register</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="" method="POST">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" name="name" required>
+            <label for="floatingInput">Name</label>
           </div>
-          <div class="modal-body">
-            <form action="" method="POST">
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput" name="name" required>
-                <label for="floatingInput">Name</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" name="email" required>
-                <label for="floatingInput">E-mail Address</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" name="confirmemail" required>
-                <label for="floatingInput">Confirm E-mail Address</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="tel" class="form-control" id="floatingInput" name="phonenumber" required>
-                <label for="floatingInput">Phone number</label>
-              </div>
-              <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" id="checkNewsletter" name="checkNewsletter">
-                <label class="form-check-label" for="checkNewsletter">
-                  Subscribe to our <a class="registerlink" href="./newsletter">Newsletter</a>!
-                </label>
-              </div>
-              <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" id="checkGeneralterms" name="checkGeneralterms" required>
-                <label class="form-check-label" for="checkGeneralterms">
-                  I agree to the <a class="registerlink" href="./generalterms">General Terms</a> of George Marina.
-                </label>
-              </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" name="email" required>
+            <label for="floatingInput">E-mail Address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" name="confirmemail" required>
+            <label for="floatingInput">Confirm E-mail Address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="tel" class="form-control" id="floatingInput" name="phonenumber" required>
+            <label for="floatingInput">Phone number</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="checkNewsletter" name="checkNewsletter">
+            <label class="form-check-label" for="checkNewsletter">
+            Subscribe to our <a class="registerlink" href="./newsletter">Newsletter</a>!
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="checkGeneralterms" name="checkGeneralterms" required>
+            <label class="form-check-label" for="checkGeneralterms">
+            I agree to the <a class="registerlink" href="./generalterms">General Terms</a> of George Marina.
+            </label>
           </div>
           <div class="modal-footer">
             <button type="submit" name="register" class="btn btn-outline-george">Register</button>
             <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
-            </form>
           </div>
-        </div>
+        </form>
       </div>
     </div>
+  </div>
+</div>

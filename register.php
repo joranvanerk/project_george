@@ -1,47 +1,65 @@
-<?php
-// Grabs all the values from the form and puts it in variables.
-$name = $_POST["name"];
-$email = $_POST["email"];
-$cemail = $_POST["confirmemail"];
-$phonenumber = $_POST["phonenumber"];
-$newsletter = (isset($_POST["checkNewsletter"])) ? true : false;
-$generalterms = (isset($_POST["checkGeneralterms"])) ? true : false;
+<!-- include framework css and bootstrap basic -->
+<?php include_once("./includes/framework.php");
 
-// Include register function and creates a new register user.
-include_once("./classes/checkUserData.php");
-$user = new checkDatabase;
-$user->name = $name;
-$user->email = $email;
-$user->cemail = $cemail;
-$user->phonenumber = $phonenumber;
-$user->newsletter = $newsletter;
-$user->generalterms = $generalterms;
+// basefile management system for header
+$active_page_filename = basename(__FILE__);
 
-// Start register process
-if ($user) {
-  //Check if all data is filled in and does not match to any existing accounts. If not successfull, return an error message.
-  $checkData = $user->registerControl();
-
-  if ($checkData) {
-    //Add User to Database. If not successfull, return an error message regarding database fail.
-    $registerUser = $user->registerToDB();
-
-    if ($registerUser) {
-      //Send e-mail for verification of the register process. If not successfull, return error message unable to send verify e-mail.
-      $registermail = $user->registerMail();
-
-      //If successfull, automatically log in the user and save his details.
-      session_start();ob_start();
-      $_SESSION["login"] === true;
-      $_SESSION["name"] = $user->name;
-      $_SESSION["email"] = $user->email;
-    } else {
-      // Error for unable to send e-mail
-    }
-  } else {
-    // Error for not being able to register user in database
-  }
-} else {
-  // Error for $checkdata registerControl()
-}
+//include header
+include_once("./includes/header.php");
 ?>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h3 class="george_title mt-4 mb-4">Finish Registering</h3>
+    </div>
+  </div>
+  <!-- Black line -->
+  <div class="mt-2 mb-4" style="background-color:#000000; height:1px; width:100%;"></div>
+  <div class="row">
+    <!-- Form to fill out the required information to finish registering -->
+    <div class="offset-sm-0 offset-md-1 col-sm-6 col-md-5 george_modal">
+      <form action="./register-script.php" method="POST">
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInput" name="email" value="emailisalreadyset" required>
+          <label for="floatingInput">Email</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="floatingInput" name="password" required>
+          <label for="floatingInput">Enter Password</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="floatingInput" name="confirmpassword" required>
+          <label for="floatingInput">Enter password again</label>
+        </div>
+        <div class="form-floating mb-3">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Role</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+              <option selected>Customer</option>
+              <option value="customer">Customer</option>
+              <option value="student">Student</option>
+              <option value="companion">Companion</option>
+              <option value="teacher">Teacher</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-floating mb-3">
+          <button type="submit" name="changepassword" class="btn btn-outline-george">Finish Register Process</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-6 col-md-5">
+      <p class="george_menu">
+      This is the second and last part of registering your account. 
+      We just require a little bit more information to set up your personal space!
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!-- include footer -->
+<?php include_once("./includes/footer.php"); ?>

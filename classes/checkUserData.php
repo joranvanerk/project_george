@@ -1,5 +1,5 @@
 <?php
-class checkDatabase {
+class checkUserData {
   public $name;
   public $email;
   public $cemail;
@@ -8,18 +8,10 @@ class checkDatabase {
   public $generalterms;
   public $message;
 
-  public function __construct() {
-    $this->hello();
-  }
-
   public function hello() {
     return $message = "Function has been successfully initiated from registerAccount.php";
   }
 
-  //Connect with the database
-  public function connectDB() {
-
-  }
 
   // Check if all data is filled in and does not match to any existing accounts.
   public function registerControl() {
@@ -32,7 +24,7 @@ class checkDatabase {
   }
 
   //Creates a generic register e-mail and sends it to the user for verification purposes.
-  public function registerMail() {
+  public function sendRegisterMail() {
 
   }
 }
