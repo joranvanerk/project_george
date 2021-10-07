@@ -31,7 +31,5 @@
       // returns variable $data
       return $data;
     }
-  }
-  
-  
+  }  
 ?>
