@@ -35,11 +35,10 @@ include_once("./includes/header.php");
         <div class="form-floating mb-3">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Role</label>
+              <label class="input-group-text" for="roleSelect">Role</label>
             </div>
-            <select class="custom-select" id="inputGroupSelect01">
-              <option selected>Customer</option>
-              <option value="customer">Customer</option>
+            <select class="custom-select" id="roleSelect">
+              <option value="customer" selected>Customer</option>
               <option value="student">Student</option>
               <option value="companion">Companion</option>
               <option value="teacher">Teacher</option>
@@ -52,10 +51,7 @@ include_once("./includes/header.php");
       </form>
     </div>
     <div class="col-sm-6 col-md-5">
-      <p class="george_menu">
-      This is the second and last part of registering your account. 
-      We just require a little bit more information to set up your personal space!
-      </p>
+      <img src="./img/almostthere.png" alt="Almost There!" class="img-fluid">
     </div>
   </div>
 </div>
