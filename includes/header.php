@@ -142,13 +142,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
               <div class="form-check mb-3">
                 <input class="form-check-input" type="checkbox" id="checkNewsletter" name="checkNewsletter">
                 <label class="form-check-label" for="checkNewsletter">
-                  Subscribe to Newsletter.
+                  Subscribe to our <a class="registerlink" href="./newsletter">Newsletter</a>!
                 </label>
               </div>
               <div class="form-check mb-3">
                 <input class="form-check-input" type="checkbox" id="checkGeneralterms" name="checkGeneralterms" required>
                 <label class="form-check-label" for="checkGeneralterms">
-                  I agree to the <b>General Terms</b> of George Marina.
+                  I agree to the <a class="registerlink" href="./generalterms">General Terms</a> of George Marina.
                 </label>
               </div>
           </div>

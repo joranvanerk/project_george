@@ -108,6 +108,17 @@
   position: relative;
 }
 
+#register a.registerlink {
+  color: #333333;
+  text-decoration: none;
+
+}
+
+#register a.registerlink:active, #register a.registerlink:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
 .register {
   float: right;
   z-index: 50;
