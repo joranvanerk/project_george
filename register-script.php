@@ -12,16 +12,38 @@ $generalterms = (isset($_POST["checkGeneralterms"])) ? true : false;
 
 // Include register function and creates a new register user.
 include_once("./classes/userData.php");
-$user = new registerUser;
-$user->name = $name;
-$user->email = $email;
-$user->cemail = $cemail;
-$user->phonenumber = $phonenumber;
-$user->newsletter = $newsletter;
-$user->generalterms = $generalterms;
+$register = new registerUser;
+$checkEmail = $register->selectQuery("password", "email", $email);
 
+//Email does not exist in password table
+if ($checkEmail === 0) {
+  //General terms has been accepted
+  if ($generalterms === true) {
+      //Fill new object with POST details
+    $register->name = $name;
+    $register->email = $email;
+    $register->cemail = $cemail;
+    $register->phonenumber = $phonenumber;
+    $register->newsletter = $newsletter;
+    $register->generalterms = $generalterms;
 
-
+    //Check if email and confirm email is same string or not
+    if (strcmp($register->email, $register->cemail) === 0) {
+      //Insert query into password
+      //HERE
+      
+    } else {
+      //Emails do not match 
+      echo "entered emails do not match";
+    }
+  } else {
+    // user did not agree to general terms
+    echo "you have to accept the general terms";
+  }
+} else {
+  //Email exists in password table
+  echo "email already exists";
+}
 
 exit();
 

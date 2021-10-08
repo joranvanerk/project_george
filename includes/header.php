@@ -3,7 +3,7 @@
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   //If user send a register $_POST, include register.php
   if (isset($_POST["register"])) {
-    include_once("./register-short.php");
+    include_once("./register-script.php");
     //Start all the register functions, FUNCTIONALITIES TO BE ADDED DOWN BELOW
     $successfullyregistered = true;
 
