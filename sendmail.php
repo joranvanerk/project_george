@@ -12,4 +12,3 @@ $headers .= "Bcc: root@george-kanaleneiland.nl";
 
 mail($to, $subject, $registermail, $headers);
 ?>
-mail send

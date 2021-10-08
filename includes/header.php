@@ -3,13 +3,16 @@
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   //If user send a register $_POST, include register.php
   if (isset($_POST["register"])) {
-    include_once("./register-script.php");
     //Start all the register functions, FUNCTIONALITIES TO BE ADDED DOWN BELOW
-    $successfullyregistered = true;
-
-    if ($successfullyregistered) {
+    include_once("./register-script.php");
+    
+    if ($registerprocess === true) {
       include_once("./classes/sendMessage.php");
       $msg = new registerSuccess;
+    } else {
+      //Finish registering email did not send
+      include_once("./classes/sendMessage.php");
+      $msg = new registerError;
     }
 
   //If user send a login $_POST, include login.php
@@ -26,7 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // $_POST value is not register or login
     include_once("./classes/sendMessage.php");
     $msg = new registerError;
-    $msg->msg = "Something went wrong! (Error 2: User did not POST Request register or login.)";
   }
 }
 ?>
@@ -103,10 +105,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <?php
     if (isset($_POST["register"])) {
       $msg->show();
-      unset($_POST["register"]);
+      unset($_POST["register"], $_SERVER["REQUEST_METHOD"]);
     } elseif (isset($_POST["login"])) {
       $msg->show();
-      unset($_POST["login"]);
+      unset($_POST["login"], $_SERVER["REQUEST_METHOD"]);
     } else {
       //Nothing is even set KEKW.
     }

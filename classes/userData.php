@@ -9,6 +9,7 @@ class userData {
   public $message;
   public $result;
 
+
   public $comparedinput;
 
   // Select query based on email.
@@ -25,33 +26,59 @@ class userData {
   }
 }
 
-class registerUser extends userData {
+class userRegister extends userData {
   //Declare extra variables required specific for registering an user.
   public $phonenumber;
   public $newsletter;
   public $generalterms;
+  public $salt;
+  public $temp_password;
+  public $hashed_password;
+
+  //Create a random 10 letter string
+  public function salt($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+  }
+
+  //Create a salt and password
+  public function createPassword() {
+    //Create a random 10 letter string
+    $this->salt = $this->salt();
+    $this->temp_password = "temp";
+
+    //Add salt to password and hash them
+    $this->hashed_password = password_hash($this->temp_password.$this->salt, PASSWORD_BCRYPT);
+  }
 
   // Check if all data is filled in and does not match to any existing accounts.
-  public function insertToPassword() {
+  public function insertIntoPassword() {
     global $conn;
     $date = date("Y.m.d");
 
     $sql = "INSERT INTO `password` (`email`,
                                     `passwd`,
+                                    `salt`,
                                     `news`,
                                     `terms`,
                                     `createdAt`,
                                     `updatedAt`)
-            VALUES                  ('$email',
-                                    '',
-                                    '$newsletter',
-                                    '$generalterms',
+            VALUES                  ('$this->email',
+                                    '$this->hashed_password',
+                                    '$this->salt',
+                                    '$this->newsletter',
+                                    '$this->generalterms',
                                     '$date',
                                     '$date')";
 
     $query = mysqli_query($conn, $sql);
     $this->result = $query;
-    
+
     return $this->result;
   }
 }

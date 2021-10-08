@@ -7,18 +7,18 @@ $name = sanitize($_POST["name"]);
 $email = sanitize($_POST["email"]);
 $cemail = sanitize($_POST["confirmemail"]);
 $phonenumber = sanitize($_POST["phonenumber"]);
-$newsletter = (isset($_POST["checkNewsletter"])) ? true : false;
-$generalterms = (isset($_POST["checkGeneralterms"])) ? true : false;
+$newsletter = (isset($_POST["checkNewsletter"])) ? 1 : 0;
+$generalterms = (isset($_POST["checkGeneralterms"])) ? 1 : 0;
 
 // Include register function and creates a new register user.
 include_once("./classes/userData.php");
-$register = new registerUser;
+$register = new userRegister;
 $checkEmail = $register->selectQuery("password", "email", $email);
 
 //Email does not exist in password table
 if ($checkEmail === 0) {
   //General terms has been accepted
-  if ($generalterms === true) {
+  if ($generalterms === 1) {
       //Fill new object with POST details
     $register->name = $name;
     $register->email = $email;
@@ -29,9 +29,19 @@ if ($checkEmail === 0) {
 
     //Check if email and confirm email is same string or not
     if (strcmp($register->email, $register->cemail) === 0) {
-      //Insert query into password
-      //HERE
-      
+      //Create a hashed password and insert into password table.
+      $createPW = $register->createPassword();
+      $insertToPW = $register->insertIntoPassword();
+      //Inserted details into password table.
+      if ($insertToPW === true) {
+        //Send register mail
+        include_once("./sendmail.php");
+        $registerprocess = true;
+
+      } else {
+        //Did not inject into PW database
+        echo "insertIntoPassword Function did not work";
+      }
     } else {
       //Emails do not match 
       echo "entered emails do not match";
@@ -44,8 +54,6 @@ if ($checkEmail === 0) {
   //Email exists in password table
   echo "email already exists";
 }
-
-exit();
 
 // // Start register process
 // if ($user) {

@@ -8,7 +8,7 @@ class Message {
   public $msgCSS;
   public $btnCSS;
 
-  public $msg;
+  public $text;
 
   //Activate the generate_html function and put it in $this
   public function __construct() 
@@ -20,7 +20,7 @@ class Message {
   public function generate_msg() 
   { 
     $this->html = '<div class="register '. $this->msgType .'" id="errorMessage">';
-    $this->html .= '<button class="'. $this->msgCSS .'" onclick="disableMessage()">' . $this->msg . ' <span class="' . $this->btnCSS . '">x</span>';
+    $this->html .= '<button class="'. $this->msgCSS .'" onclick="disableMessage()">' . $this->text . ' <span class="' . $this->btnCSS . '">x</span>';
     $this->html .= '</button>';
     $this->html .= '</div>';
   }
@@ -38,7 +38,7 @@ class registerError extends Message {
     public $msgCSS = "error-button";
     public $btnCSS = "error-btn";
     //Message string that should be send with the popup.
-    public $msg = "Something went wrong whilst registering. Please try again.";
+    public $text = "Error during registering. Try again.";
 }
 
 class registerSuccess extends Message {
@@ -47,7 +47,7 @@ class registerSuccess extends Message {
     public $msgCSS = "success-button";
     public $btnCSS = "success-btn";
     //Message string that should be send with the popup.
-    public $msg = "Successfully registered. Check your e-mail to verify.";
+    public $text = "Successfully registered. Check your e-mail to verify.";
 }
 
 class loginError extends Message {
@@ -56,7 +56,7 @@ class loginError extends Message {
     public $msgCSS = "";
     public $btnCSS = "";
     //Message string that should be send with the popup.
-    public $msg = "";
+    public $text = "";
 }
 
 class loginSuccess extends Message {
@@ -65,6 +65,6 @@ class loginSuccess extends Message {
   public $msgCSS = "";
   public $btnCSS = "";
   //Message string that should be send with the popup.
-  public $msg = "";
+  public $text = "";
 }
 ?>
