@@ -38,21 +38,40 @@ if ($checkEmail === 0) {
         include_once("./sendmail.php");
         $registerprocess = true;
 
+        if ($registerprocess === true) {
+          include_once("./classes/sendMessage.php");
+          $msg = new messageSuccess;
+          $msg->generate_msg("You have successfully registered!");
+        } else {
+          //Finish registering email did not send
+          include_once("./classes/sendMessage.php");
+          $msg = new messageError;
+          $msg->generate_msg("Register email was not send.");
+        }
+
       } else {
         //Did not inject into PW database
-        echo "insertIntoPassword Function did not work";
+        $registerprocess = false;
+        $msg = new messageError;
+        $msg->generate_msg("We've failed to register your details. (PW)");
       }
     } else {
       //Emails do not match 
-      echo "entered emails do not match";
+      $registerprocess = false;
+      $msg = new messageError;
+      $msg->generate_msg("Your entered emails do not match.");
     }
   } else {
     // user did not agree to general terms
-    echo "you have to accept the general terms";
+    $registerprocess = false;
+    $msg = new messageError;
+    $msg->generate_msg("Accepting the General Terms is required.");
   }
 } else {
   //Email exists in password table
-  echo "email already exists";
+  $registerprocess = false;
+  $msg = new messageError;
+  $msg->generate_msg("Email is already taken.");
 }
 
 // // Start register process

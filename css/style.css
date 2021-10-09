@@ -118,10 +118,6 @@
   padding: 10px;
 }
 
-.msg {
-  position: relative;
-}
-
  .george_link {
   color: #333333;
   text-decoration: none;
@@ -132,7 +128,11 @@
   text-decoration: underline;
 }
 
-.register {
+.msg {
+  position: relative;
+}
+
+.message {
   float: right;
   z-index: 50;
   position: absolute;
@@ -143,7 +143,7 @@
 
 .error-message {
   background-color: rgb(255, 50, 50);
-  box-shadow: 5px 7px lightcoral;
+  box-shadow: inset 5px 0 0 0 lightcoral;
 }
 
 .error-message span.error-btn {
@@ -164,7 +164,7 @@
 
 .success-message {
   background-color: rgb(51, 197, 14);
-  box-shadow: 5px 7px rgb(137, 226, 109);
+  box-shadow: inset 5px 0 0 0 rgb(137, 226, 109);
 }
 
 .success-message span.success-btn {

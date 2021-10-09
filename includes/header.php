@@ -4,16 +4,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   //If user send a register $_POST, include register.php
   if (isset($_POST["register"])) {
     //Start all the register functions, FUNCTIONALITIES TO BE ADDED DOWN BELOW
+    include_once("./classes/sendMessage.php");
     include_once("./register-script.php");
-    
-    if ($registerprocess === true) {
-      include_once("./classes/sendMessage.php");
-      $msg = new registerSuccess;
-    } else {
-      //Finish registering email did not send
-      include_once("./classes/sendMessage.php");
-      $msg = new registerError;
-    }
 
   //If user send a login $_POST, include login.php
   } elseif (isset($_POST["login"])) {
@@ -22,13 +14,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($succesfullyloggedin) {
       include_once("./classes/sendMessage.php");
-      $msg = new loginSuccess;
+      $msg = new messageSuccess;
+      $msg->text = "User has successfully logged in.";
     }
 
   } else {
     // $_POST value is not register or login
     include_once("./classes/sendMessage.php");
-    $msg = new registerError;
+    $msg = new messageError;
+    $msg->text = "User did not send a POST value.";
   }
 }
 ?>
@@ -134,11 +128,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <label for="floatingInput">E-mail Address</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" name="confirmemail" required>
+            <input type="email" class="form-control" id="floatingInput" name="confirmemail" >
             <label for="floatingInput">Confirm E-mail Address</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="tel" class="form-control" id="floatingInput" name="phonenumber" required>
+            <input type="tel" class="form-control" id="floatingInput" name="phonenumber" >
             <label for="floatingInput">Phone number</label>
           </div>
           <div class="form-check mb-3">
@@ -148,7 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </label>
           </div>
           <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" id="checkGeneralterms" name="checkGeneralterms" required>
+            <input class="form-check-input" type="checkbox" id="checkGeneralterms" name="checkGeneralterms" >
             <label class="form-check-label" for="checkGeneralterms">
             I agree to the <a class="registerlink" href="./generalterms">General Terms</a> of George Marina.
             </label>
