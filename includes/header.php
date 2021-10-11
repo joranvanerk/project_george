@@ -24,6 +24,9 @@
         <div class="vl"></div>
         <!-- navigation element for redirection to page -->
         <a class="nav-link george_menu <?php if($active_page_filename == 'menu.php'){ echo 'george_menu_active';  }?>" href="menu">Menu</a>
+        <div class="vl"></div>
+        <!-- navigation element for redirection to page -->
+        <a class="nav-link george_menu <?php if($active_page_filename == 'vacatures.php'){ echo 'george_menu_active';  }?>" href="vacatures">Vacatures</a>
         <!-- simple vertical line -->
         <div class="vl"></div>
         <!-- navigation element for redirection to page -->
