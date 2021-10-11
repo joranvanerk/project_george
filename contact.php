@@ -4,7 +4,6 @@
     <title>Contact</title>
 
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
-    <script src="./js/app.js"></script>
   </head>
   <body>
     <!-- include framework css and bootstrap basic -->
