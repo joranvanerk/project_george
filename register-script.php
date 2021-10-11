@@ -5,7 +5,7 @@ include_once("./classes/functions.php");
 // Grabs all the values from the form and puts it in variables.
 $email = sanitize($_POST["email"]);
 $cemail = sanitize($_POST["confirmemail"]);
-$phonenumber = sanitize($_POST["phonenumber"]);
+$role = sanitize($_POST["roleSelect"]);
 $newsletter = (isset($_POST["checkNewsletter"])) ? 1 : 0;
 $generalterms = (isset($_POST["checkGeneralterms"])) ? 1 : 0;
 
@@ -21,7 +21,7 @@ if ($checkEmail === 0) {
       //Fill new object with POST details
     $register->email = $email;
     $register->cemail = $cemail;
-    $register->phonenumber = $phonenumber;
+    $register->role = $role;
     $register->newsletter = $newsletter;
     $register->generalterms = $generalterms;
 

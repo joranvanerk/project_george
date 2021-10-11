@@ -133,10 +133,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
               <label class="input-group-text" for="roleSelect">Role</label>
             </div>
             <select class="custom-select" id="roleSelect">
-              <option value="customer" selected>Customer</option>
+              <option value="klant" selected>Customer</option>
               <option value="student">Student</option>
-              <option value="companion">Companion</option>
-              <option value="teacher">Teacher</option>
+              <option value="begeleider">Companion</option>
+              <option value="docent">Teacher</option>
             </select>
           </div>
         </div>

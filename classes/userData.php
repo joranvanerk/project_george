@@ -3,14 +3,12 @@ class userData {
   public $name;
   public $email;
   public $cemail;
+  public $role;
   public $table;
   public $column;
   public $userDetail;
   public $message;
   public $result;
-
-
-  public $comparedinput;
 
   // Select query based on email.
   public function selectQuery($table, $column, $userDetail) {
