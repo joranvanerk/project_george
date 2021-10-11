@@ -120,10 +120,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <div class="modal-body">
         <form action="" method="POST">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" name="name" required>
-            <label for="floatingInput">Name</label>
-          </div>
-          <div class="form-floating mb-3">
             <input type="email" class="form-control" id="floatingInput" name="email" required>
             <label for="floatingInput">E-mail Address</label>
           </div>
@@ -132,9 +128,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <label for="floatingInput">Confirm E-mail Address</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="tel" class="form-control" id="floatingInput" name="phonenumber" >
-            <label for="floatingInput">Phone number</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="roleSelect">Role</label>
+            </div>
+            <select class="custom-select" id="roleSelect">
+              <option value="customer" selected>Customer</option>
+              <option value="student">Student</option>
+              <option value="companion">Companion</option>
+              <option value="teacher">Teacher</option>
+            </select>
           </div>
+        </div>
           <div class="form-check mb-3">
             <input class="form-check-input" type="checkbox" id="checkNewsletter" name="checkNewsletter">
             <label class="form-check-label" for="checkNewsletter">

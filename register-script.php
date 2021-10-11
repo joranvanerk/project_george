@@ -3,7 +3,6 @@
 include("./classes/connectDB.php");
 include_once("./classes/functions.php");
 // Grabs all the values from the form and puts it in variables.
-$name = sanitize($_POST["name"]);
 $email = sanitize($_POST["email"]);
 $cemail = sanitize($_POST["confirmemail"]);
 $phonenumber = sanitize($_POST["phonenumber"]);
@@ -20,7 +19,6 @@ if ($checkEmail === 0) {
   //General terms has been accepted
   if ($generalterms === 1) {
       //Fill new object with POST details
-    $register->name = $name;
     $register->email = $email;
     $register->cemail = $cemail;
     $register->phonenumber = $phonenumber;
