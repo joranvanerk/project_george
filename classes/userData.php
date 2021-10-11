@@ -26,12 +26,18 @@ class userData {
 
 class userRegister extends userData {
   //Declare extra variables required specific for registering an user.
-  public $phonenumber;
   public $newsletter;
   public $generalterms;
   public $salt;
   public $temp_password;
   public $hashed_password;
+
+  public $number;
+  public $name;
+  public $pw;
+  public $confirmpw;
+  public $address;
+  public $zip;
 
   //Create a random 10 letter string
   public function salt($length = 10) {

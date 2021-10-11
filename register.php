@@ -20,16 +20,19 @@ include_once("./includes/header.php");
     <!-- Form to fill out the required information to finish registering -->
     <div class="offset-sm-0 offset-md-1 col-sm-6 col-md-5 george_modal">
       <form action="./register-script.php" method="POST">
-       <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" name="email" value="emailisalreadyset" required>
-          <label for="floatingInput">Email</label>
+        <!-- Add values of given link into register script -->
+        <input type="hidden" value="<?php if (isset($_GET["email"])) echo $_GET["email"]; ?>" name="email">
+        <input type="hidden" value="<?php if (isset($_GET["role"])) echo $_GET["role"]; ?>" name="role">
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInput" name="cemail" required>
+          <label for="floatingInput">Confirm Email</label>
         </div>
         <div class="form-floating mb-3">
           <input type="text" class="form-control" id="floatingInput" name="name" required>
           <label for="floatingInput">Name</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="tel" class="form-control" id="floatingInput" name="phonenumber" >
+          <input type="tel" class="form-control" id="floatingInput" name="phonenumber" required>
           <label for="floatingInput">Phone number</label>
         </div>
         <div class="form-floating mb-3">
@@ -49,7 +52,7 @@ include_once("./includes/header.php");
           <label for="floatingInput">ZIP Code</label>
         </div>
         <div class="form-floating mb-3">
-          <button type="submit" name="changepassword" class="btn btn-outline-george">Finish Register Process</button>
+          <button type="submit" name="finregister" class="btn btn-outline-george">Finish Register Process</button>
         </div>
       </form>
     </div>

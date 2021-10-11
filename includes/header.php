@@ -10,14 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   //If user send a login $_POST, include login.php
   } elseif (isset($_POST["login"])) {
     include_once("./login.php");
-    $succesfullyloggedin = true;
-
-    if ($succesfullyloggedin) {
-      include_once("./classes/sendMessage.php");
-      $msg = new messageSuccess;
-      $msg->text = "User has successfully logged in.";
-    }
-
+    
   } else {
     // $_POST value is not register or login
     include_once("./classes/sendMessage.php");
@@ -103,6 +96,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } elseif (isset($_POST["login"])) {
       $msg->show();
       unset($_POST["login"], $_SERVER["REQUEST_METHOD"]);
+    } elseif (isset($_POST["finregister"])) {
+      $msg->show();
+      unset($_POST["register"], $_SERVER["REQUEST_METHOD"]);
     } else {
       //Nothing is even set KEKW.
     }
