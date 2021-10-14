@@ -123,19 +123,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <input type="email" class="form-control" id="floatingInput" name="confirmemail" >
             <label for="floatingInput">Confirm E-mail Address</label>
           </div>
-          <div class="form-floating mb-3">
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="roleSelect">Role</label>
-            </div>
-            <select class="custom-select" id="roleSelect" name="roleSelect">
-              <option value="klant" selected>Customer</option>
-              <option value="student">Student</option>
-              <option value="begeleider">Companion</option>
-              <option value="docent">Teacher</option>
-            </select>
-          </div>
-        </div>
           <div class="form-check mb-3">
             <input class="form-check-input" type="checkbox" id="checkNewsletter" name="checkNewsletter">
             <label class="form-check-label" for="checkNewsletter">

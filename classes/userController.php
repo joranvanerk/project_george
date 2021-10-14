@@ -23,6 +23,33 @@ class userData {
 
     return $query;
   }
+
+  public function selectRole() {
+    $exp = explode("@", $this->email);
+    
+    if ($exp) {
+    switch ($exp) {
+      case $exp[0] === "georgemarina" && $exp[1] === "georgemarina.nl":
+        $this->role = "eigenaar";
+        break;
+      case $exp[1] === "student.mboutrecht.nl":
+        $this->role = "student";
+        break;
+      case $exp[1] === "georgemarina.nl":
+        $this->role = "begeleider";
+        break;
+      case $exp[1] === "mboutrecht.nl":
+        $this->role = "docent";
+        break;
+      case $exp:
+        $this->role = "klant";
+        break;
+      }
+    }
+    var_dump($exp[0], $exp[1]);
+
+    return $this->role;
+  }
 }
 
 class userRegister extends userData {

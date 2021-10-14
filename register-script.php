@@ -6,12 +6,11 @@ if (isset($_POST["register"])) {
   // Grabs all the values from the form and puts it in variables.
   $email = sanitize($_POST["email"]);
   $cemail = sanitize($_POST["confirmemail"]);
-  $role = sanitize($_POST["roleSelect"]);
   $newsletter = (isset($_POST["checkNewsletter"])) ? 1 : 0;
   $generalterms = (isset($_POST["checkGeneralterms"])) ? 1 : 0;
 
   // Include register function and creates a new register user.
-  include_once("./classes/userData.php");
+  include_once("./classes/userController.php");
   $register = new userRegister;
   $register->selectQuery("password", "email", $email);
 
@@ -34,13 +33,14 @@ if (isset($_POST["register"])) {
         //Inserted details into password table.
         if ($insertToPW === true) {
           //Send register mail
+          $role = $register->selectRole();
           include_once("./sendmail.php");
-          $registerprocess = true;
+          $send = true;
 
-          if ($registerprocess === true) {
+          if ($send === true) {
             include_once("./classes/sendMessage.php");
             $msg = new messageSuccess;
-            $msg->generate_msg("You have successfully registered!");
+            $msg->generate_msg("Successfull! Please check your e-mail to verify.");
           } else {
             //Finish registering email did not send
             include_once("./classes/sendMessage.php");
@@ -79,7 +79,6 @@ if (isset($_POST["register"])) {
 
   $email = sanitize($_POST["email"]);
   $cemail = sanitize($_POST["cemail"]);
-  $role = sanitize($_POST["role"]);
   $name = sanitize($_POST["name"]);
   $lastname = sanitize($_POST["lastname"]);
   $number = sanitize($_POST["phonenumber"]);
@@ -88,7 +87,7 @@ if (isset($_POST["register"])) {
   $address = sanitize($_POST["address"]);
   $zip = sanitize($_POST["zip"]);
 
-  include_once("./classes/userData.php");
+  include_once("./classes/userController.php");
   $finreg = new userRegister;
   $data = $finreg->selectQuery("password", "email", $email);
   //var_dump($data);exit();
