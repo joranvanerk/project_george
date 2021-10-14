@@ -32,6 +32,10 @@ include_once("./includes/header.php");
           <label for="floatingInput">Name</label>
         </div>
         <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingInput" name="lastname" required>
+          <label for="floatingInput">Last Name</label>
+        </div>
+        <div class="form-floating mb-3">
           <input type="tel" class="form-control" id="floatingInput" name="phonenumber" required>
           <label for="floatingInput">Phone number</label>
         </div>

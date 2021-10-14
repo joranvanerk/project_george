@@ -13,10 +13,10 @@ if (isset($_POST["register"])) {
   // Include register function and creates a new register user.
   include_once("./classes/userData.php");
   $register = new userRegister;
-  $checkEmail = $register->selectQuery("password", "email", $email);
+  $register->selectQuery("password", "email", $email);
 
   //Email does not exist in password table
-  if ($checkEmail === 0) {
+  if ($register->result === 0) {
     //General terms has been accepted
     if ($generalterms === 1) {
         //Fill new object with POST details
@@ -73,10 +73,15 @@ if (isset($_POST["register"])) {
     $msg->generate_msg("Email is already taken.");
   }
 } else if (isset($_POST["finregister"])) {
+  // Include connectDB and Functions
+  include("./classes/connectDB.php");
+  include_once("./classes/functions.php");
+
   $email = sanitize($_POST["email"]);
   $cemail = sanitize($_POST["cemail"]);
   $role = sanitize($_POST["role"]);
   $name = sanitize($_POST["name"]);
+  $lastname = sanitize($_POST["lastname"]);
   $number = sanitize($_POST["phonenumber"]);
   $pw = sanitize($_POST["password"]);
   $cpw = sanitize($_POST["confirmpassword"]);
@@ -84,11 +89,12 @@ if (isset($_POST["register"])) {
   $zip = sanitize($_POST["zip"]);
 
   include_once("./classes/userData.php");
-  $finreg = new userUpdate;
-  $checkMail = $finreg->selectQuery("password", "email", $email);
+  $finreg = new userRegister;
+  $data = $finreg->selectQuery("password", "email", $email);
+  //var_dump($data);exit();
 
   //If mail exists once in the password database
-  if ($checkMail === 1) {
+  if ($finreg->result === 1) {
     //Check if email and password values are the same
     if (strcmp($email, $cemail) === 0) {
       if (strcmp($pw, $cpw) === 0) {
@@ -96,29 +102,54 @@ if (isset($_POST["register"])) {
         $finreg->cemail = $cemail;
         $finreg->role = $role;
         $finreg->name = $name;
+        $finreg->lastname = $lastname;
         $finreg->number = $number;
         $finreg->pw = $pw;
         $finreg->confirmpw = $cpw;
         $finreg->address = $address;
         $finreg->zip = $zip;
+        //var_dump($finreg);exit();
 
+        $record = mysqli_fetch_assoc($data);
+        //var_dump($record);exit();
+
+        $temp_pw = "temp";
+        $finreg->salt = $record["salt"];
+        $finreg->hashed_password = $record["passwd"];
+        //var_dump($finreg->salt, $finreg->hashed_password);exit();
+
+        //Check if password matches with password saved in database.
+        if (password_verify($temp_pw.$finreg->salt, $finreg->hashed_password)) {
+          $finreg->updatePassword();
+          echo "Password updated";
+
+          if ($finreg->result === true) {
+            $finreg->insertUser($finreg->role);
+            if ($finreg->result === true) {
+              header("Location: registered?email=".$finreg->email."");
+            } else {
+              //User was not created in appropiate table
+              echo "Failed to create user in respective user table";
+            }
+          } else {
+            //Password was not updated
+            echo "Failed to update your password.";
+          }
+        } else {
+          //Password does not match the password in database
+          echo "Your password does not match our password.";
+        }
       } else {
         //Passwords do not match
-        $registerprocess = false;
-        $msg = new messageError;
-        $msg->generate_msg("The entered passwords are not unique to each other.");
+        echo "The entered passwords are not unique to each other.";
       }
     } else {
       //Emails do not match
-      $registerprocess = false;
-      $msg = new messageError;
-      $msg->generate_msg("The entered e-mail does not match the initial e-mail.");
+      echo "The entered e-mail does not match the initial e-mail.";
     }
   } else {
     //Email does not exist in database
-    $registerprocess = false;
-    $msg = new messageError;
-    $msg->generate_msg("Email does not exist in our system.");
+    echo "Email does not exist in our system.";
   }
 } else {
   //If neither register or finish register submit button has been activated

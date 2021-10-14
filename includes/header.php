@@ -128,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <div class="input-group-prepend">
               <label class="input-group-text" for="roleSelect">Role</label>
             </div>
-            <select class="custom-select" id="roleSelect">
+            <select class="custom-select" id="roleSelect" name="roleSelect">
               <option value="klant" selected>Customer</option>
               <option value="student">Student</option>
               <option value="begeleider">Companion</option>

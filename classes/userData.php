@@ -1,6 +1,7 @@
 <?php
 class userData {
   public $name;
+  public $lastname;
   public $email;
   public $cemail;
   public $role;
@@ -10,7 +11,7 @@ class userData {
   public $message;
   public $result;
 
-  // Select query based on email.
+  // Select query.
   public function selectQuery($table, $column, $userDetail) {
     //Get DBconnection
     global $conn;
@@ -20,7 +21,7 @@ class userData {
     $query = mysqli_query($conn, $sql);
     $this->result = mysqli_num_rows($query);
 
-    return $this->result;
+    return $query;
   }
 }
 
@@ -63,7 +64,6 @@ class userRegister extends userData {
   // Check if all data is filled in and does not match to any existing accounts.
   public function insertIntoPassword() {
     global $conn;
-    $date = date("Y.m.d");
 
     $sql = "INSERT INTO `password` (`email`,
                                     `passwd`,
@@ -77,10 +77,70 @@ class userRegister extends userData {
                                     '$this->salt',
                                     '$this->newsletter',
                                     '$this->generalterms',
-                                    '$date',
-                                    '$date')";
+                                    CURRENT_TIMESTAMP,
+                                    CURRENT_TIMESTAMP)";
 
     $query = mysqli_query($conn, $sql);
+    $this->result = $query;
+
+    return $this->result;
+  }
+
+  public function updatePassword() {
+    global $conn;
+
+    //Create new salt and hash the pw+salt
+    $salt = $this->salt();
+    $hashed_password = password_hash($this->pw.$salt, PASSWORD_BCRYPT);
+
+    $sql = "UPDATE `password`
+            SET `passwd` = '$hashed_password',
+                `salt` = '$salt',
+                `updatedAt` = CURRENT_TIMESTAMP
+            WHERE `email` = '$this->email'";
+
+    $query = mysqli_query($conn, $sql);
+    $this->result = $query;
+
+    return $this->result;
+  }
+
+  //Add user into table based on userrole
+  public function insertUser($role) {
+    global $conn;
+
+    switch ($role) {
+      case "klant":
+        $insertUserSql = "INSERT INTO `klant` (`id`,
+                                      `achternaam`,
+                                      `tussenvoegsel`,
+                                      `voornaam`,
+                                      `email`,
+                                      `mobiel`,
+                                      `rol`,
+                                      `createdAt`,
+                                      `updatedAt`,
+                                      `emailVerified`)
+                VALUES                (NULL,
+                                      '$this->lastname',
+                                      NULL,
+                                      '$this->name',
+                                      '$this->email',
+                                      '$this->number',
+                                      '$role',
+                                      CURRENT_TIMESTAMP,
+                                      CURRENT_TIMESTAMP,
+                                      1)";
+        break;
+      case "student":
+        break;
+      case "begeleider":
+        break;
+      case "docent":
+        break;
+    }
+    echo $insertUserSql;
+    $query = mysqli_query($conn, $insertUserSql);
     $this->result = $query;
 
     return $this->result;

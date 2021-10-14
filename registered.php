@@ -6,13 +6,20 @@ $active_page_filename = basename(__FILE__);
 
 //include header
 include_once("./includes/header.php");
+
+if (isset($_GET["email"])) {
+  $email = $_GET["email"];
+  $imp = explode("@", $email);
+  $user = $imp[0];
+}
+
 ?>
 
 <div class="container">
   <div class="row mb-2 mt-4">
     <!-- Thank you text after fully registering your account -->
     <div class="col-12">
-    <h5 class="george_title mb-3">Thank you!</h5>
+    <h5 class="george_title mb-3">Thank you for registering, <?php echo $user; ?></h5>
     <h5 class="george_menu" style="font-weight: 200; text-transform: none; margin-left: 0; margin-top: 0.2rem;">
       We'd like to officially welcome you to the Georgies! Your account information has been successfully submitted.
       <br><br>
