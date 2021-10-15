@@ -47,13 +47,7 @@ include_once("./includes/header.php");
           <label for="floatingInput">Enter password again</label>
         </div>
         <?php 
-        if (isset($_GET["email"])) {
-          include_once("./classes/userController.php");
-          $role = new userRegister;
-          $role->email = $_GET["email"];
-          $role->selectRole();
-          include("./layout-content/ext_register_student.php");
-        } 
+        $is_student = ($_GET["email"]) ? include("./layout-content/ext_register_student.php") : false;
         ?>
         <div class="form-floating mb-3">
           <button type="submit" name="finregister" class="btn btn-outline-george">Finish Register Process</button>

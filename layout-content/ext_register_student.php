@@ -1,6 +1,13 @@
 <?php
-//Extend register.php page with more Fields for required information
+//Get userrole based on email
+include_once("./classes/userController.php");
+$role = new userRegister;
+$role->email = $_GET["email"];
+$role->selectRole();
+
+//Extend register.php page with more Fields for required information if userrole is student
 if ($role->role === "student") {
+  
   $str =  '<div class="form-floating mb-3">';
   $str .= '<input type="text" class="form-control" id="floatingInput" name="address" required>';
   $str .= '<label for="floatingInput">Address</label>';

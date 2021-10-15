@@ -144,7 +144,7 @@ if (isset($_POST["register"])) {
             if ($finreg->result === true) {
               $finreg->selectRole();
               $finreg->insertUser();
-              var_dump($finreg);exit();
+              //var_dump($finreg);exit();
               if ($finreg->result === true) {
                 header("Location: registered?email=".$finreg->email."");
               } else {
