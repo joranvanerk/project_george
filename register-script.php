@@ -48,24 +48,28 @@ if (isset($_POST["register"])) {
           }
         } else {
           //Did not inject into PW database
+          include_once("./classes/sendMessage.php");
           $registerprocess = false;
           $msg = new messageError;
           $msg->generate_msg("We've failed to register your details. (PW)");
         }
       } else {
         //Emails do not match 
+        include_once("./classes/sendMessage.php");
         $registerprocess = false;
         $msg = new messageError;
         $msg->generate_msg("Your entered emails do not match.");
       }
     } else {
       // user did not agree to general terms
+      include_once("./classes/sendMessage.php");
       $registerprocess = false;
       $msg = new messageError;
       $msg->generate_msg("Accepting the General Terms is required.");
     }
   } else {
     //Email exists in password table
+    include_once("./classes/sendMessage.php");
     $registerprocess = false;
     $msg = new messageError;
     $msg->generate_msg("Email is already taken.");
@@ -98,7 +102,6 @@ if (isset($_POST["register"])) {
         if (strlen($number) >= 5) {
           $finreg->email = $email;
           $finreg->cemail = $cemail;
-          $finreg->role = $role;
           $finreg->name = $name;
           $finreg->lastname = $lastname;
           $finreg->number = $number;
@@ -119,10 +122,11 @@ if (isset($_POST["register"])) {
           //Check if password matches with password saved in database.
           if (password_verify($temp_pw.$finreg->salt, $finreg->hashed_password)) {
             $finreg->updatePassword();
-            echo "Password updated";
 
             if ($finreg->result === true) {
-              $finreg->insertUser($finreg->role);
+              $finreg->selectRole();
+              $finreg->insertUser();
+              var_dump($finreg);exit();
               if ($finreg->result === true) {
                 header("Location: registered?email=".$finreg->email."");
               } else {

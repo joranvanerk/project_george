@@ -150,7 +150,7 @@ class userRegister extends userData {
   }
 
   //Add user into table based on userrole
-  public function insertUser($role) {
+  public function insertUser() {
     global $conn;
 
     $exp = explode("@", $this->email);
@@ -159,21 +159,7 @@ class userRegister extends userData {
 
     $this->createAbbrev();
 
-    if ($role === "begeleider" || "docent" || "eigenaar") {
-      //Begeleider/Docent/Eigenaar
-      $insertUserSql = "INSERT INTO `medewerker` (`email`,
-                                                  `achternaam`,
-                                                  `tussenvoegsel`,
-                                                  `voornaam`,
-                                                  `mobiel`,
-                                                  `afkorting`)
-                          VALUES                ('$this->email',
-                                                  '$this->lastname',
-                                                  NULL,
-                                                  '$this->name',
-                                                  '$this->number',
-                                                  '$abbrev')";
-    } else if ($role === "student") {
+    if ($this->role === "student") {
       //Student
       $insertUserSql = "INSERT INTO `student` (`studentnr`,
                                                 `voornaam`,
@@ -196,10 +182,10 @@ class userRegister extends userData {
                                                 '$this->region',
                                                 '$this->address',
                                                 '$this->zip',
-                                                '$role',
+                                                '$this->role',
                                                 '$this->teacher',
                                                 '$this->lessonpackage')";
-    } else {
+    } else if ($this->role === "klant") {
       //Klant
       $insertUserSql = "INSERT INTO `klant` (`id`,
                                       `achternaam`,
@@ -217,14 +203,29 @@ class userRegister extends userData {
                                       '$this->name',
                                       '$this->email',
                                       '$this->number',
-                                      '$role',
+                                      '$this->role',
                                       CURRENT_TIMESTAMP,
                                       CURRENT_TIMESTAMP,
                                       1)";
+    } else {
+      //Begeleider/Docent/Eigenaar
+      $insertUserSql = "INSERT INTO `medewerker` (`email`,
+                                                  `achternaam`,
+                                                  `tussenvoegsel`,
+                                                  `voornaam`,
+                                                  `mobiel`,
+                                                  `afkorting`)
+                          VALUES                ('$this->email',
+                                                  '$this->lastname',
+                                                  NULL,
+                                                  '$this->name',
+                                                  '$this->number',
+                                                  '$this->abbrev')";
     }
 
     $query = mysqli_query($conn, $insertUserSql);
     $this->result = $query;
+    var_dump($insertUserSql, $this->result);
 
     return $this->result;
   }

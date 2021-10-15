@@ -120,7 +120,7 @@
     <tbody><tr>
     <td>
     <div align="center">
-    <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://www.george-kanaleneiland.nl/register?email='.$register->email.'&role='.$register->role.'" style="height:42px;width:178px;v-text-anchor:middle;" arcsize="0%" stroke="false" fillcolor="#ff6060"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href="http://www.george-kanaleneiland.nl/register?email='.$register->email.'&role='.$register->role.'" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ff6060;border-radius:0px;width:auto;border-top:1px solid #ff6060;border-right:1px solid #ff6060;border-bottom:1px solid #ff6060;border-left:1px solid #ff6060;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;" target="_blank"><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:normal;"><span style="font-size: 16px; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;">Finish your account</span></span></a>
+    <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://www.george-kanaleneiland.nl/register?email='.$register->email.'" style="height:42px;width:178px;v-text-anchor:middle;" arcsize="0%" stroke="false" fillcolor="#ff6060"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Arial, sans-serif; font-size:16px"><![endif]--><a href="http://www.george-kanaleneiland.nl/register?email='.$register->email.'" style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#ff6060;border-radius:0px;width:auto;border-top:1px solid #ff6060;border-right:1px solid #ff6060;border-bottom:1px solid #ff6060;border-left:1px solid #ff6060;padding-top:5px;padding-bottom:5px;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;text-align:center;mso-border-alt:none;word-break:keep-all;" target="_blank"><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:normal;"><span style="font-size: 16px; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;">Finish your account</span></span></a>
     <!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
     </div>
     </td>
@@ -131,7 +131,7 @@
     <td>
     <div class="george-font">
     <div class="george-font" style="font-size: 14px; color: #555555; line-height: 1.2;">
-    <p style="margin: 0; font-size: 14px;">Button not working? Copy the following link below and paste it into your browser.<br><a href="http://www.george-kanaleneiland.nl/register?email='.$register->email.'&role='.$register->role.'" rel="noopener" style="text-decoration: underline; color: #0068A5;" target="_blank">http://www.george-kanaleneiland.nl/register?email='.$register->email.'&role='.$register->role.'</a></p>
+    <p style="margin: 0; font-size: 14px;">Button not working? Copy the following link below and paste it into your browser.<br><a href="http://www.george-kanaleneiland.nl/register?email='.$register->email.'" rel="noopener" style="text-decoration: underline; color: #0068A5;" target="_blank">http://www.george-kanaleneiland.nl/register?email='.$register->email.'</a></p>
     </div>
     </div>
     </td>

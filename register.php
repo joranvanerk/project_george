@@ -19,17 +19,16 @@ include_once("./includes/header.php");
   <div class="row">
     <!-- Form to fill out the required information to finish registering -->
     <div class="offset-sm-0 offset-md-1 col-sm-6 col-md-5 george_modal">
-      <form action="./register-script.php" method="POST">
+      <form action="./usertest.php" method="POST">
         <!-- Add values of given link into register script -->
         <input type="hidden" value="<?php if (isset($_GET["email"])) echo $_GET["email"]; ?>" name="email">
-        <input type="hidden" value="<?php if (isset($_GET["role"])) echo $_GET["role"]; ?>" name="role">
         <div class="form-floating mb-3">
           <input type="email" class="form-control" id="floatingInput" name="cemail" required>
           <label for="floatingInput">Confirm Email</label>
         </div>
         <div class="form-floating mb-3">
           <input type="text" class="form-control" id="floatingInput" name="name" required>
-          <label for="floatingInput">Name</label>
+          <label for="floatingInput">Fist Name</label>
         </div>
         <div class="form-floating mb-3">
           <input type="text" class="form-control" id="floatingInput" name="lastname" required>
@@ -47,14 +46,16 @@ include_once("./includes/header.php");
           <input type="password" class="form-control" id="floatingInput" name="confirmpassword" required>
           <label for="floatingInput">Enter password again</label>
         </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" name="address" required>
-          <label for="floatingInput">Address</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" name="zip" required>
-          <label for="floatingInput">ZIP Code</label>
-        </div>
+        <?php 
+        if (isset($_GET["email"])) {
+          include_once("./classes/userController.php");
+          $role = new userRegister;
+          $role->email = $_GET["email"];
+          $role->selectRole();
+          include("./layout-content/ext_register_student.php");
+          echo $str;
+        } 
+        ?>
         <div class="form-floating mb-3">
           <button type="submit" name="finregister" class="btn btn-outline-george">Finish Register Process</button>
         </div>
@@ -65,7 +66,6 @@ include_once("./includes/header.php");
     </div>
   </div>
 </div>
-
 
 <!-- include footer -->
 <?php include_once("./includes/footer.php"); ?>
