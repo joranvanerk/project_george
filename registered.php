@@ -10,7 +10,7 @@ include_once("./includes/header.php");
 if (isset($_GET["email"])) {
   $email = $_GET["email"];
   $exp = explode("@", $email);
-  $user = $imp[0];
+  $user = $exp[0];
 }
 
 ?>

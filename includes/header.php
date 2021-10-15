@@ -3,13 +3,13 @@
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   //If user send a register $_POST, include register.php
   if (isset($_POST["register"])) {
-    //Start all the register functions, FUNCTIONALITIES TO BE ADDED DOWN BELOW
-    include_once("./classes/sendMessage.php");
+    //Include required PHP scripts for register process
     include_once("./register-script.php");
 
   //If user send a login $_POST, include login.php
   } elseif (isset($_POST["login"])) {
-    include_once("./login.php");
+    //Include required PHP scripts for login process
+    include_once("./login-script.php");
     
   } else {
     // $_POST value is not register or login

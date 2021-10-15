@@ -1,10 +1,13 @@
 <?php
+// General class used to create and retrieve data of a user.
 class userData {
   public $name;
   public $lastname;
   public $email;
   public $cemail;
   public $role;
+  public $email_part1;
+  public $email_part2;
   public $table;
   public $column;
   public $userDetail;
@@ -46,12 +49,12 @@ class userData {
         break;
       }
     }
-    var_dump($exp[0], $exp[1]);
 
     return $this->role;
   }
 }
 
+// Class with functions specific for the registering process
 class userRegister extends userData {
   //Declare extra variables required specific for registering an user.
   public $newsletter;
@@ -61,11 +64,14 @@ class userRegister extends userData {
   public $hashed_password;
 
   public $number;
-  public $name;
   public $pw;
   public $confirmpw;
   public $address;
   public $zip;
+  public $region;
+  public $lessonpackage;
+  public $teacher;
+  public $abbrev;
 
   //Create a random 10 letter string
   public function salt($length = 10) {
@@ -132,13 +138,70 @@ class userRegister extends userData {
     return $this->result;
   }
 
+  //Break down name and lastname string to create an abbreviation
+  public function createAbbrev() {
+    $this->abbrev =  substr($this->name, 0, 1);
+    $this->abbrev .= substr($this->name, -1, 1);
+    $this->abbrev .= substr($this->lastname, 0, 1);
+    $this->abbrev .= substr($this->lastname, -1, 1);
+    $this->abbrev = strtoupper($this->abbrev);
+
+    return $this->abbrev;
+  }
+
   //Add user into table based on userrole
   public function insertUser($role) {
     global $conn;
 
-    switch ($role) {
-      case "klant":
-        $insertUserSql = "INSERT INTO `klant` (`id`,
+    $exp = explode("@", $this->email);
+    $this->email_part1 = $exp[0];
+    $this->email_part2 = $exp[1];
+
+    $this->createAbbrev();
+
+    if ($role === "begeleider" || "docent" || "eigenaar") {
+      //Begeleider/Docent/Eigenaar
+      $insertUserSql = "INSERT INTO `medewerker` (`email`,
+                                                  `achternaam`,
+                                                  `tussenvoegsel`,
+                                                  `voornaam`,
+                                                  `mobiel`,
+                                                  `afkorting`)
+                          VALUES                ('$this->email',
+                                                  '$this->lastname',
+                                                  NULL,
+                                                  '$this->name',
+                                                  '$this->number',
+                                                  '$abbrev')";
+    } else if ($role === "student") {
+      //Student
+      $insertUserSql = "INSERT INTO `student` (`studentnr`,
+                                                `voornaam`,
+                                                `tussenvoegsel`,
+                                                `achternaam`,
+                                                `mobiel`,
+                                                `email`,
+                                                `woonplaats`,
+                                                `straat`,
+                                                `postcode`,
+                                                `rol`,
+                                                `docent`,
+                                                `lespakket`)
+                          VALUES                ('$this->email_part1',
+                                                '$this->name',
+                                                NULL,
+                                                '$this->lastname',
+                                                '$this->number',
+                                                '$this->email',
+                                                '$this->region',
+                                                '$this->address',
+                                                '$this->zip',
+                                                '$role',
+                                                '$this->teacher',
+                                                '$this->lessonpackage')";
+    } else {
+      //Klant
+      $insertUserSql = "INSERT INTO `klant` (`id`,
                                       `achternaam`,
                                       `tussenvoegsel`,
                                       `voornaam`,
@@ -158,15 +221,8 @@ class userRegister extends userData {
                                       CURRENT_TIMESTAMP,
                                       CURRENT_TIMESTAMP,
                                       1)";
-        break;
-      case "student":
-        break;
-      case "begeleider":
-        break;
-      case "docent":
-        break;
     }
-    echo $insertUserSql;
+
     $query = mysqli_query($conn, $insertUserSql);
     $this->result = $query;
 

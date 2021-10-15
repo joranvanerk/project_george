@@ -21,7 +21,6 @@ if (isset($_POST["register"])) {
         //Fill new object with POST details
       $register->email = $email;
       $register->cemail = $cemail;
-      $register->role = $role;
       $register->newsletter = $newsletter;
       $register->generalterms = $generalterms;
 
@@ -47,7 +46,6 @@ if (isset($_POST["register"])) {
             $msg = new messageError;
             $msg->generate_msg("Register email was not send.");
           }
-
         } else {
           //Did not inject into PW database
           $registerprocess = false;
@@ -97,50 +95,55 @@ if (isset($_POST["register"])) {
     //Check if email and password values are the same
     if (strcmp($email, $cemail) === 0) {
       if (strcmp($pw, $cpw) === 0) {
-        $finreg->email = $email;
-        $finreg->cemail = $cemail;
-        $finreg->role = $role;
-        $finreg->name = $name;
-        $finreg->lastname = $lastname;
-        $finreg->number = $number;
-        $finreg->pw = $pw;
-        $finreg->confirmpw = $cpw;
-        $finreg->address = $address;
-        $finreg->zip = $zip;
-        //var_dump($finreg);exit();
+        if (strlen($number) >= 5) {
+          $finreg->email = $email;
+          $finreg->cemail = $cemail;
+          $finreg->role = $role;
+          $finreg->name = $name;
+          $finreg->lastname = $lastname;
+          $finreg->number = $number;
+          $finreg->pw = $pw;
+          $finreg->confirmpw = $cpw;
+          $finreg->address = $address;
+          $finreg->zip = $zip;
+          //var_dump($finreg);exit();
 
-        $record = mysqli_fetch_assoc($data);
-        //var_dump($record);exit();
+          $record = mysqli_fetch_assoc($data);
+          //var_dump($record);exit();
 
-        $temp_pw = "temp";
-        $finreg->salt = $record["salt"];
-        $finreg->hashed_password = $record["passwd"];
-        //var_dump($finreg->salt, $finreg->hashed_password);exit();
+          $temp_pw = "temp";
+          $finreg->salt = $record["salt"];
+          $finreg->hashed_password = $record["passwd"];
+          //var_dump($finreg->salt, $finreg->hashed_password);exit();
 
-        //Check if password matches with password saved in database.
-        if (password_verify($temp_pw.$finreg->salt, $finreg->hashed_password)) {
-          $finreg->updatePassword();
-          echo "Password updated";
+          //Check if password matches with password saved in database.
+          if (password_verify($temp_pw.$finreg->salt, $finreg->hashed_password)) {
+            $finreg->updatePassword();
+            echo "Password updated";
 
-          if ($finreg->result === true) {
-            $finreg->insertUser($finreg->role);
             if ($finreg->result === true) {
-              header("Location: registered?email=".$finreg->email."");
+              $finreg->insertUser($finreg->role);
+              if ($finreg->result === true) {
+                header("Location: registered?email=".$finreg->email."");
+              } else {
+                //User was not created in appropiate table
+                echo "Failed to create user in respective user table";
+              }
             } else {
-              //User was not created in appropiate table
-              echo "Failed to create user in respective user table";
+              //Password was not updated
+              echo "Failed to update your password.";
             }
           } else {
-            //Password was not updated
-            echo "Failed to update your password.";
+            //Password does not match the password in database
+            echo "Your password does not match our password.";
           }
         } else {
-          //Password does not match the password in database
-          echo "Your password does not match our password.";
+          //Number is too large for database
+          echo "Your phone number can't be longer than 10 numbers!";
         }
       } else {
         //Passwords do not match
-        echo "The entered passwords are not unique to each other.";
+        echo "The entered passwords are not identical to each other.";
       }
     } else {
       //Emails do not match
