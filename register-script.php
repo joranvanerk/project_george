@@ -79,6 +79,7 @@ if (isset($_POST["register"])) {
   include("./classes/connectDB.php");
   include_once("./classes/functions.php");
 
+  //Sanitize fields
   $email = sanitize($_POST["email"]);
   $cemail = sanitize($_POST["cemail"]);
   $name = sanitize($_POST["name"]);
@@ -86,9 +87,19 @@ if (isset($_POST["register"])) {
   $number = sanitize($_POST["phonenumber"]);
   $pw = sanitize($_POST["password"]);
   $cpw = sanitize($_POST["confirmpassword"]);
-  $address = sanitize($_POST["address"]);
-  $zip = sanitize($_POST["zip"]);
 
+  //Sanitize additional fields if form is filled in by student
+  if (isset($_POST["role"])) {
+    if ($_POST["role"] === "student") {
+      $address = sanitize($_POST["address"]);
+      $zip = sanitize($_POST["zip"]);
+      $region = sanitize($_POST["region"]);
+      $teacher = sanitize($_POST["teacher"]);
+      $lessonpackage = sanitize($_POST["lessonpackage"]);
+    }
+  }
+
+  //Send query to check e-mail in our database
   include_once("./classes/userController.php");
   $finreg = new userRegister;
   $data = $finreg->selectQuery("password", "email", $email);
@@ -109,11 +120,20 @@ if (isset($_POST["register"])) {
           $finreg->confirmpw = $cpw;
           $finreg->address = $address;
           $finreg->zip = $zip;
-          //var_dump($finreg);exit();
+
+          if (isset($_POST["role"])) {
+            if ($_POST["role"] === "student") {
+              $finreg->address = $address;
+              $finreg->zip = $zip;
+              $finreg->region = $region;
+              $finreg->teacher = $teacher;
+              $finreg->lessonpackage = $lessonpackage;
+            }
+          }
 
           $record = mysqli_fetch_assoc($data);
-          //var_dump($record);exit();
 
+          //Create a temporary password
           $temp_pw = "temp";
           $finreg->salt = $record["salt"];
           $finreg->hashed_password = $record["passwd"];

@@ -29,5 +29,7 @@ if ($role->role === "student") {
   $str .= '</select>';
   $str .= '<label for="floatingInput">Select your Lesson Package</label>';
   $str .= '</div>';
+  $str .= '<input type="hidden" value="student" name="role">';
+  
 }
 ?>

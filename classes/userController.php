@@ -69,8 +69,8 @@ class userRegister extends userData {
   public $address;
   public $zip;
   public $region;
-  public $lessonpackage;
   public $teacher;
+  public $lessonpackage;
   public $abbrev;
 
   //Create a random 10 letter string
