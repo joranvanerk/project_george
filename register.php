@@ -28,7 +28,7 @@ include_once("./includes/header.php");
         </div>
         <div class="form-floating mb-3">
           <input type="text" class="form-control" id="floatingInput" name="name" required>
-          <label for="floatingInput">Fist Name</label>
+          <label for="floatingInput">First Name</label>
         </div>
         <div class="form-floating mb-3">
           <input type="text" class="form-control" id="floatingInput" name="lastname" required>
@@ -53,7 +53,6 @@ include_once("./includes/header.php");
           $role->email = $_GET["email"];
           $role->selectRole();
           include("./layout-content/ext_register_student.php");
-          echo $str;
         } 
         ?>
         <div class="form-floating mb-3">

@@ -118,8 +118,6 @@ if (isset($_POST["register"])) {
           $finreg->number = $number;
           $finreg->pw = $pw;
           $finreg->confirmpw = $cpw;
-          $finreg->address = $address;
-          $finreg->zip = $zip;
 
           if (isset($_POST["role"])) {
             if ($_POST["role"] === "student") {

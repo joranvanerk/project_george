@@ -1,4 +1,5 @@
 <?php
+//Extend register.php page with more Fields for required information
 if ($role->role === "student") {
   $str =  '<div class="form-floating mb-3">';
   $str .= '<input type="text" class="form-control" id="floatingInput" name="address" required>';
@@ -14,9 +15,9 @@ if ($role->role === "student") {
   $str .= '</div>';
   $str .= '<div class="form-floating mb-3">';
   $str .= '<select name="teacher" class="form-control">';
-  $str .= '<option selected>Hans Odijk</option>';
-  $str .= '<option>Taif Xeo</option>';
-  $str .= '<option>Marja van Hombergh</option>';
+  $str .= '<option selected>HSOK</option>';
+  $str .= '<option>ANTOL</option>';
+  $str .= '<option>TAIF</option>';
   $str .= '</select>';
   $str .= '<label for="floatingInput">Select your Teacher</label>';
   $str .= '</div>';
@@ -31,5 +32,6 @@ if ($role->role === "student") {
   $str .= '</div>';
   $str .= '<input type="hidden" value="student" name="role">';
   
+  echo $str;
 }
 ?>
