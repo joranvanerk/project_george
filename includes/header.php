@@ -62,6 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <!-- simple vertical line -->
         <div class="vl"></div>
         <!-- navigation element for redirection to page -->
+
         <?php 
         if (isset($_SESSION["login"])) {
           if ($_SESSION["login"] === true) {
@@ -78,6 +79,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             echo '<div class="vl"></div>';
             echo '<a class="nav-link george_menu" href="login">Login</a>';
         }?>
+
+        <a class="nav-link george_menu <?php if($active_page_filename == 'menu.php'){ echo 'george_menu_active';  }?>" href="menu">Menu</a>
+        <div class="vl"></div>
+        <!-- navigation element for redirection to page -->
+        <a class="nav-link george_menu <?php if($active_page_filename == 'vacatures.php'){ echo 'george_menu_active';  }?>" href="vacatures">Vacatures</a>
+        <!-- simple vertical line -->
+        <div class="vl"></div>
+        <!-- navigation element for redirection to page -->
+        <a class="nav-link george_menu <?php if($active_page_filename == 'reservation.php'){ echo 'george_menu_active';  }?>" href="reservation">Reservation</a>
+        <!-- simple vertical line -->
+        <div class="vl"></div>
+        <!-- navigation element for redirection to page -->
+        <a class="nav-link george_menu <?php if($active_page_filename == 'bookevent.php'){ echo 'george_menu_active';  }?>" href="bookevent">Book an event</a>
+
       </div>
     </div>
   </div>

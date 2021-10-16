@@ -41,6 +41,11 @@ $active_page_filename = basename(__FILE__);
             </select>
 
             <div class="form-floating mb-3">
+            <input type="datetime-local" class="form-control" id="floatingInput" placeholder="datumtijd">
+            <label for="floatingInput">Vul hier de datum en tijd</label>
+            </div>
+
+            <div class="form-floating mb-3">
             <input type="voornaam" class="form-control" id="floatingInput" placeholder="voornaam">
             <label for="floatingInput">Vul hier uw voornaam in</label>
             </div>
