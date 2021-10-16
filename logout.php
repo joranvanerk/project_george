@@ -1,0 +1,1 @@
+<h1 class="george_title">You have logged out!</h1>

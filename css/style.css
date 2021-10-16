@@ -9,6 +9,50 @@
   top: 0;
 }
 
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+
+/* CSS for Modal in George Marina style */
+.george_modal {
+  border-radius: 0;
+}
+
+.george_modal .form-control {
+  border-radius: 0;
+}
+
+.george_modal .form-control:focus {
+  border-color: #333333 !important;
+  box-shadow: 0 0 5px #333333 !important;
+}
+
+.george_modal .form-check-input:checked {
+  border-color: #333333 !important;
+  box-shadow: 0 0 5px #333333 !important;
+  background-color: #333333 !important;
+}
+
+.george_modal .form-check-input:focus {
+  border-color: #333333;
+  box-shadow: 0 0 5px #333333 !important;
+}
+
+.george_modal .input-group-text {
+  border-radius: 0;
+}
+
+.george_modal a.registerlink {
+  color: #333333;
+  text-decoration: none;
+}
+
+.george_modal a.registerlink:active, .george_modal a.registerlink:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
 .no-margin {
   margin-left: 0!important;
   margin-right: 0!important;
@@ -22,6 +66,17 @@
 
 .btn-outline-george:active, .btn-outline-george:hover {
   background-color: #333333;
+  color: #fff;
+}
+
+.btn-cancel {
+  color: #d41717;
+  border-radius: 0;
+  border-color: #d41717;
+}
+
+.btn-cancel:active, .btn-cancel:hover {
+  background-color: #d41717;
   color: #fff;
 }
 
@@ -63,14 +118,70 @@
   padding: 10px;
 }
 
-.allergies {
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-  
+ .george_link {
+  color: #333333;
+  text-decoration: none;
 }
 
+ .george_link:active,  .george_link:hover {
+  color: #000;
+  text-decoration: underline;
+}
 
+.msg {
+  position: relative;
+}
+
+.message {
+  float: right;
+  z-index: 50;
+  position: absolute;
+  padding: 2vh;
+  margin-top: -2vh;
+  margin-left: 60%;
+}
+
+.error-message {
+  background-color: rgb(255, 50, 50);
+  box-shadow: inset 5px 0 0 0 lightcoral;
+}
+
+.error-message span.error-btn {
+  padding-left: .5em;
+  padding-right: .5em;
+  padding-bottom: .2em;
+  border: 1px #333333 solid;
+}
+.error-message span.error-btn:hover, span.error-btn:active {
+  background-color: #333333;
+  color: rgb(255, 50, 50);
+}
+
+.error-button {
+  border: none;
+  background-color: rgb(255, 50, 50);
+}
+
+.success-message {
+  background-color: rgb(51, 197, 14);
+  box-shadow: inset 5px 0 0 0 rgb(137, 226, 109);
+}
+
+.success-message span.success-btn {
+  padding-left: .5em;
+  padding-right: .5em;
+  padding-bottom: .2em;
+  border: 1px #333333 solid;
+}
+.success-message span.success-btn:hover, span.success-btn:active {
+  background-color: #333333;
+  color: rgb(51, 197, 14);
+}
+
+.success-button {
+  border: none;
+  background-color: rgb(51, 197, 14);
+}
 
 /* Animations test Brian */
 
@@ -94,4 +205,11 @@
   -o-animation: fadeIn 5s;
   -ms-animation: fadeIn 5s;
   animation: dropdown 250ms ease-in-out;
+}
+
+.allergies {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+
 }
