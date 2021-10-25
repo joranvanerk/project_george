@@ -14,7 +14,7 @@
           <div class="form-check">
             <input type="checkbox" class="form-check-input formstyle" id="formCheck">
             <label class="form-check-label formstyle formtext" for="formCheck">Sign me up!</label>
-            <button type="submit" class="btn btn-outline-george">Submit</button>
+            <button type="submit" class="btn btn-outline-george">Send</button>
           </div>
         </div>
       </form>
