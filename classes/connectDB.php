@@ -3,8 +3,9 @@
   define("USERNAME", "GeorgeUser");
   define("PASSWORD", "George123");
   define("DBNAME", "GeorgeMboUtrecht");
+  $conn = mysqli_connect(SERVERNAME, USERNAME, PASSWORD, DBNAME);
 
-  //De andere werkt niet voor mij in local host//
+  //Dit is mijn local database |Turan Suslu//////
   //   define("SERVERNAME", "localhost");
   // define("USERNAME", "GeorgeUser");
   // define("PASSWORD", "George123");
