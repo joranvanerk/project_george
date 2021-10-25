@@ -25,6 +25,11 @@
                     <label for="InputEmail">Vul hier uw e-mailadres in:</label>
                     <input name="email" type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" required autofocus>
                 </div>
+                <!-- <div class="form-group">
+                    <label for="InputEmail">Vul hier uw e-mailadres in:</label>
+                    <input name="email" type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" required autofocus>
+                </div> -->
+                <button type="submit" class="btn btn-lg btn-outline-secondary">Login</button>
         </div>
         </div>
     </div>
