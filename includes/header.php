@@ -22,6 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <!-- container with content added -->
 <div class="container">
+  <div style="background-color:#000000; height:1px; width:100%;"></div>
+    <div class="text-center" style="margin-bottom: -10px;"><p class="george_menu">Read about <u>Covid-19 virus</u> on our <a href="covid19"><u>information</u></a> page, to get to know about our current rules. 🧍↔️🧍</p></div>
   <!-- simple horizontal line -->
   <div style="background-color:#000000; height:1px; width:100%;"></div><br>
     <!-- start of the navbar in the header -->
