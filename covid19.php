@@ -25,8 +25,10 @@ $active_page_filename = basename(__FILE__);
     </div>
     <div class="col-md-4 col-sm-12">
       <br>
-      <h3 class="george_title bookeventani" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">Let us know</h3>
-
+      <h3 class="george_title bookeventani" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">The rules</h3>
+        <h3 class="george_menu bookeventani" style="font-weight: 400; text-transform: none; margin-left: 0;">➡️ Keep your distance</h3>
+        <h3 class="george_menu bookeventani" style="font-weight: 400; text-transform: none; margin-left: 0;">➡️ Sanitize your hands</h3>
+        <h3 class="george_menu bookeventani" style="font-weight: 400; text-transform: none; margin-left: 0;">➡️ Enjoy our amazing food</h3>
     </div>
   </div>
 </div>
