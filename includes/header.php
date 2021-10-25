@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   } elseif (isset($_POST["login"])) {
     //Include required PHP scripts for login process
     include_once("./login-script.php");
-    
+
   } else {
     // $_POST value is not register or login
     include_once("./classes/sendMessage.php");
@@ -38,13 +38,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="vl"></div>
         <!-- navigation element for redirection to page -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle george_menu" href="aboutus" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle george_menu <?php if($active_page_filename == 'aboutus.php'){ echo 'george_menu_active';  }?>" href="aboutus" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             About us
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu" style="border-radius: 0px; border: 0;" aria-labelledby="navbarDropdown">
             <a class="nav-link george_menu <?php if($active_page_filename == 'aboutus.php'){ echo 'george_menu_active';  }?>" href="aboutus">About us</a>
             <a class="nav-link george_menu <?php if($active_page_filename == 'contact.php'){ echo 'george_menu_active';  }?>" href="contact">Contact</a>
             <a class="nav-link george_menu <?php if($active_page_filename == 'menu.php'){ echo 'george_menu_active';  }?>" href="menu">Menu</a>
+            <a class="nav-link george_menu <?php if($active_page_filename == 'vacatures.php'){ echo 'george_menu_active';  }?>" href="vacatures">Vacatures</a>
           </div>
         </li>
         <!-- simple vertical line -->
@@ -63,35 +64,35 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="vl"></div>
         <!-- navigation element for redirection to page -->
 
-        <?php 
+        <?php
         if (isset($_SESSION["login"])) {
           if ($_SESSION["login"] === true) {
             echo '<a class="nav-link george_menu" href="mygeorge">My George</a>' ;
             echo '<div class="vl"></div>';
             echo '<a class="nav-link george_menu" href="logout">Log Out</a>';
           } else {
-            echo '<a type="button" class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#register">Register</a>';
-            echo '<div class="vl"></div>';
-            echo '<a class="nav-link george_menu" href="login">Login</a>';
+            echo '<li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle george_menu" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        My George
+                      </a>
+                      <div class="dropdown-menu" style="border-radius: 0px; border: 0;" aria-labelledby="navbarDropdown">
+                        <a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#register">Register</a>
+                        <a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#login">Login</a>
+                      </div>
+                    </li>';
           }
         } else {
-            echo '<a type="button" class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#register">Register</a>';
-            echo '<div class="vl"></div>';
-            echo '<a class="nav-link george_menu" href="login">Login</a>';
+          echo '<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle george_menu" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      My George
+                    </a>
+                    <div class="dropdown-menu" style="border-radius: 0px; border: 0;" aria-labelledby="navbarDropdown">
+                      <a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#register">Register</a>
+                      <a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#login">Login</a>
+                    </div>
+                  </li>';
         }?>
-
-        <a class="nav-link george_menu <?php if($active_page_filename == 'menu.php'){ echo 'george_menu_active';  }?>" href="menu">Menu</a>
         <div class="vl"></div>
-        <!-- navigation element for redirection to page -->
-        <a class="nav-link george_menu <?php if($active_page_filename == 'vacatures.php'){ echo 'george_menu_active';  }?>" href="vacatures">Vacatures</a>
-        <!-- simple vertical line -->
-        <div class="vl"></div>
-        <!-- navigation element for redirection to page -->
-        <a class="nav-link george_menu <?php if($active_page_filename == 'reservation.php'){ echo 'george_menu_active';  }?>" href="reservation">Reservation</a>
-        <!-- simple vertical line -->
-        <div class="vl"></div>
-        <!-- navigation element for redirection to page -->
-        <a class="nav-link george_menu <?php if($active_page_filename == 'bookevent.php'){ echo 'george_menu_active';  }?>" href="bookevent">Book an event</a>
 
       </div>
     </div>
