@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </a>
                     <div class="dropdown-menu" style="border-radius: 0px; border: 0;" aria-labelledby="navbarDropdown">
                       <a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#register">Register</a>
-                      <a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#login">Login</a>
+                      <a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#login" href="login" >Login</a>
                     </div>
                   </li>';
         }?>

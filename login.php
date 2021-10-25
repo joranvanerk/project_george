@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Contact</title>
+    <title>Login</title>
 
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
   </head>
