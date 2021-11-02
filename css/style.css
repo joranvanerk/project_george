@@ -9,6 +9,10 @@
   top: 0;
 }
 
+.text-upper {
+  text-transform: uppercase;
+}
+
 .dropdown:hover .dropdown-menu {
   display: block;
   margin-top: 0;
@@ -211,6 +215,29 @@ ul.student-nav {
   list-style-type: none;
 }
 
+.student-nav, .student-info, .student-options 
+h1,
+h2,
+h3,
+p
+{
+  font-family: george_menu;
+  color: #333333 !important;
+}
+
+.student-info .col-12>h2, .student-options h1 {
+  text-align: center;
+}
+
+.student-options a {
+  display: block;
+  margin-top: 1vh;
+}
+
+.row-info .mobielhide .img-fluid {
+  height: 30vh;
+  width: 30vh;
+}
 
 
 /* Animations test Brian */
