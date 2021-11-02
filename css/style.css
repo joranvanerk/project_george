@@ -183,6 +183,33 @@
   background-color: rgb(51, 197, 14);
 }
 
+/* Student profile CSS - Steven */
+ul.student-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.student-nav li{
+  float: left;
+}
+
+.student-nav li a{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.student-nav li a:hover{
+  background-color: #111;
+}
+
+
+
 /* Animations test Brian */
 
 @keyframes dropdown {
