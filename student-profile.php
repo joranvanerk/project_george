@@ -19,6 +19,7 @@ include("./includes/header.php"); ?>
 </div>
 
 <?php 
+//Include page data based on second navbar
 if(isset($_GET["page"])) {
   $page = $_GET["page"];
   switch($page) {
