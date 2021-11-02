@@ -8,6 +8,7 @@ $active_page_filename = basename(__FILE__);
 // Include header
 include("./includes/header.php"); ?>
 
+<!-- Student navigation bar -->
 <div class="container">
   <ul class="student-nav">
     <li><a href="student-profile?page=myprofile">My Profile</a></li>
