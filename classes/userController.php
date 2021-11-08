@@ -230,4 +230,49 @@ class userRegister extends userData {
     return $this->result;
   }
 }
+
+class studentEditDetails extends userRegister {
+  protected $password;
+
+  public function __construct($email, $name, $number, $region, $address, $zip, $password) 
+  {
+    $this->email = $email;
+    $this->name = $name;
+    $this->number = $number;
+    $this->region = $region;
+    $this->address = $address;
+    $this->zip = $zip;
+    $this->password = $password;
+
+    $this->edit_details();
+  }
+
+  public function edit_details() 
+  {
+    $q = selectQuery("password", "email", $email);
+    //Email exists in database
+    if ($this->result === 1) {
+      $data = mysqli_fetch_assoc($q);
+      $this->salt = $data["salt"];
+      $this->hashed_password = $data["passwd"];
+      //Password matches with database password
+      if (password_verify($this->password.$this->salt, $this->hashed_password)) {
+        //change query
+      }
+    }
+  }
+
+  public function insert_editdetails()
+  {
+    $sql = "INSERT INTO";
+  }
+}
+
+class studentEditPassword extends userRegister {
+
+}
+
+class studentEditPackage extends userRegister {
+
+}
 ?>
