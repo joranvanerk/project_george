@@ -1,7 +1,7 @@
 <?php
-    unset($_SESSION["id"]);
-
+    session_start();
     session_destroy();
 
-    header("Location: ./login.php");
+    // var_dump($_SESSION);
+    header("Location: ./index.php");
 ?>
