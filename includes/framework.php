@@ -1,3 +1,8 @@
+<?php
+  include("./classes/connectDB.php");
+  include("./classes/functions.php");
+  session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
