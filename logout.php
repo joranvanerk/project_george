@@ -1,1 +1,7 @@
-<h1 class="george_title">You have logged out!</h1>
+<?php
+    unset($_SESSION["id"]);
+
+    session_destroy();
+
+    header("Location: ./login.php");
+?>

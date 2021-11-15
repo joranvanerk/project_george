@@ -67,8 +67,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <!-- navigation element for redirection to page -->
 
         <?php
-        if (isset($_SESSION["login"])) {
-          if ($_SESSION["login"] === true) {
+        if (isset($_SESSION["id"])) {
+          if ($_SESSION["id"] === true) {
             echo '<a class="nav-link george_menu" href="mygeorge">My George</a>' ;
             echo '<div class="vl"></div>';
             echo '<a class="nav-link george_menu" href="logout">Log Out</a>';

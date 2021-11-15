@@ -9,17 +9,15 @@
     $sql = "SELECT * from `password` WHERE `email` = '$email'";
     $result = mysqli_query($conn, $sql);
 
-    if (!mysqli_num_rows($result) == 1){
+    if (mysqli_num_rows($result) == 1){
+        $record = mysqli_fetch_assoc($result);
+        echo("Successful login");
+        session_start();
+        $_SESSION["email"] = $record["email"];
+        header("Location:./customer.php");
+    } else {
         $message = "Username and/or Password incorrect.\\nTry again.";
         echo "<script type='text/javascript'>alert('$message');</script>";
         header("Refresh: 0; ./login.php");
-        
-        
-    } else {
-        $record = mysqli_fetch_assoc($result);
-        echo("Successful login");
-        
-        header("Location:./index.php");
-        // sleep(1);
     }
 ?>
