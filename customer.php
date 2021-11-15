@@ -11,7 +11,7 @@ if ($datan == "Monday"){
 else if ($datan == "Tuesday"){
   $daytent = "Dinsdag";
 } 
-else if ($datan == "Wensday"){
+else if ($datan == "Wednesday"){
   $daytent = "Woensdag";
 }
 else if ($datan == "Thursday"){
@@ -35,7 +35,7 @@ else if ($datan == "Sunday"){
         <div class="col-sm-5 col-md-6 col-lg-6">
           <h1>Uw bent successvol ingelogd</h1>
           <h2>Welkom <?php echo($_SESSION["voornaam"])?> <?php echo($_SESSION["achternaam"])?></h2>
-          <h2>Vandaag is het <?php echo $daytent; ?> </h2>
+          <h2>Geniet van uw <?php echo $daytent; ?> </h2>
 
         </div>
 
