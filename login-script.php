@@ -4,14 +4,16 @@
     include("./classes/functions.php");
 
     $email = sanitize($_POST["email"]);
+    // $passwd = sanitize($_POST["password"]);
 
-    $sql = "SELECT * from `klant` WHERE `email` = '$email'";
+    $sql = "SELECT * from `password` WHERE `email` = '$email'";
     $result = mysqli_query($conn, $sql);
 
     if (!mysqli_num_rows($result) == 1){
         $message = "Username and/or Password incorrect.\\nTry again.";
         echo "<script type='text/javascript'>alert('$message');</script>";
         header("Refresh: 0; ./login.php");
+        
         
     } else {
         $record = mysqli_fetch_assoc($result);
