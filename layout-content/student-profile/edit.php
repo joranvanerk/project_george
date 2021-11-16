@@ -1,4 +1,11 @@
 <?php
+include("./classes/connectDB.php");
+include("./classes/functions.php");
+include("./classes/userController.php");
+$_SESSION["email"] = "327068@student.mboutrecht.nl";
+
+$s = new userData;
+$s->selectQuery("student","email", $_SESSION["email"]);
 //Include student-edit.php if user submitted an edit form
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   if (isset($_POST["personaldetails"]) || isset($_POST["changepassword"]) || isset($_POST["changepackage"])) {
@@ -10,14 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $msg->text = "User did not send a POST value.";
   }
 }
-
-include("./classes/connectDB.php");
-include("./classes/userController.php");
-$_SESSION["email"] = "327068@student.mboutrecht.nl";
-
-$s = new userData;
-$s->selectQuery("student","email", $_SESSION["email"]);
-
 ?>
 
 <div class="container">

@@ -102,8 +102,9 @@ if (isset($_POST["register"])) {
   //Send query to check e-mail in our database
   include_once("./classes/userController.php");
   $finreg = new userRegister;
-  $data = $finreg->selectQuery("password", "email", $email);
-  //var_dump($data);exit();
+  $finreg->selectQuery("password", "email", $email);
+  //var_dump($email);exit();
+  //var_dump($finreg->query, $finreg->queryData, $finreg->result);exit();
 
   //If mail exists once in the password database
   if ($finreg->result === 1) {
@@ -128,17 +129,8 @@ if (isset($_POST["register"])) {
               $finreg->lessonpackage = $lessonpackage;
             }
           }
-
-          $record = mysqli_fetch_assoc($data);
-
-          //Create a temporary password
-          $temp_pw = "temp";
-          $finreg->salt = $record["salt"];
-          $finreg->hashed_password = $record["passwd"];
-          //var_dump($finreg->salt, $finreg->hashed_password);exit();
-
           //Check if password matches with password saved in database.
-          if (password_verify($temp_pw.$finreg->salt, $finreg->hashed_password)) {
+          if (password_verify("temp".$finreg->queryData["salt"], $finreg->queryData["passwd"])) {
             $finreg->updatePassword();
 
             if ($finreg->result === true) {

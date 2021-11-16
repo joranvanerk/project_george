@@ -16,6 +16,23 @@ class userData {
   public $query;
   public $queryData;
 
+  //For register
+  public $newsletter;
+  public $generalterms;
+  public $salt;
+  public $temp_password;
+  public $hashed_password;
+
+  public $number;
+  public $pw;
+  public $confirmpw;
+  public $address;
+  public $zip;
+  public $region;
+  public $teacher;
+  public $lessonpackage;
+  public $abbrev;
+
   // Select query.
   public function selectQuery($table, $column, $userDetail) {
     //Get DBconnection
@@ -59,22 +76,6 @@ class userData {
 
 // Class with functions specific for the registering process
 class userRegister extends userData {
-  //Declare extra variables required specific for registering an user.
-  public $newsletter;
-  public $generalterms;
-  public $salt;
-  public $temp_password;
-  public $hashed_password;
-
-  public $number;
-  public $pw;
-  public $confirmpw;
-  public $address;
-  public $zip;
-  public $region;
-  public $teacher;
-  public $lessonpackage;
-  public $abbrev;
 
   //Create a random 10 letter string
   public function salt($length = 10) {
@@ -234,46 +235,45 @@ class userRegister extends userData {
   }
 }
 
-class studentEditDetails extends userRegister {
-  protected $password;
+class studentEditDetails extends userData {
+  public $password;
   public $expname;
+  public $id;
 
   public function __construct($email, $name, $number, $region, $address, $zip, $password) 
   {
+    $expname = explode(" ", $name);
+    $studentnr = explode("@", $email);
+    $this->id = intval($studentnr[0]);
+    $this->name = $expname[0];
+    $this->lastname = $expname[1];
     $this->email = $email;
     $this->number = $number;
     $this->region = $region;
     $this->address = $address;
     $this->zip = $zip;
     $this->password = $password;
-    $expname = explode(" ", $name);
-    $this->name = $expname[0];
-    $this->lastname = $expname[1];
-    
-
     $this->edit_details();
   }
 
   public function edit_details() 
   {
-    $q = selectQuery("password", "email", $email);
+    $this->selectQuery("password", "email", $this->email);
     //Email exists in database
     if ($this->result === 1) {
-      $data = mysqli_fetch_assoc($q);
-      $this->salt = $data["salt"];
-      $this->hashed_password = $data["passwd"];
       //Password matches with database password
-      if (password_verify($this->password.$this->salt, $this->hashed_password)) {
+      if (password_verify($this->password.$this->queryData["salt"], $this->queryData["passwd"])) {
         //change query
-        $sql = "UPDATE `student`
-                SET   `voornaam` = $this->name,
-                      `achternaam` = $this->lastname,
-                      `mobiel` = $this->number,
-                      `email` = $this->email,
-                      `woonplaats` = $this->region,
-                      `straat` = $this->address,
-                      `postcode` = $this->zip
-                WHERE `email` = $email";
+        global $conn;
+
+        $sql = "UPDATE `student` 
+              SET `voornaam` = '$this->name', 
+                  `achternaam` = '$this->lastname', 
+                  `mobiel` = '$this->number', 
+                  `woonplaats` = '$this->region', 
+                  `straat` = '$this->address', 
+                  `postcode` = '$this->zip' 
+              WHERE `student`.`studentnr` = $this->id;";
 
         $result = mysqli_query($conn, $sql);
       }
