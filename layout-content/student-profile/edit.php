@@ -10,6 +10,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $msg->text = "User did not send a POST value.";
   }
 }
+
+include("./classes/connectDB.php");
+include("./classes/userController.php");
+$_SESSION["email"] = "327068@student.mboutrecht.nl";
+
+$s = new userData;
+$s->selectQuery("student","email", $_SESSION["email"]);
+
 ?>
 
 <div class="container">
@@ -36,27 +44,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <div class="modal-body">
         <form action="" method="POST">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" name="name" required>
+            <input type="text" class="form-control" id="floatingInput" name="name" value="<?php echo $s->queryData["voornaam"]." ".$s->queryData["achternaam"]; ?>" required>
             <label for="floatingInput">Naam</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" name="email" required>
+            <input type="email" class="form-control" id="floatingInput" name="email" value="<?php echo $s->queryData["email"]; ?>" required>
             <label for="floatingInput">E-mail Address</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="number" class="form-control" id="floatingInput" name="phone" required>
+            <input type="number" class="form-control" id="floatingInput" name="phone" value="<?php echo $s->queryData["mobiel"]; ?>" required>
             <label for="floatingInput">Phonenumber</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" name="region" required>
+            <input type="text" class="form-control" id="floatingInput" name="region" value="<?php echo $s->queryData["woonplaats"]; ?>" required>
             <label for="floatingInput">Region</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" name="street" required>
+            <input type="text" class="form-control" id="floatingInput" name="street" value="<?php echo $s->queryData["straat"]; ?>" required>
             <label for="floatingInput">Streetname + number</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" name="zip" required>
+            <input type="text" class="form-control" id="floatingInput" name="zip" value="<?php echo $s->queryData["postcode"]; ?>" required>
             <label for="floatingInput">ZIP Code</label>
           </div>
           <div class="form-floating mb-3">

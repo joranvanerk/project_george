@@ -236,16 +236,20 @@ class userRegister extends userData {
 
 class studentEditDetails extends userRegister {
   protected $password;
+  public $expname;
 
   public function __construct($email, $name, $number, $region, $address, $zip, $password) 
   {
     $this->email = $email;
-    $this->name = $name;
     $this->number = $number;
     $this->region = $region;
     $this->address = $address;
     $this->zip = $zip;
     $this->password = $password;
+    $expname = explode(" ", $name);
+    $this->name = $expname[0];
+    $this->lastname = $expname[1];
+    
 
     $this->edit_details();
   }
@@ -261,7 +265,17 @@ class studentEditDetails extends userRegister {
       //Password matches with database password
       if (password_verify($this->password.$this->salt, $this->hashed_password)) {
         //change query
-        $sql = "ALTER ";
+        $sql = "UPDATE `student`
+                SET   `voornaam` = $this->name,
+                      `achternaam` = $this->lastname,
+                      `mobiel` = $this->number,
+                      `email` = $this->email,
+                      `woonplaats` = $this->region,
+                      `straat` = $this->address,
+                      `postcode` = $this->zip
+                WHERE `email` = $email";
+
+        $result = mysqli_query($conn, $sql);
       }
     }
   }
