@@ -1,5 +1,4 @@
 <?php
-include("./classes/connectDB.php");
 include("./classes/functions.php");
 include("./classes/userController.php");
 $_SESSION["email"] = "327068@student.mboutrecht.nl";
