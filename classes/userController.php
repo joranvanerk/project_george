@@ -13,6 +13,7 @@ class userData {
   public $userDetail;
   public $message;
   public $result;
+  public $query;
   public $queryData;
 
   // Select query.
@@ -22,11 +23,11 @@ class userData {
 
     //Create query and put result into $result
     $sql = "SELECT * FROM `".$table."` WHERE `".$column."` = '".$userDetail."'";
-    $query = mysqli_query($conn, $sql);
-    $this->result = mysqli_num_rows($query);
-    $this->queryData = mysqli_fetch_assoc($query);
+    $this->query = mysqli_query($conn, $sql);
+    $this->result = mysqli_num_rows($this->query);
+    $this->queryData = mysqli_fetch_assoc($this->query);
 
-    return $query;
+    return $this->query;
   }
 
   public function selectRole() {
