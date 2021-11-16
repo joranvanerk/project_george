@@ -1,3 +1,15 @@
+<?php
+include("./classes/userController.php");
+global $conn;
+
+$sql = "SELECT * FROM `student` WHERE `email` = '327068@student.mboutrecht.nl';";
+$query = mysqli_query($conn, $sql);
+$data = mysqli_fetch_assoc($query);
+var_dump($sql, $query, $data);
+var_dump(mysqli_num_rows($query));
+
+?>
+
 <div class="container student-info">
   <div class="mb-2" style="background-color:#000000; height:1px; width:100%;"></div>
   <div class="row">

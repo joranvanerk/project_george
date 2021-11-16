@@ -13,6 +13,7 @@ class userData {
   public $userDetail;
   public $message;
   public $result;
+  public $queryData;
 
   // Select query.
   public function selectQuery($table, $column, $userDetail) {
@@ -23,6 +24,7 @@ class userData {
     $sql = "SELECT * FROM `".$table."` WHERE `".$column."` = '".$userDetail."'";
     $query = mysqli_query($conn, $sql);
     $this->result = mysqli_num_rows($query);
+    $this->queryData = mysqli_fetch_assoc($query);
 
     return $query;
   }
@@ -258,14 +260,11 @@ class studentEditDetails extends userRegister {
       //Password matches with database password
       if (password_verify($this->password.$this->salt, $this->hashed_password)) {
         //change query
+        $sql = "ALTER ";
       }
     }
   }
 
-  public function insert_editdetails()
-  {
-    $sql = "INSERT INTO";
-  }
 }
 
 class studentEditPassword extends userRegister {

@@ -1,6 +1,8 @@
 <?php 
 // Include framework
 include("./includes/framework.php");
+$_SESSION["email"] = "327068@student.mboutrecht.nl";
+$_SESSION["role"] = "student";
 
 // basefile management system for header
 $active_page_filename = basename(__FILE__);

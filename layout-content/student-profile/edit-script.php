@@ -1,7 +1,6 @@
 <?php
 //Security has to be added so only student has access to these pages
 //Session has to give me the logged in user
-$email = "327068@student.mboutrecht.nl";
 
 //Include required classes for edit process
 include_once("./classes/connectDB.php");
