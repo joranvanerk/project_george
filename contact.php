@@ -30,6 +30,10 @@
             <div class="george_title">Waar zijn wij te vinden?</div>
             <br>Wij zijn gevestigd op Columbuslaan 540
             <br>Maandag tot met vrijdag 18:00 tot 21:00 uur
+            <br><br>
+            <div class="george_title">Bereikbaarheid</div>
+            <br>Wij liggen op loopafstand (ongeveer 10 minuten) afstand van de tramhalte (lijn 22)
+            <br>Ook hebben wij gratis parkeergelegenheid achter het pand.
           </h4>
         </div>
         <!-- <div class= "col-sm-4 col-md-1 col-lg-2 vl">
