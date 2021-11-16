@@ -1,3 +1,13 @@
+<?php
+include("./classes/connectDB.php");
+include("./classes/userController.php");
+$_SESSION["email"] = "327068@student.mboutrecht.nl";
+
+$stud = new userData;
+$stud->selectQuery("student","email", $_SESSION["email"]);
+
+?>
+
 <div class="container student-info">
   <div class="mb-2" style="background-color:#000000; height:1px; width:100%;"></div>
   <div class="row">
@@ -21,14 +31,14 @@
       </div>
       <div class="col-sm-6 col-md-3">
         <ul class="student-info">
-        <li>327068</li>
-        <li>Steven Li</li>
-        <li>327068@student.mboutrecht.nl</li>
-        <li>06123568</li>
-        <li>Teststraat 73</li>
-        <li>Student</li>
-        <li>HSOK</li>
-        <li>Chef</li>
+        <li><?php echo $stud->queryData["studentnr"]; ?></li>
+        <li><?php echo $stud->queryData["voornaam"]. " " .$stud->queryData["achternaam"]; ?></li>
+        <li><?php echo $stud->queryData["email"]; ?></li>
+        <li><?php echo $stud->queryData["mobiel"]; ?></li>
+        <li><?php echo $stud->queryData["straat"]; ?></li>
+        <li><?php echo $stud->queryData["rol"]; ?></li>
+        <li><?php echo $stud->queryData["docent"]; ?></li>
+        <li><?php echo $stud->queryData["lespakket"]; ?></li>
       </ul>
       </div>
     <div class="col-6 vl mt-3 mb-3 mobielhide">
