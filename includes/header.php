@@ -67,8 +67,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <!-- navigation element for redirection to page -->
 
         <?php
-        if (isset($_SESSION["login"])) {
-          if ($_SESSION["login"] === true) {
+        if (isset($_SESSION["id"])) {
+          if ($_SESSION["id"] === true) {
             echo '<a class="nav-link george_menu" href="mygeorge">My George</a>' ;
             echo '<div class="vl"></div>';
             echo '<a class="nav-link george_menu" href="logout">Log Out</a>';
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                       </a>
                       <div class="dropdown-menu" style="border-radius: 0px; border: 0;" aria-labelledby="navbarDropdown">
                         <a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#register">Register</a>
-                        <a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#login">Login</a>
+                        <a class="nav-link george_menu"  href="login" >Login</a>
                       </div>
                     </li>';
           }
