@@ -16,11 +16,14 @@
         $query = mysqli_query($conn, $sql);
         $data = mysqli_fetch_assoc($query);
 
+        //declare new variables to show user login
         session_start();
         $_SESSION["email"] = $record["email"];
-        $_SESSION["id"] = true;
+        $_SESSION["logged_in"] = true;
         $_SESSION["voornaam"] = $data["voornaam"];
         $_SESSION["achternaam"] = $data["achternaam"];
+        setcookie("email", $record["email"], time()+3600);  /* expire in 1 hour */
+        setcookie("logged_in", true, time()+3600);  /* expire in 1 hour */
         // $_SESSION["rol"] = $record["rol"];
         header("Location:./customer.php");
     } else {
