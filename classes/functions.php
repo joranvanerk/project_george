@@ -1,13 +1,15 @@
 <?php
-  function sanitize($raw_data) {
+  function sanitize($raw_data) 
+    {
     global $conn;
     $data = htmlspecialchars($raw_data);
     $data = mysqli_real_escape_string($conn, $data);
     $data = trim($data);
     return $data;
-  }
+    }
 
-  function mk_password_hash_from_microtime() {
+  function mk_password_hash_from_microtime() 
+    {
     $mut = microtime();
 
     $time = explode(" ", $mut);
@@ -26,3 +28,4 @@
                  "date"          => $date_formated,
                  "time"          => $time_formated);
   }
+?>
