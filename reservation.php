@@ -1,6 +1,5 @@
 <!-- include framework css and bootstrap basic -->
 <?php include_once("./includes/framework.php");
-include("./classes/functions.php");
 
 $active_page_filename = basename(__FILE__);
 
