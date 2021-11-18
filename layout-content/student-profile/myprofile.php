@@ -8,7 +8,6 @@ if (isset($_SESSION)) {
   $stud->selectQuery("student","email", $_COOKIE["email"]);
 }
 
-
 ?>
 
 <div class="container student-info">

@@ -1,8 +1,11 @@
 <?php 
 // Include framework
 include("./includes/framework.php");
-$_SESSION["email"] = "327068@student.mboutrecht.nl";
-$_SESSION["role"] = "student";
+
+//Checks for log-in and acts as a failsave
+//Accessible roles: student, klant, eigenaar, docent, begeleider
+include("./classes/logged_in.php");
+$is_logged_in = new is_logged_in("student");
 
 // basefile management system for header
 $active_page_filename = basename(__FILE__);
