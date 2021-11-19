@@ -44,38 +44,38 @@
     public function check_session() 
     {
       //Case if $_SESSION logged in variable is active
-      if (isset($_SESSION)) {
+      if (isset($_SESSION["logged_in"]) && isset($_SESSION["userrole"])) {
         if ($_SESSION["logged_in"] === true) {
           if (in_array($_SESSION["userrole"], $this->valid_roles)) {
-            echo "<br>it's in! Session ftw";
+            echo "<br>it's in! Session variable";
           } else {
             echo "<br>You do not have the correct userrole to visit this page.";
-            header("Refresh:5; url=index.php");
+            header("Refresh:3; url=index");
           }
         } else {
           echo "<br>You're not logged in.";
-          header("Refresh:5; url=login.php");
+          header("Refresh:3; url=login");
         }
       } 
       //Case if $_COOKIE logged in variable is active
-      else if (isset($_COOKIE)) {
+      else if (isset($_COOKIE["logged_in"]) && isset($_COOKIE["userrole"])) {
         if ($_COOKIE["logged_in"] === '1') {
           if (in_array($_COOKIE["userrole"], $this->valid_roles)) {
-            echo "<br>it's in! Cookies ftw";
+            echo "<br>it's in! Cookies variable";
           } else {
             echo "<br>You do not have the correct userrole to visit this page.";
-            header("Refresh:5; url=index.php");
+            header("Refresh:3; url=index");
           }
         } else {
           echo "<br>You're not logged in.";
-          header("Refresh:5; url=login.php");
+          header("Refresh:3; url=login");
         }
       } 
       //Case if neither $_COOKIE nor $_SESSION is set.
       else 
       { 
         echo "You're not logged in.";
-        header("Refresh:5; url=index.php");
+        header("Refresh:3; url=index");
       }
     }
   }

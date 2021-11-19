@@ -1,11 +1,11 @@
 <?php 
-// Include framework
-include("./includes/framework.php");
-
 //Checks for log-in and acts as a failsave
 //Accessible roles: student, klant, eigenaar, docent, begeleider
 include("./classes/logged_in.php");
 $is_logged_in = new is_logged_in();
+
+// Include framework
+include("./includes/framework.php");
 
 // basefile management system for header
 $active_page_filename = basename(__FILE__);
