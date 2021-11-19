@@ -22,8 +22,8 @@
         $_SESSION["email"] = $record["email"];
         $_SESSION["logged_in"] = true;
         $_SESSION["userrole"] = $userrole;
-        $_SESSION["voornaam"] = $data["voornaam"];
-        $_SESSION["achternaam"] = $data["achternaam"];
+        // $_SESSION["voornaam"] = $data["voornaam"];
+        // $_SESSION["achternaam"] = $data["achternaam"];
         setcookie("email", $record["email"], time()+3600);  /* expire in 1 hour */
         setcookie("logged_in", true, time()+3600);  /* expire in 1 hour */
         setcookie("userrole", $userrole, time()+3600);  /* expire in 1 hour */
