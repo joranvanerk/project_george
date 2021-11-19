@@ -15,25 +15,14 @@
 
     public function __construct($required_userrole) 
     {
-      //Declare required userrole in $role and available roles
+      //Declare required userrole
       $this->required_userrole = $required_userrole;
+      //Retrieve userroles from database
       $this->get_roles();
-      //Check if session or cookie variables are set
-      if ($this->check_session()) {
-        echo "session valid";
-        $this->check_roles();
-      } else {
-        echo "session invalid";
-      }
-
-      if (in_array($this->required_userrole, $this->valid_roles)) {
-        echo "<br>it's in!";
-      } else {
-        echo "<br>it's not in :(";
-      }
-
-      //var_dump($this->required_userrole);
-      //var_dump($this->valid_roles[0]);
+      //Check if session or cookie varable is set.
+      //If set, check if ["userrole"] variable is available in the array.
+      //If no variables are set, user will be denied from the page and sent towards homepage.
+      $this->check_session();
     }
 
     //Retrieves all roles from the database and adds it in $this->valid_roles
@@ -58,28 +47,29 @@
       //Case if $_SESSION logged in variable is active
       if (isset($_SESSION)) {
         if ($_SESSION["logged_in"] === true) {
-          return true;
+          if (in_array($_SESSION["userrole"], $this->valid_roles)) {
+            echo "<br>it's in! Session ftw";
+          } else {
+            echo "<br>it's not in :( Session ftl";
+          }
         }
       } 
       //Case if $_COOKIE logged in variable is active
       else if (isset($_COOKIE)) {
         if ($_COOKIE["logged_in"] === '1') {
-          return true;
+          if (in_array($_COOKIE["userrole"], $this->valid_roles)) {
+            echo "<br>it's in! Cookies ftw";
+          } else {
+            echo "<br>it's not in :( Cookies ftl";
+          }
         }
       } 
       //Case if neither $_COOKIE nor $_SESSION is set.
-      else { return false; }
+      else 
+      { 
+        echo "Sorry, you're not logged in!";
+        header("Refresh:5; url=index.php");
+      }
     }
-
-    public function check_roles()
-    {
-
-    }
-
-    public function has_access($userrole) 
-    {
-      
-    }
-
   }
 ?>
