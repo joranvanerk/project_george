@@ -50,11 +50,11 @@
             echo "<br>it's in! Session variable";
           } else {
             echo "<br>You do not have the correct userrole to visit this page.";
-            header("Refresh:3; url=index");
+            header("Location: ./index");
           }
         } else {
           echo "<br>You're not logged in.";
-          header("Refresh:3; url=login");
+          header("Location: ./login");
         }
       } 
       //Case if $_COOKIE logged in variable is active
@@ -64,18 +64,18 @@
             echo "<br>it's in! Cookies variable";
           } else {
             echo "<br>You do not have the correct userrole to visit this page.";
-            header("Refresh:3; url=index");
+            header("Location: ./index");
           }
         } else {
           echo "<br>You're not logged in.";
-          header("Refresh:3; url=login");
+          header("Location: ./login");
         }
       } 
       //Case if neither $_COOKIE nor $_SESSION is set.
       else 
       { 
         echo "You're not logged in.";
-        header("Refresh:3; url=index");
+        header("Location: ./index");
       }
     }
   }
