@@ -5,7 +5,7 @@ include("./includes/framework.php");
 //Checks for log-in and acts as a failsave
 //Accessible roles: student, klant, eigenaar, docent, begeleider
 include("./classes/logged_in.php");
-$is_logged_in = new is_logged_in("student");
+$is_logged_in = new is_logged_in();
 
 // basefile management system for header
 $active_page_filename = basename(__FILE__);

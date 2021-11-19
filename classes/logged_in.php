@@ -5,18 +5,17 @@
   //3. User gets send away if he does not have the right role
 
   //DB connection
-  include("./classes/connectDB.php");
+  if (!isset($conn)) {
+    include("./classes/connectDB.php");
+  }
   //Test information
 
   class is_logged_in 
   {
-    public $required_userrole;
     public $valid_roles = [];
 
-    public function __construct($required_userrole) 
+    public function __construct() 
     {
-      //Declare required userrole
-      $this->required_userrole = $required_userrole;
       //Retrieve userroles from database
       $this->get_roles();
       //Check if session or cookie varable is set.
@@ -50,8 +49,12 @@
           if (in_array($_SESSION["userrole"], $this->valid_roles)) {
             echo "<br>it's in! Session ftw";
           } else {
-            echo "<br>it's not in :( Session ftl";
+            echo "<br>You do not have the correct userrole to visit this page.";
+            header("Refresh:5; url=index.php");
           }
+        } else {
+          echo "<br>You're not logged in.";
+          header("Refresh:5; url=login.php");
         }
       } 
       //Case if $_COOKIE logged in variable is active
@@ -60,14 +63,18 @@
           if (in_array($_COOKIE["userrole"], $this->valid_roles)) {
             echo "<br>it's in! Cookies ftw";
           } else {
-            echo "<br>it's not in :( Cookies ftl";
+            echo "<br>You do not have the correct userrole to visit this page.";
+            header("Refresh:5; url=index.php");
           }
+        } else {
+          echo "<br>You're not logged in.";
+          header("Refresh:5; url=login.php");
         }
       } 
       //Case if neither $_COOKIE nor $_SESSION is set.
       else 
       { 
-        echo "Sorry, you're not logged in!";
+        echo "You're not logged in.";
         header("Refresh:5; url=index.php");
       }
     }
