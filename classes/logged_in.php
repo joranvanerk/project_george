@@ -47,13 +47,13 @@
       if (isset($_SESSION["logged_in"]) && isset($_SESSION["userrole"])) {
         if ($_SESSION["logged_in"] === true) {
           if (in_array($_SESSION["userrole"], $this->valid_roles)) {
-            echo "<br>it's in! Session variable";
+            //echo "<br>it's in! Session variable";
           } else {
-            echo "<br>You do not have the correct userrole to visit this page.";
+            //echo "<br>You do not have the correct userrole to visit this page.";
             header("Location: ./index");
           }
         } else {
-          echo "<br>You're not logged in.";
+          //echo "<br>You're not logged in.";
           header("Location: ./login");
         }
       } 
@@ -61,20 +61,20 @@
       else if (isset($_COOKIE["logged_in"]) && isset($_COOKIE["userrole"])) {
         if ($_COOKIE["logged_in"] === '1') {
           if (in_array($_COOKIE["userrole"], $this->valid_roles)) {
-            echo "<br>it's in! Cookies variable";
+            //echo "<br>it's in! Cookies variable";
           } else {
-            echo "<br>You do not have the correct userrole to visit this page.";
+            //echo "<br>You do not have the correct userrole to visit this page.";
             header("Location: ./index");
           }
         } else {
-          echo "<br>You're not logged in.";
+          //echo "<br>You're not logged in.";
           header("Location: ./login");
         }
       } 
       //Case if neither $_COOKIE nor $_SESSION is set.
       else 
       { 
-        echo "You're not logged in.";
+        //echo "You're not logged in.";
         header("Location: ./index");
       }
     }
