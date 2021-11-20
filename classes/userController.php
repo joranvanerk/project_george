@@ -276,6 +276,11 @@ class studentEditDetails extends userData {
               WHERE `student`.`studentnr` = $this->id;";
 
         $result = mysqli_query($conn, $sql);
+
+        if ($result) {
+          echo "Personal details have been successfully edited";
+        }
+        
       }
     }
   }

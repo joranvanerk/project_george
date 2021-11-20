@@ -13,9 +13,9 @@ $edit = new studentEditDetails(
         
         header("LOcation: ./student-profile?page=myprofile");
 } else if (isset($_POST["changepassword"])) {
-echo "pw";
+$edit = new studentEditPassword();
 } else if (isset($_POST["changepackage"])) {
-echo "packge";
+$edit = new studentEditPackage();
 } else {
   echo "Error 404";
 }
