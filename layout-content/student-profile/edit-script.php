@@ -2,7 +2,7 @@
 //Security has to be added so only student has access to these pages
 //Session has to give me the logged in user
 if (isset($_POST["personaldetails"])) {
-$edit = new studentEditDetails(
+new studentEditDetails(
         $_SESSION["email"], 
         $_POST["name"], 
         $_POST["phone"], 
@@ -13,9 +13,16 @@ $edit = new studentEditDetails(
         
         header("LOcation: ./student-profile?page=myprofile");
 } else if (isset($_POST["changepassword"])) {
-$edit = new studentEditPassword();
+new studentEditPassword(
+        $_SESSION["email"],
+        $_POST["oldpassword"],
+        $_POST["newpassword"],
+        $_POST["confirmnewpassword"]);
 } else if (isset($_POST["changepackage"])) {
-$edit = new studentEditPackage();
+new studentEditPackage(
+        $_SESSION["email"], 
+        $_POST["lessonpackage"], 
+        $_POST["teacher"]);
 } else {
   echo "Error 404";
 }

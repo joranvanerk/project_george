@@ -47,6 +47,7 @@ class userData {
     return $this->query;
   }
 
+  //switch case statement determing roles.
   public function selectRole() {
     $exp = explode("@", $this->email);
     
@@ -72,12 +73,8 @@ class userData {
 
     return $this->role;
   }
-}
 
-// Class with functions specific for the registering process
-class userRegister extends userData {
-
-  //Create a random 10 letter string
+  //Create a random 10 letter string (salt)
   public function salt($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
@@ -87,6 +84,11 @@ class userRegister extends userData {
     }
     return $randomString;
   }
+
+}
+
+// Class with functions specific for the registering process
+class userRegister extends userData {
 
   //Create a salt and password
   public function createPassword() {
@@ -235,6 +237,7 @@ class userRegister extends userData {
   }
 }
 
+// Class with functions specific for editing personal student information
 class studentEditDetails extends userData {
   public function __construct($email, $name, $number, $region, $address, $zip, $password) 
   {
@@ -277,7 +280,49 @@ class studentEditDetails extends userData {
 
 }
 
-class studentEditPassword extends userRegister {
+// Class with functions specific for changing password
+class studentEditPassword extends userData {
+  public function __construct($email, $oldpassword, $newpassword, $confirmnewpassword) 
+  {
+    $this->edit_password();
+  }
+
+  public function edit_password() 
+  {
+    $this->selectQuery("password", "email", $email);
+    //Email exists in database
+    if ($this->result === 1) {
+      //Password matches with database password
+      if (password_verify($oldpassword.$this->queryData["salt"], $this->queryData["passwd"])) {
+        //newpassword and confirm new password are identical strings
+        if (strcmp($newpassword, $confirmnewpassword)) {
+          //change password query
+          global $conn;
+
+          $salt = $this->salt();
+          $blowfish = password_hash($this->pw.$salt, PASSWORD_BCRYPT);
+
+          $sql = "UPDATE `password`
+                  SET `passwd` = '$blowfish',
+                      `salt` = '$salt',
+                      `updatedAt` = CURRENT_TIMESTAMP
+                  WHERE `email` = '$this->email'";
+
+          $result = mysqli_query($conn, $sql);
+
+          if ($result) {
+            echo "Password has been successfully edited";
+          }
+        } else {
+          echo "Passwords do not match";
+        }
+      } else {
+        echo "Password could not be verified";
+      }
+    } else {
+      echo "email does not exist in database";
+    }
+  }
 
 }
 
