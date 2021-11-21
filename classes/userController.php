@@ -241,18 +241,17 @@ class userRegister extends userData {
 class studentEditDetails extends userData {
   public function __construct($email, $name, $number, $region, $address, $zip, $password) 
   {
-    $this->email = $email;
     $expname = explode(" ", $name);
     $this->name = $expname[0];
     $this->lastname = $expname[1];
-    $studentnr = explode("@", $this->email);
+    $studentnr = explode("@", $email);
     $id = intval($studentnr[0]);
-    $this->edit_details();
+    $this->edit_details($email, $number, $region, $address, $zip, $id, $password);
   }
 
-  public function edit_details() 
+  public function edit_details($email, $number, $region, $address, $zip, $id, $password) 
   {
-    $this->selectQuery("password", "email", $this->email);
+    $this->selectQuery("password", "email", $email);
     //Email exists in database
     if ($this->result === 1) {
       //Password matches with database password
@@ -285,10 +284,10 @@ class studentEditDetails extends userData {
 class studentEditPassword extends userData {
   public function __construct($email, $oldpassword, $newpassword, $confirmnewpassword) 
   {
-    $this->edit_password();
+    $this->edit_password($email, $oldpassword, $newpassword, $confirmnewpassword);
   }
 
-  public function edit_password() 
+  public function edit_password($email, $oldpassword, $newpassword, $confirmnewpassword) 
   {
     $this->selectQuery("password", "email", $email);
     //Email exists in database
@@ -296,18 +295,19 @@ class studentEditPassword extends userData {
       //Password matches with database password
       if (password_verify($oldpassword.$this->queryData["salt"], $this->queryData["passwd"])) {
         //newpassword and confirm new password are identical strings
-        if (strcmp($newpassword, $confirmnewpassword)) {
+        if (strcmp($newpassword, $confirmnewpassword) === 0) {
+          
           //change password query
           global $conn;
 
           $salt = $this->salt();
-          $blowfish = password_hash($this->pw.$salt, PASSWORD_BCRYPT);
+          $blowfish = password_hash($newpassword.$salt, PASSWORD_BCRYPT);
 
           $sql = "UPDATE `password`
                   SET `passwd` = '$blowfish',
                       `salt` = '$salt',
                       `updatedAt` = CURRENT_TIMESTAMP
-                  WHERE `email` = '$this->email'";
+                  WHERE `email` = '$email'";
 
           $result = mysqli_query($conn, $sql);
 
@@ -327,41 +327,37 @@ class studentEditPassword extends userData {
 
 }
 
-class studentEditLesson extends userData {
-  public function __construct($email, $oldpassword, $newpassword, $confirmnewpassword) 
+//Class with functions specific for editing lessonpackage and teacher information
+class studentEditPackage extends userData {
+  public function __construct($email, $lessonpackage, $teacher, $password) 
   {
-    $this->edit_password();
+    $this->edit_package($email, $lessonpackage, $teacher, $password);
   }
 
-  public function edit_password() 
+  public function edit_package($email, $lessonpackage, $teacher, $password) 
   {
+    $studentnr = explode("@", $email);
+    $id = intval($studentnr[0]);
+
     $this->selectQuery("password", "email", $email);
     //Email exists in database
     if ($this->result === 1) {
       //Password matches with database password
-      if (password_verify($oldpassword.$this->queryData["salt"], $this->queryData["passwd"])) {
-        //newpassword and confirm new password are identical strings
-        if (strcmp($newpassword, $confirmnewpassword)) {
-          //change password query
-          global $conn;
+      if (password_verify($password.$this->queryData["salt"], $this->queryData["passwd"])) {
+        //edit lessonpackage info
+        global $conn;
 
-          $salt = $this->salt();
-          $blowfish = password_hash($this->pw.$salt, PASSWORD_BCRYPT);
+        $sql = "UPDATE `student` 
+              SET `docent` = '$teacher', 
+                  `lespakket` = '$lessonpackage' 
+              WHERE `student`.`studentnr` = $id;";
 
-          $sql = "UPDATE `password`
-                  SET `passwd` = '$blowfish',
-                      `salt` = '$salt',
-                      `updatedAt` = CURRENT_TIMESTAMP
-                  WHERE `email` = '$this->email'";
+        $result = mysqli_query($conn, $sql);
 
-          $result = mysqli_query($conn, $sql);
-
-          if ($result) {
-            echo "Password has been successfully edited";
-          }
-        } else {
-          echo "Passwords do not match";
+        if ($result) {
+          echo "Lessonpackage and teacher details have been successfully edited";
         }
+
       } else {
         echo "Password could not be verified";
       }
