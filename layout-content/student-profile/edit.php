@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="" method="POST">
+        <form action="./layout-content/student-profile/edit-script.php" method="POST">
           <div class="form-floating mb-3">
             <input type="text" class="form-control" id="floatingInput" name="name" value="<?php echo $s->queryData["voornaam"]." ".$s->queryData["achternaam"]; ?>" required>
             <label for="floatingInput">Naam</label>
@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="" method="POST">
+        <form action="./layout-content/student-profile/edit-script.php" method="POST">
           <div class="form-floating mb-3">
             <input type="password" class="form-control" id="floatingInput" name="oldpassword" required>
             <label for="floatingInput">Current Password</label>
@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="" method="POST">
+        <form action="./layout-content/student-profile/edit-script.php" method="POST">
           <div class="form-floating mb-3">
             <input type="text" class="form-control" id="floatingInput" name="lessonpackage" required>
             <label for="floatingInput">Lessonpackage</label>

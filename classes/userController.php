@@ -241,17 +241,18 @@ class userRegister extends userData {
 class studentEditDetails extends userData {
   public function __construct($email, $name, $number, $region, $address, $zip, $password) 
   {
+    $this->email = $email;
     $expname = explode(" ", $name);
-    $studentnr = explode("@", $email);
-    $id = intval($studentnr[0]);
     $this->name = $expname[0];
     $this->lastname = $expname[1];
+    $studentnr = explode("@", $this->email);
+    $id = intval($studentnr[0]);
     $this->edit_details();
   }
 
   public function edit_details() 
   {
-    $this->selectQuery("password", "email", $email);
+    $this->selectQuery("password", "email", $this->email);
     //Email exists in database
     if ($this->result === 1) {
       //Password matches with database password
@@ -326,7 +327,48 @@ class studentEditPassword extends userData {
 
 }
 
-class studentEditPackage extends userRegister {
+class studentEditLesson extends userData {
+  public function __construct($email, $oldpassword, $newpassword, $confirmnewpassword) 
+  {
+    $this->edit_password();
+  }
+
+  public function edit_password() 
+  {
+    $this->selectQuery("password", "email", $email);
+    //Email exists in database
+    if ($this->result === 1) {
+      //Password matches with database password
+      if (password_verify($oldpassword.$this->queryData["salt"], $this->queryData["passwd"])) {
+        //newpassword and confirm new password are identical strings
+        if (strcmp($newpassword, $confirmnewpassword)) {
+          //change password query
+          global $conn;
+
+          $salt = $this->salt();
+          $blowfish = password_hash($this->pw.$salt, PASSWORD_BCRYPT);
+
+          $sql = "UPDATE `password`
+                  SET `passwd` = '$blowfish',
+                      `salt` = '$salt',
+                      `updatedAt` = CURRENT_TIMESTAMP
+                  WHERE `email` = '$this->email'";
+
+          $result = mysqli_query($conn, $sql);
+
+          if ($result) {
+            echo "Password has been successfully edited";
+          }
+        } else {
+          echo "Passwords do not match";
+        }
+      } else {
+        echo "Password could not be verified";
+      }
+    } else {
+      echo "email does not exist in database";
+    }
+  }
 
 }
 ?>

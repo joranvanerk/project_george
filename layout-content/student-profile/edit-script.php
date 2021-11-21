@@ -11,7 +11,7 @@ new studentEditDetails(
         $_POST["zip"], 
         $_POST["password"]);
         
-        header("LOcation: ./student-profile?page=myprofile");
+        header("Location: ./student-profile?page=myprofile");
 } else if (isset($_POST["changepassword"])) {
 new studentEditPassword(
         $_SESSION["email"],
