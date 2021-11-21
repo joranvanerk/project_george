@@ -4,17 +4,7 @@ $_SESSION["email"] = "327068@student.mboutrecht.nl";
 
 $s = new userData;
 $s->selectQuery("student","email", $_SESSION["email"]);
-//Include student-edit.php if user submitted an edit form
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  if (isset($_POST["personaldetails"]) || isset($_POST["changepassword"]) || isset($_POST["changepackage"])) {
-    include_once("./layout-content/student-profile/edit-script.php");
-  } else {
-    // $_POST value is not register or login
-    include_once("./classes/sendMessage.php");
-    $msg = new messageError;
-    $msg->text = "User did not send a POST value.";
-  }
-}
+
 ?>
 
 <div class="container">
