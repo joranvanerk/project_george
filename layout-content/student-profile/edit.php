@@ -1,9 +1,12 @@
 <?php
 include("./classes/userController.php");
-$_SESSION["email"] = "327068@student.mboutrecht.nl";
 
 $s = new userData;
-$s->selectQuery("student","email", $_SESSION["email"]);
+if (isset($_SESSION)) {
+  $stud->selectQuery("student","email", $_SESSION["email"]);
+} else if (isset($_COOKIE)) {
+  $stud->selectQuery("student","email", $_COOKIE["email"]);
+}
 //Include student-edit.php if user submitted an edit form
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   if (isset($_POST["personaldetails"]) || isset($_POST["changepassword"]) || isset($_POST["changepackage"])) {
