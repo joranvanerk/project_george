@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST["register"])) {
-  include_once("./classes/functions.php");
+  // include_once("./classes/functions.php");
   // Grabs all the values from the form and puts it in variables.
   $email = sanitize($_POST["email"]);
   $cemail = sanitize($_POST["confirmemail"]);
@@ -73,7 +73,7 @@ if (isset($_POST["register"])) {
     $msg->generate_msg("Email is already taken.");
   }
 } else if (isset($_POST["finregister"])) {
-  include_once("./classes/functions.php");
+  include_once("./classes/connectDB.php");
   //Sanitize fields
   $email = sanitize($_POST["email"]);
   $cemail = sanitize($_POST["cemail"]);

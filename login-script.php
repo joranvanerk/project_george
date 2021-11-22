@@ -9,7 +9,7 @@
     $sql = "SELECT * from `password` WHERE `email` = '$email' AND `passwd` = '$passwd'";
     $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) == 2){
+    if (mysqli_num_rows($result) == 1){
         $record = mysqli_fetch_assoc($result);
         echo("Successful login");
 

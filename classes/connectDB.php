@@ -5,6 +5,15 @@
   define("DBNAME", "GeorgeMboUtrecht");
   $conn = mysqli_connect(SERVERNAME, USERNAME, PASSWORD, DBNAME);
 
+  function sanitize($raw_data) 
+    {
+    global $conn;
+    $data = htmlspecialchars($raw_data);
+    $data = mysqli_real_escape_string($conn, $data);
+    $data = trim($data);
+    return $data;
+    }
+
   //Dit is mijn local database |Turan Suslu//////
   //   define("SERVERNAME", "localhost");
   // define("USERNAME", "GeorgeUser");
