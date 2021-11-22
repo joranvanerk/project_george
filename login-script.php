@@ -4,14 +4,15 @@
     include("./classes/functions.php");
 
     $email = sanitize($_POST["email"]);
-    // $passwd = sanitize($_POST["password"]);
+    $passwd = sanitize($_POST["passwd"]);
 
-    $sql = "SELECT * from `password` WHERE `email` = '$email'";
+    $sql = "SELECT * from `password` WHERE `email` = '$email' AND `passwd` = '$passwd'";
     $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) == 1){
+    if (mysqli_num_rows($result) == 2){
         $record = mysqli_fetch_assoc($result);
         echo("Successful login");
+
         $sql = "SELECT * FROM `klant` WHERE `email` = '$email'";
         $query = mysqli_query($conn, $sql);
         $data = mysqli_fetch_assoc($query);
