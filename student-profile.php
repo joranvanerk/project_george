@@ -1,4 +1,8 @@
 <?php 
+//Checks for log-in and acts as a failsave
+include("./classes/logged_in.php");
+$is_logged_in = new is_logged_in();
+
 // Include framework
 include("./includes/framework.php");
 
