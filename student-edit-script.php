@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $_POST["street"], 
       $_POST["zip"], 
       $_POST["password"]);
-    //header("Location: ./student-profile?page=myprofile");
+    header("Location: ./student-profile?page=myprofile");
     //Start studentEditPassword class and a header to student-profile
   } else if (isset($_POST["changepassword"])) {
     new studentEditPassword(
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $_POST["oldpassword"],
       $_POST["newpassword"],
       $_POST["confirmnewpassword"]);
-    //header("Location: ./student-profile?page=myprofile");
+    header("Location: ./student-profile?page=myprofile");
     //Start studentEditPackage class and a header to student-profile
   } else if (isset($_POST["changepackage"])) {
     new studentEditPackage(
@@ -43,6 +43,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 } else {
 echo "Error, user did not send a POST value.";
 }
-
-
 ?>

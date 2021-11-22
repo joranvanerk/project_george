@@ -5,6 +5,9 @@ $_SESSION["email"] = "327068@student.mboutrecht.nl";
 $s = new userData;
 $s->selectQuery("student","email", $_SESSION["email"]);
 
+$lessonpackage = new createSelectData("lespakket", "lespakket", "lessonpackage");
+$teacher = new createSelectData("medewerker", "afkorting", "teacher");
+
 ?>
 
 <div class="container">
@@ -110,14 +113,9 @@ $s->selectQuery("student","email", $_SESSION["email"]);
       </div>
       <div class="modal-body">
         <form action="./student-edit-script.php" method="POST">
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" name="lessonpackage" required>
-            <label for="floatingInput">Lessonpackage</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" name="teacher" required>
-            <label for="floatingInput">Teacher</label>
-          </div>
+          <?php $lessonpackage->show();
+                $teacher->show();
+          ?>  
           <div class="form-floating mb-3">
             <input type="password" class="form-control" id="floatingInput" name="password" required>
             <label for="floatingInput">Enter Password</label>

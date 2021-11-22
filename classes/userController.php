@@ -84,7 +84,6 @@ class userData {
     }
     return $randomString;
   }
-
 }
 
 // Class with functions specific for the registering process
@@ -366,5 +365,42 @@ class studentEditPackage extends userData {
     }
   }
 
+}
+
+class createSelectData extends userData {
+  public $html;
+
+  //Create table with database available data
+  public function __construct($table, $column, $name) {
+    $data = $this->get_column_data($table, $column);
+    $this->create_select($data, $column, $name);
+  }
+
+  public function get_column_data($table, $column) {
+    global $conn;
+
+    $sql = "SELECT `$column` FROM `$table`;";
+    $result = mysqli_query($conn, $sql);
+
+    $temp_arr = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $temp_arr;
+  }
+
+  //Create select with array data
+  public function create_select($data, $column, $name) {
+
+    $this->html = '<div class="form-floating mb-3">';
+    $this->html .= '<select name="'. $name .'" class="form-control">';
+    foreach ($data as $d) {
+      $this->html .= '<option>'. $d["$column"] .'</option>';
+    }
+    $this->html .= '</select>';
+    $this->html .= '<label for="floatingInput">'. $name .'</label>';
+    $this->html .= '</div>';
+  }
+
+  public function show() {
+    echo $this->html;
+  }
 }
 ?>
