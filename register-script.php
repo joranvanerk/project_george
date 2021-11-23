@@ -24,7 +24,8 @@ if (isset($_POST["register"])) {
 
       //Check if email and confirm email is same string or not
       if (strcmp($register->email, $register->cemail) === 0) {
-        //Create a hashed password and insert into password table.
+        //Create a 
+        ed password and insert into password table.
         $createPW = $register->createPassword();
         $insertToPW = $register->insertIntoPassword();
         //Inserted details into password table.
