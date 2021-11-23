@@ -30,15 +30,16 @@
             // $_SESSION["rol"] = $record["rol"];
             header("Location:./customer.php");
         } else {
-            $message = "Error password.";
-            var_dump($_POST);
-
-
-            echo "wachtwoord klopt niet";
+            // if your password fails
+            $message = "Your credentials are not correct.\\nPlease try again.";
+            // var_dump($_POST);
+            echo "<script type='text/javascript'>alert('$message');</script>";
+            header("Refresh: 0; ./login.php");
         }
 
     } else {
-        $message = "Username and/or Password incorrect.\\nTry again.";
+        // if email fails
+        $message = "Your credentials are not correct.\\nTry again.";
         // var_dump($_POST);
         echo "<script type='text/javascript'>alert('$message');</script>";
         header("Refresh: 0; ./login.php");
