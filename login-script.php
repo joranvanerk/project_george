@@ -36,7 +36,6 @@
             echo "<script type='text/javascript'>alert('$message');</script>";
             header("Refresh: 0; ./login.php");
         }
-
     } else {
         // if email fails
         $message = "Your credentials are not correct.\\nTry again.";
