@@ -128,5 +128,4 @@ if(isset($_POST["submit"])){
 
 
 
-<!-- include footer -->
-<?php include_once("./includes/footer.php"); ?>
+

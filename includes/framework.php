@@ -1,5 +1,7 @@
 <?php
-  include("./classes/connectDB.php");
+  if (!isset($conn)) {
+    include("./classes/connectDB.php");
+  }
   include("./classes/functions.php");
   session_start();
 ?>

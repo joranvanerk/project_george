@@ -1,9 +1,12 @@
 <?php
 include("./classes/userController.php");
-$_SESSION["email"] = "327068@student.mboutrecht.nl";
 
 $s = new userData;
-$s->selectQuery("student","email", $_SESSION["email"]);
+if (isset($_SESSION)) {
+  $s->selectQuery("student","email", $_SESSION["email"]);
+} else if (isset($_COOKIE)) {
+  $s->selectQuery("student","email", $_COOKIE["email"]);
+}
 
 $lessonpackage = new createSelectData("lespakket", "lespakket", "Lessonpackage");
 $teacher = new createSelectData("medewerker", "afkorting", "Teacher");
