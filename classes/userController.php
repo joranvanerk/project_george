@@ -367,6 +367,7 @@ class studentEditPackage extends userData {
 
 }
 
+//Create select data for a form
 class createSelectData extends userData {
   public $html;
 
