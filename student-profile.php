@@ -1,11 +1,11 @@
 <?php 
+// Include framework
+include("./includes/framework.php");
+
 //Checks if current user is allowed to visit this page
 //Accessible roles: student, klant, eigenaar, docent, begeleider
 include("./classes/logged_in.php");
 new logged_in("student");
-
-// Include framework
-include("./includes/framework.php");
 
 // basefile management system for header
 $active_page_filename = basename(__FILE__);

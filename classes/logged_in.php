@@ -37,9 +37,12 @@
         $this->email = $_SESSION["email"];
       } else if (isset($_COOKIE["email"])) {
         $this->email = $_COOKIE["email"];
+        $_SESSION["email"] = $_COOKIE["email"];
       } else {
         echo '<meta http-equiv="refresh" content="0; URL=./error404">';
       }
+
+      return $this->email;
     }
 
     //Retrieves all roles from the database and adds it in $this->valid_roles
@@ -61,11 +64,11 @@
     //Check if the e-mail userrole matches with the required userrole to visit this page.
     public function check_login() 
     {
-      var_dump($this->role, $this->required_role);
+      //var_dump($this->role, $this->required_role);
       if (strcmp($this->role, $this->required_role) === 0) {
-        echo "role and required_role match";
+        //echo "role and required_role match";
       } else {
-        echo "role and required_role DO NOT match";
+        //echo "role and required_role DO NOT match";
         echo '<meta http-equiv="refresh" content="0; URL=./error404">';
       }
     }

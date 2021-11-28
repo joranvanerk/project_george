@@ -1,13 +1,15 @@
 <?php
+//Checks if current user is allowed to visit this page
+//Accessible roles: student, klant, eigenaar, docent, begeleider
+include("./classes/logged_in.php");
+new logged_in("student");
 //Security has to be added so only student has access to these pages
 //Session has to give me the logged in user
-$_SESSION["email"] = "327068@student.mboutrecht.nl";
 
 //Includes
 if (!isset($conn)) {
   include("./classes/connectDB.php");
 }
-include("./classes/userController.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   //Start studentEditDetails class and a header to student-profile

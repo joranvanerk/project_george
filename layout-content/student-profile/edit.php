@@ -1,9 +1,4 @@
 <?php
-//Checks if current user is allowed to visit this page
-//Accessible roles: student, klant, eigenaar, docent, begeleider
-include("./classes/logged_in.php");
-new logged_in("student");
-
 $s = new userData;
 if (isset($_SESSION)) {
   $s->selectQuery("student","email", $_SESSION["email"]);
