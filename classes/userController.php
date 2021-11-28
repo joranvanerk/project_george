@@ -68,6 +68,8 @@ class userData {
       case $exp:
         $this->role = "klant";
         break;
+      default:
+        $this->role = "klant";
       }
     }
 
