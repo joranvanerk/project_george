@@ -66,6 +66,7 @@
         echo "role and required_role match";
       } else {
         echo "role and required_role DO NOT match";
+        echo '<meta http-equiv="refresh" content="0; URL=./error404">';
       }
     }
   }
