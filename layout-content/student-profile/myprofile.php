@@ -1,6 +1,4 @@
 <?php
-include("./classes/userController.php");
-
 $stud = new userData;
 if (isset($_SESSION)) {
   $stud->selectQuery("student","email", $_SESSION["email"]);
