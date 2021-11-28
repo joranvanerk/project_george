@@ -1,8 +1,8 @@
 <?php
 //Test variables
   session_start();
-  $_SESSION["email"] = "327068@student.mboutrecht.nl";
-  setcookie("email", "327068@student.mboutrecht.nl", time()+3600);  /* expire in 1 hour */
+  $_SESSION["email"] = "327068@georgemarina.nl";
+  setcookie("email", "327068@georgemarina.nl", time()+3600);  /* expire in 1 hour */
 
   // Remove cookies and session
   // setcookie("email", "327068@student.mboutrecht.nl", time()-3600);  /* expire in 1 hour */

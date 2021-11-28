@@ -24,26 +24,21 @@
       $this->selectRole();
       //Retrieve all available userroles from database in an array
       $this->get_database_roles();
-      
       //Check if session or cookie varable is set.
       //If set, check if ["userrole"] variable is available in the array.
       //If no variables are set, user will be denied from the page and sent towards homepage.
-      if ($this->check_login()) {
-        echo "role and required_role match";
-      } else {
-        echo "role and required_role DO NOT match";
-      }
+      $this->check_login();
     }
 
     //Get user userrole based on set $_SESSION or $_COOKIE email variable.
     public function get_session_email()
     {
       if (isset($_SESSION["email"])) {
-        $this->role = $_SESSION["email"];
+        $this->email = $_SESSION["email"];
       } else if (isset($_COOKIE["email"])) {
-        $this->role = $_COOKIE["email"];
+        $this->email = $_COOKIE["email"];
       } else {
-        return "no userrole has been set";
+        echo '<meta http-equiv="refresh" content="0; URL=./error404">';
       }
     }
 
@@ -66,10 +61,11 @@
     //Check
     public function check_login() 
     {
-      if (strcmp($this->role, $this->required_role)) {
-        return true;
+      var_dump($this->role, $this->required_role);
+      if (strcmp($this->role, $this->required_role) === 0) {
+        echo "role and required_role match";
       } else {
-        return false;
+        echo "role and required_role DO NOT match";
       }
     }
   }
