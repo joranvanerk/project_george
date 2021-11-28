@@ -58,7 +58,7 @@
       }
     }
 
-    //Check
+    //Check if the e-mail userrole matches with the required userrole to visit this page.
     public function check_login() 
     {
       var_dump($this->role, $this->required_role);

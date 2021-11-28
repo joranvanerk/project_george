@@ -7,7 +7,7 @@
   // Remove cookies and session
   // setcookie("email", "327068@student.mboutrecht.nl", time()-3600);  /* expire in 1 hour */
 
-//Checks for log-in and acts as a failsave
+//Checks if current user is allowed to visit this page
 //Accessible roles: student, klant, eigenaar, docent, begeleider
 include("./classes/logged_in.php");
 new logged_in("student");

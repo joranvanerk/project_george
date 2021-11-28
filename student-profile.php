@@ -1,7 +1,8 @@
 <?php 
-//Checks for log-in and acts as a failsave
+//Checks if current user is allowed to visit this page
+//Accessible roles: student, klant, eigenaar, docent, begeleider
 include("./classes/logged_in.php");
-$is_logged_in = new is_logged_in();
+new logged_in("student");
 
 // Include framework
 include("./includes/framework.php");

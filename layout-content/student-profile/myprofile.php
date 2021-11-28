@@ -1,5 +1,8 @@
 <?php
-include("./classes/userController.php");
+//Checks if current user is allowed to visit this page
+//Accessible roles: student, klant, eigenaar, docent, begeleider
+include("./classes/logged_in.php");
+new logged_in("student");
 
 $stud = new userData;
 if (isset($_SESSION)) {
