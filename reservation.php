@@ -4,17 +4,25 @@
 $active_page_filename = basename(__FILE__);
 
 if(isset($_POST["submit"])){
-    $personen = sanitize($_POST["personen"]);
+    $tijd = sanitize($_POST["tijd"]);
     $datum = sanitize($_POST["datum"]);
+    $personen = sanitize($_POST["personen"]);
     $voornaam = sanitize($_POST["voornaam"]);
     $achternaam = sanitize($_POST["achternaam"]);
     $email = sanitize($_POST["email"]);
     $mobiel = sanitize($_POST["mobiel"]);
     $opmerkingen = sanitize($_POST["opmerkingen"]);
     $tafelnummer = sanitize($_POST["tafelnummer"]);
+
+    $check_time_query = mysqli_query($conn, "SELECT * FROM `reserveringen` WHERE `datum`='$datum $tijd' AND `tafelnummer`='$tafelnummer'");
+    if(mysqli_num_rows($check_time_query)){
+        echo '<script>alert("De tijd of tafel is niet meer beschikbaar!")</script>';
+    }else{
+
     mysqli_query($conn, "INSERT INTO `reserveringen` (`id`, `personen`, `datum`, `voornaam`, `achternaam`, `email`, `mobiel`, `opmerkingen`, `tafelnummer`) VALUES
-     (NULL, '$personen', '$datum', '$voornaam', '$achternaam', '$email', '$mobiel', '$opmerkingen', '$tafelnummer');");
+     (NULL, '$personen', '$datum $tijd', '$voornaam', '$achternaam', '$email', '$mobiel', '$opmerkingen', '$tafelnummer');");
      echo '<script> alert("succesvol verzonden"); </script>';
+    }
 }
 
  ?>
@@ -55,7 +63,7 @@ if(isset($_POST["submit"])){
             </select>
 
             <div class="form-floating mb-3">
-            <input type="datetime-local" class="form-control" name="datum" required id="floatingInput" placeholder="datumtijd">
+            <input type="date" class="form-control" name="datum" required id="floatingInput" placeholder="datumtijd">
             <label for="floatingInput">Vul hier de datum en tijd</label>
             </div>
 
@@ -93,6 +101,20 @@ if(isset($_POST["submit"])){
         <br>
         <img src="./img/seating.png" class= "img-fluid"  alt="">
         <br>
+        <p>Tijd</p>
+            <select class="form-select form-select-lg mb-3" name="tijd" required aria-label=".form-select-lg example">
+            <option value="9:20">9:20</option>
+            <option value="9:50">9:50</option>
+            <option value="10:10">10:10</option>
+            <option value="10:30">10:30</option>
+            <option value="12:20">12:20</option>
+            <option value="13:10">13:10</option>
+            <option value="14:50">14:50</option>
+            <option value="15:40">15:40</option>
+            <option value="16:20">16:20</option>
+            <option value="16:30">16:30</option>
+            <option selected value="Kies een tijd"></option>
+            </select>
         <!-- zit plaatsen form tafel nummers -->
         <p>Kies hier uw tafel nummer</p>
             <select class="form-select form-select-lg mb-3" name="tafelnummer" required aria-label=".form-select-lg example">
