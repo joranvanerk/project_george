@@ -11,10 +11,10 @@ $active_page_filename = basename(__FILE__);?>
                     <label for="InputEmail">Vul hier uw e-mailadres in:</label>
                     <input name="email" type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" required autofocus>
                 </div>
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <label for="InputPassword">Vul hier uw wachtwoord in:</label>
-                    <input name="password" type="password" class="form-control" id="InputPassword" aria-describedby="passwordHelp" required autofocus>
-                </div> -->
+                    <input name="passwd" type="password" class="form-control" id="InputPassword" aria-describedby="passwordHelp" required autofocus>
+                </div>
                 <button type="submit" class="btn btn-lg btn-outline-secondary">Login</button>
         </div>
         </div>
