@@ -26,9 +26,10 @@
       //if POST is send, sanitize all fields and start register process
       if ($this->registerType != false) {
         $this->sanitizeFields();
+        var_dump($this->registerType != false);
+        var_dump($this->registerType);
         $this->register();
       }
-      //var_dump($this->userdata);
     }
 
     //Check if $_POST is send
@@ -118,11 +119,12 @@
         case "finregister":
           $this->selectQuery("password", "email", $this->userdata[0]);
           if ($this->result === 1) {
-            if (strcmp($this->userdata[0], $this->userdata[1] === 0)) {
-              if (strcmp($this->userdata[5], $this->userdata[6])) {
-                if (password_verify("temp".$finreg->queryData["salt"], $finreg->queryData["passwd"])) {
+            if (strcmp($this->userdata[0], $this->userdata[1]) === 0) {
+              if (strcmp($this->userdata[5], $this->userdata[6]) === 0) {
+                if (password_verify("temp".$this->queryData["salt"], $this->queryData["passwd"])) {
                   $this->updatePassword();
                   if ($this->result === true) {
+                    $this->email = $this->userdata[0];
                     $this->selectRole();
                     $this->insertUser();
                     //Meta refreshes based on 
@@ -157,7 +159,6 @@
         false;
       }
     }
-
 
     //Create a temp password
     protected function tempPassword() {
@@ -229,7 +230,7 @@
     public function insertUser() {
       global $conn;
 
-      $exp = explode("@", $this->userdata[0]);
+      $exp = explode("@", $this->email);
       $email_part1 = $exp[0];
       $email_part2 = $exp[1];
 
