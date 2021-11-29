@@ -22,8 +22,6 @@
             $query = mysqli_query($conn, $sql);
             $data = mysqli_fetch_assoc($query);
 
-            session_start();
-
             $_SESSION["email"] = $record["email"];
             $_SESSION["voornaam"] = $data["voornaam"];
             $_SESSION["achternaam"] = $data["achternaam"];
