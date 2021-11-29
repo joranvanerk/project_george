@@ -72,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             echo '<a class="nav-link george_menu" href="mygeorge">My George</a>' ;
             echo '<div class="vl"></div>';
             echo '<a class="nav-link george_menu" href="logout">Log Out</a>';
+            echo '<a class="nav-link george_menu" href="student-profile">student profile</a>';
           } else {
             echo '<li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle george_menu" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -90,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </a>
                     <div class="dropdown-menu" style="border-radius: 0px; border: 0;" aria-labelledby="navbarDropdown">
                       <a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#register">Register</a>
-                      <a class="nav-link george_menu"  href="student-profile" >Login</a>
+                      <a class="nav-link george_menu"  href="login" >Login</a>
                     </div>
                   </li>';
         }?>
