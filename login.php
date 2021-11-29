@@ -1,5 +1,11 @@
 <!-- include framework css and bootstrap basic -->
-<?php include_once("./includes/framework.php");
+<?php
+include_once("./includes/framework.php");
+
+if(isset($_SESSION["id"])){
+  echo '<meta http-equiv="refresh" content="0; URL=./customer.php">';
+}
+
 $active_page_filename = basename(__FILE__);?>
 <?php include_once("./includes/header.php"); ?>
 

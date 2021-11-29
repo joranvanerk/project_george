@@ -1,4 +1,5 @@
 <?php
+  session_start();
     // var_dump($_POST);
     include("./classes/connectDB.php");
     include("./classes/functions.php");
@@ -9,7 +10,6 @@
 
     $sql = "SELECT * from `password` WHERE `email` = '$email'";
     // $passwdDB = "SELECT * from `password` WHERE `passwd` = '$passwd'";
-    
     $result = mysqli_query($conn, $sql);
     $record = mysqli_fetch_assoc($result);
     $encpass = $record["passwd"];
@@ -23,6 +23,7 @@
             $data = mysqli_fetch_assoc($query);
 
             session_start();
+
             $_SESSION["email"] = $record["email"];
             $_SESSION["voornaam"] = $data["voornaam"];
             $_SESSION["achternaam"] = $data["achternaam"];

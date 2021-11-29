@@ -7,10 +7,10 @@ $active_page_filename = basename(__FILE__);?>
 $datan = date("l");
 if ($datan == "Monday"){
   $daytent = "Maandag";
-} 
+}
 else if ($datan == "Tuesday"){
   $daytent = "Dinsdag";
-} 
+}
 else if ($datan == "Wednesday"){
   $daytent = "Woensdag";
 }
