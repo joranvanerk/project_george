@@ -3,7 +3,7 @@
 
   class navbarRedirect extends userData
   {
-    public $html = null;
+    protected $html = null;
 
     public function __construct() 
     {
