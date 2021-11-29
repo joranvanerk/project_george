@@ -18,6 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $msg->text = "User did not send a POST value.";
   }
 }
+
+//Include navbar redirect class if user is logged in
+if (isset($_SESSION["email"]) || isset($_COOKIE["email"])) {
+  require_once './classes/navbarRedirect';
+  $navlinks = new navbarRedirect;
+}
 ?>
 
 <!-- container with content added -->
@@ -65,7 +71,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <!-- simple vertical line -->
         <div class="vl"></div>
         <!-- navigation element for redirection to page -->
-
         <?php
         if (isset($_SESSION["logged_in"])) {
           if ($_SESSION["logged_in"] === true) {
