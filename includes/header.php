@@ -1,22 +1,25 @@
 <?php
 //Check if user has submitted a form
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  //If user send a register $_POST, include register.php
+  //If user send a register $_POST, include userRegister.php
   if (isset($_POST["register"])) {
-    //Include required PHP scripts for register process
-    include_once("./register-script.php");
-
-  //If user send a login $_POST, include login.php
+    include_once("./classes/userRegister.php");
+    new userRegister;
+    //If user send a login $_POST, include login.php
   } elseif (isset($_POST["login"])) {
-    //Include required PHP scripts for login process
     include_once("./login-script.php");
-
   } else {
     // $_POST value is not register or login
     include_once("./classes/sendMessage.php");
     $msg = new messageError;
     $msg->text = "User did not send a POST value.";
   }
+}
+
+//Include navbar redirect class if user is logged in
+if (isset($_SESSION["email"]) || isset($_COOKIE["email"])) {
+  require_once './classes/navbarRedirect.php';
+  $navlinks = new navbarRedirect;
 }
 ?>
 
@@ -65,38 +68,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <!-- simple vertical line -->
         <div class="vl"></div>
         <!-- navigation element for redirection to page -->
-
         <?php
-        if (isset($_SESSION["logged_in"])) {
-          if ($_SESSION["logged_in"] === true) {
-            echo '<a class="nav-link george_menu" href="mygeorge">My George</a>' ;
-            echo '<div class="vl"></div>';
-            echo '<a class="nav-link george_menu" href="logout">Log Out</a>';
-            echo '<a class="nav-link george_menu" href="student-profile">student profile</a>';
-          } else {
-            echo '<li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle george_menu" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        My George
-                      </a>
-                      <div class="dropdown-menu" style="border-radius: 0px; border: 0;" aria-labelledby="navbarDropdown">
-                        <a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#register">Register</a>
-                        <a class="nav-link george_menu"  href="login" >Login</a>
-                      </div>
-                    </li>';
-          }
-        } else {
+        //If session is started, display correct links
+        if (isset($_SESSION["email"]) || isset($_COOKIE["email"]))
+        {
+          //Display navlinks if user is logged in
+          $navlinks->show();
+        } 
+        else 
+        {
+          //Display default navbar 
           echo '<li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle george_menu" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      My George
-                    </a>
-                    <div class="dropdown-menu" style="border-radius: 0px; border: 0;" aria-labelledby="navbarDropdown">
-                      <a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#register">Register</a>
-                      <a class="nav-link george_menu"  href="login" >Login</a>
-                    </div>
-                  </li>';
-        }?>
+                  <a class="nav-link dropdown-toggle george_menu" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  My George </a>
+                  <div class="dropdown-menu" style="border-radius: 0px; border: 0;" aria-labelledby="navbarDropdown">
+                    <a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#register">Register</a>
+                    <a class="nav-link george_menu"  href="login" >Login</a>
+                  </div>
+                </li>';
+        } 
+        ?>
         <div class="vl"></div>
-
       </div>
     </div>
   </div>
@@ -109,18 +101,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <!-- Display message for registration or login situations -->
 <div class="msg">
   <?php
-    if (isset($_POST["register"])) {
-      $msg->show();
-      unset($_POST["register"], $_SERVER["REQUEST_METHOD"]);
-    } elseif (isset($_POST["login"])) {
-      $msg->show();
-      unset($_POST["login"], $_SERVER["REQUEST_METHOD"]);
-    } elseif (isset($_POST["finregister"])) {
-      $msg->show();
-      unset($_POST["register"], $_SERVER["REQUEST_METHOD"]);
-    } else {
-      //Nothing is even set KEKW.
-    }
+    // if (isset($_POST["register"])) {
+    //   $msg->show();
+    //   unset($_POST["register"], $_SERVER["REQUEST_METHOD"]);
+    // } elseif (isset($_POST["login"])) {
+    //   $msg->show();
+    //   unset($_POST["login"], $_SERVER["REQUEST_METHOD"]);
+    // } elseif (isset($_POST["finregister"])) {
+    //   $msg->show();
+    //   unset($_POST["register"], $_SERVER["REQUEST_METHOD"]);
+    // } else {
+    //   //Nothing is even set KEKW.
+    // }
   ?>
 </div>
 
