@@ -1,16 +1,12 @@
 <?php
 //Check if user has submitted a form
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  //If user send a register $_POST, include register.php
+  //If user send a register $_POST, include userRegister.php
   if (isset($_POST["register"])) {
-    //Include required PHP scripts for register process
-    include_once("./register-script.php");
-
-  //If user send a login $_POST, include login.php
+    include_once("./classes/userRegister.php");
+    //If user send a login $_POST, include login.php
   } elseif (isset($_POST["login"])) {
-    //Include required PHP scripts for login process
     include_once("./login-script.php");
-
   } else {
     // $_POST value is not register or login
     include_once("./classes/sendMessage.php");
@@ -128,7 +124,7 @@ if (isset($_SESSION["email"]) || isset($_COOKIE["email"])) {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="" method="POST">
+        <form action="test" method="POST">
           <div class="form-floating mb-3">
             <input type="email" class="form-control" id="floatingInput" name="email" required>
             <label for="floatingInput">E-mail Address</label>
