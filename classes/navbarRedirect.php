@@ -21,7 +21,7 @@
       echo $html;
     }
 
-    //Create HTML 
+    //Create HTML based on $this->role
     protected function createHTML()
     {
       switch ($this->role) 

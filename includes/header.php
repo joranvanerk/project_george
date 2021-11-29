@@ -75,40 +75,23 @@ if (isset($_SESSION["email"]) || isset($_COOKIE["email"])) {
         //If session is started, display correct links
         if (isset($_SESSION["email"]) || isset($_COOKIE["email"]))
         {
+          //Display navlinks if user is logged in
           $navlinks->show();
-        } else {
-          
-        }
-
-        if (isset($_SESSION["logged_in"])) {
-          if ($_SESSION["logged_in"] === true) {
-            echo '<a class="nav-link george_menu" href="mygeorge">My George</a>' ;
-            echo '<div class="vl"></div>';
-            echo '<a class="nav-link george_menu" href="logout">Log Out</a>';
-          } else {
-            echo '<li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle george_menu" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        My George
-                      </a>
-                      <div class="dropdown-menu" style="border-radius: 0px; border: 0;" aria-labelledby="navbarDropdown">
-                        <a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#register">Register</a>
-                        <a class="nav-link george_menu"  href="login" >Login</a>
-                      </div>
-                    </li>';
-          }
-        } else {
+        } 
+        else 
+        {
+          //Display default navbar 
           echo '<li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle george_menu" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      My George
-                    </a>
-                    <div class="dropdown-menu" style="border-radius: 0px; border: 0;" aria-labelledby="navbarDropdown">
-                      <a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#register">Register</a>
-                      <a class="nav-link george_menu"  href="student-profile" >Login</a>
-                    </div>
-                  </li>';
-        }?>
+                  <a class="nav-link dropdown-toggle george_menu" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  My George </a>
+                  <div class="dropdown-menu" style="border-radius: 0px; border: 0;" aria-labelledby="navbarDropdown">
+                    <a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#register">Register</a>
+                    <a class="nav-link george_menu"  href="login" >Login</a>
+                  </div>
+                </li>';
+        } 
+        ?>
         <div class="vl"></div>
-
       </div>
     </div>
   </div>
