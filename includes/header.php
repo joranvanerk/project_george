@@ -4,6 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   //If user send a register $_POST, include userRegister.php
   if (isset($_POST["register"])) {
     include_once("./classes/userRegister.php");
+    new userRegister;
     //If user send a login $_POST, include login.php
   } elseif (isset($_POST["login"])) {
     include_once("./login-script.php");
@@ -100,18 +101,18 @@ if (isset($_SESSION["email"]) || isset($_COOKIE["email"])) {
 <!-- Display message for registration or login situations -->
 <div class="msg">
   <?php
-    if (isset($_POST["register"])) {
-      $msg->show();
-      unset($_POST["register"], $_SERVER["REQUEST_METHOD"]);
-    } elseif (isset($_POST["login"])) {
-      $msg->show();
-      unset($_POST["login"], $_SERVER["REQUEST_METHOD"]);
-    } elseif (isset($_POST["finregister"])) {
-      $msg->show();
-      unset($_POST["register"], $_SERVER["REQUEST_METHOD"]);
-    } else {
-      //Nothing is even set KEKW.
-    }
+    // if (isset($_POST["register"])) {
+    //   $msg->show();
+    //   unset($_POST["register"], $_SERVER["REQUEST_METHOD"]);
+    // } elseif (isset($_POST["login"])) {
+    //   $msg->show();
+    //   unset($_POST["login"], $_SERVER["REQUEST_METHOD"]);
+    // } elseif (isset($_POST["finregister"])) {
+    //   $msg->show();
+    //   unset($_POST["register"], $_SERVER["REQUEST_METHOD"]);
+    // } else {
+    //   //Nothing is even set KEKW.
+    // }
   ?>
 </div>
 
@@ -124,7 +125,7 @@ if (isset($_SESSION["email"]) || isset($_COOKIE["email"])) {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="test" method="POST">
+        <form action="" method="POST">
           <div class="form-floating mb-3">
             <input type="email" class="form-control" id="floatingInput" name="email" required>
             <label for="floatingInput">E-mail Address</label>

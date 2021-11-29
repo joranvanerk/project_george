@@ -2,6 +2,8 @@
 var_dump($_POST);
 require_once './classes/userRegister.php';
 $login = new userRegister;
+
+var_dump($login->userdata);
   // Remove cookies and session
   // setcookie("email", "327068@student.mboutrecht.nl", time()-3600);  /* expire in 1 hour */
 

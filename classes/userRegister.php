@@ -17,11 +17,6 @@
     protected $number = null;
     private $pw = null;
     private $confirmpw = null;
-    protected $address = null;
-    protected $zip = null;
-    protected $region = null;
-    protected $teacher = null;
-    protected $lessonpackage = null;
     protected $abbrev = null;
 
     public function __construct()
@@ -85,6 +80,7 @@
               array_push($this->userdata, $address, $zip, $region, $teacher, $lessonpackage);
             }
           }
+          return $this->userdata;
         break;
         default:
         false;
@@ -120,7 +116,42 @@
           }
           break;
         case "finregister":
-
+          $this->selectQuery("password", "email", $this->userdata[0]);
+          if ($this->result === 1) {
+            if (strcmp($this->userdata[0], $this->userdata[1] === 0)) {
+              if (strcmp($this->userdata[5], $this->userdata[6])) {
+                if (password_verify("temp".$finreg->queryData["salt"], $finreg->queryData["passwd"])) {
+                  $this->updatePassword();
+                  if ($this->result === true) {
+                    $this->selectRole();
+                    $this->insertUser();
+                    //Meta refreshes based on 
+                    if ($this->result === true) {
+                      echo '<meta http-equiv="refresh" content="0; URL=./registered?email='.$this->userdata[0].'">';
+                    } else {
+                      // User was not created in the table
+                      return false;
+                    }
+                  } else {
+                    // Updating password failed
+                    return false;
+                  }
+                } else {
+                  //Password does not match with database
+                  return false;
+                }
+              } else {
+                // Password strings do not match
+                return false;
+              }
+            } else {
+              // Emails do not match
+              return false;
+            }
+          } else {
+            // Not in password database
+            return false;
+          }
           break;
         default:
         false;
@@ -130,12 +161,12 @@
 
     //Create a temp password
     protected function tempPassword() {
-    //Create a random 10 letter string
-    $this->salt = $this->salt();
-    $this->temp_password = "temp";
+      //Create a random 10 letter string
+      $this->salt = $this->salt();
+      $this->temp_password = "temp";
 
-    //Add salt to password and hash them
-    $this->hashed_password = password_hash($this->temp_password.$this->salt, PASSWORD_BCRYPT);
+      //Add salt to password and hash them
+      $this->hashed_password = password_hash($this->temp_password.$this->salt, PASSWORD_BCRYPT);
     }
 
     // Check if all data is filled in and does not match to any existing accounts.
@@ -163,18 +194,19 @@
       return $this->result;
     }
 
-    public function updatePassword() {
+    //Create a new salt and hashed password
+    protected function updatePassword() {
       global $conn;
 
       //Create new salt and hash the pw+salt
       $salt = $this->salt();
-      $hashed_password = password_hash($this->pw.$salt, PASSWORD_BCRYPT);
+      $hashed_password = password_hash($this->userdata[5].$salt, PASSWORD_BCRYPT);
 
       $sql = "UPDATE `password`
               SET `passwd` = '$hashed_password',
                   `salt` = '$salt',
                   `updatedAt` = CURRENT_TIMESTAMP
-              WHERE `email` = '$this->email'";
+              WHERE `email` = '".$this->userdata[0]."'";
 
       $query = mysqli_query($conn, $sql);
       $this->result = $query;
@@ -197,9 +229,9 @@
     public function insertUser() {
       global $conn;
 
-      $exp = explode("@", $this->email);
-      $this->email_part1 = $exp[0];
-      $this->email_part2 = $exp[1];
+      $exp = explode("@", $this->userdata[0]);
+      $email_part1 = $exp[0];
+      $email_part2 = $exp[1];
 
       $this->createAbbrev();
 
@@ -217,18 +249,18 @@
                                                   `rol`,
                                                   `docent`,
                                                   `lespakket`)
-                            VALUES                ('$this->email_part1',
-                                                  '$this->name',
+                            VALUES                ('".$email_part1."',
+                                                  '".$this->userdata[2]."',
                                                   NULL,
-                                                  '$this->lastname',
-                                                  '$this->number',
-                                                  '$this->email',
-                                                  '$this->region',
-                                                  '$this->address',
-                                                  '$this->zip',
-                                                  '$this->role',
-                                                  '$this->teacher',
-                                                  '$this->lessonpackage')";
+                                                  '".$this->userdata[3]."',
+                                                  '".$this->userdata[4]."',
+                                                  '".$this->userdata[0]."',
+                                                  '".$this->userdata[9]."',
+                                                  '".$this->userdata[7]."',
+                                                  '".$this->userdata[8]."',
+                                                  '".$this->role."',
+                                                  '".$this->userdata[10]."',
+                                                  '".$this->userdata[11]."')";
       } else if ($this->role === "klant") {
         //Klant
         $insertUserSql = "INSERT INTO `klant` (`id`,
@@ -242,12 +274,12 @@
                                         `updatedAt`,
                                         `emailVerified`)
                   VALUES                (NULL,
-                                        '$this->lastname',
+                                        '".$this->userdata[3]."',
                                         NULL,
-                                        '$this->name',
-                                        '$this->email',
-                                        '$this->number',
-                                        '$this->role',
+                                        '".$this->userdata[2]."',
+                                        '".$this->userdata[0]."',
+                                        '".$this->userdata[4]."',
+                                        '".$this->role."',
                                         CURRENT_TIMESTAMP,
                                         CURRENT_TIMESTAMP,
                                         1)";
@@ -259,17 +291,16 @@
                                                     `voornaam`,
                                                     `mobiel`,
                                                     `afkorting`)
-                            VALUES                ('$this->email',
-                                                    '$this->lastname',
+                            VALUES                ('".$this->userdata[0]."',
+                                                    '".$this->userdata[3]."',
                                                     NULL,
-                                                    '$this->name',
-                                                    '$this->number',
-                                                    '$this->abbrev')";
+                                                    '".$this->userdata[2]."',
+                                                    '".$this->userdata[4]."',
+                                                    '".$this->abbrev."')";
       }
 
       $query = mysqli_query($conn, $insertUserSql);
       $this->result = $query;
-      var_dump($insertUserSql, $this->result);
 
       return $this->result;
     }

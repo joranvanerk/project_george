@@ -1,7 +1,7 @@
 <?php
 //Get userrole based on email
-include_once("./classes/userController.php");
-$role = new userRegister;
+require_once './classes/userController.php';
+$role = new userData;
 $role->email = $_GET["email"];
 $role->selectRole();
 
