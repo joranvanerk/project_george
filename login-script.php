@@ -1,4 +1,5 @@
 <?php
+  session_start();
     // var_dump($_POST);
     include("./classes/connectDB.php");
     include("./classes/functions.php");
@@ -9,20 +10,18 @@
 
     $sql = "SELECT * from `password` WHERE `email` = '$email'";
     // $passwdDB = "SELECT * from `password` WHERE `passwd` = '$passwd'";
-    
-    
+
+
     $result = mysqli_query($conn, $sql);
     $record = mysqli_fetch_assoc($result);
     $encpass = $record["passwd"];
     if (mysqli_num_rows($result) == 1){
         if(password_verify($passwd, $encpass)) {
             echo("Successful login");
-    
+
             $sql = "SELECT * FROM `klant` WHERE `email` = '$email'";
             $query = mysqli_query($conn, $sql);
             $data = mysqli_fetch_assoc($query);
-    
-            session_start();
             $_SESSION["email"] = $record["email"];
             $_SESSION["id"] = true;
             $_SESSION["voornaam"] = $data["voornaam"];
