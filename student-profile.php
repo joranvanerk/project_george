@@ -1,10 +1,11 @@
 <?php 
-//Checks for log-in and acts as a failsave
-include("./classes/logged_in.php");
-$is_logged_in = new is_logged_in();
-
 // Include framework
 include("./includes/framework.php");
+
+//Checks if current user is allowed to visit this page
+//Accessible roles: student, klant, eigenaar, docent, begeleider
+include("./classes/logged_in.php");
+new logged_in("student");
 
 // basefile management system for header
 $active_page_filename = basename(__FILE__);

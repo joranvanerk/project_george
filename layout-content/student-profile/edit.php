@@ -1,23 +1,14 @@
 <?php
-include("./classes/userController.php");
-
 $s = new userData;
 if (isset($_SESSION)) {
-  $stud->selectQuery("student","email", $_SESSION["email"]);
+  $s->selectQuery("student","email", $_SESSION["email"]);
 } else if (isset($_COOKIE)) {
-  $stud->selectQuery("student","email", $_COOKIE["email"]);
+  $s->selectQuery("student","email", $_COOKIE["email"]);
 }
-//Include student-edit.php if user submitted an edit form
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  if (isset($_POST["personaldetails"]) || isset($_POST["changepassword"]) || isset($_POST["changepackage"])) {
-    include_once("./layout-content/student-profile/edit-script.php");
-  } else {
-    // $_POST value is not register or login
-    include_once("./classes/sendMessage.php");
-    $msg = new messageError;
-    $msg->text = "User did not send a POST value.";
-  }
-}
+
+$lessonpackage = new createSelectData("lespakket", "lespakket", "Lessonpackage");
+$teacher = new createSelectData("medewerker", "afkorting", "Teacher");
+
 ?>
 
 <div class="container">
@@ -42,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="" method="POST">
+        <form action="./student-edit-script.php" method="POST">
           <div class="form-floating mb-3">
             <input type="text" class="form-control" id="floatingInput" name="name" value="<?php echo $s->queryData["voornaam"]." ".$s->queryData["achternaam"]; ?>" required>
             <label for="floatingInput">Naam</label>
@@ -90,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="" method="POST">
+        <form action="./student-edit-script.php" method="POST">
           <div class="form-floating mb-3">
             <input type="password" class="form-control" id="floatingInput" name="oldpassword" required>
             <label for="floatingInput">Current Password</label>
@@ -122,15 +113,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="" method="POST">
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" name="lessonpackage" required>
-            <label for="floatingInput">Lessonpackage</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" name="teacher" required>
-            <label for="floatingInput">Teacher</label>
-          </div>
+        <form action="./student-edit-script.php" method="POST">
+          <?php $lessonpackage->show(); $teacher->show(); ?>  
           <div class="form-floating mb-3">
             <input type="password" class="form-control" id="floatingInput" name="password" required>
             <label for="floatingInput">Enter Password</label>
