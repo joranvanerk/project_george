@@ -72,6 +72,8 @@ if (isset($_POST["register"])) {
     $msg->generate_msg("Email is already taken.");
   }
 } else if (isset($_POST["finregister"])) {
+  include_once("./classes/connectDB.php");
+  include_once("./classes/functions.php");
   //Sanitize fields
   $email = sanitize($_POST["email"]);
   $cemail = sanitize($_POST["cemail"]);

@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 //Include navbar redirect class if user is logged in
 if (isset($_SESSION["email"]) || isset($_COOKIE["email"])) {
-  require_once './classes/navbarRedirect';
+  require_once './classes/navbarRedirect.php';
   $navlinks = new navbarRedirect;
 }
 ?>

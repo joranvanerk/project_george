@@ -18,7 +18,7 @@
     //Show created navbar HTML
     public function show() 
     {
-      echo $html;
+      echo $this->html;
     }
 
     //Create HTML based on $this->role
