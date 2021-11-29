@@ -47,8 +47,24 @@ class userData {
     return $this->query;
   }
 
+  //Get session e-mail and put it in $this->email
+  public function getSessionEmail() 
+  {
+    if (isset($_SESSION["email"]))
+    {
+      $this->email = $_SESSION["email"];
+    } 
+    else if (isset($_COOKIE["email"]))
+    {
+      $this->email = $_COOKIE["email"];
+    } else {
+      return false;
+    }
+  }
+
   //switch case statement determing roles.
-  public function selectRole() {
+  public function selectRole() 
+  {
     $exp = explode("@", $this->email);
     
     if ($exp) {

@@ -72,6 +72,14 @@ if (isset($_SESSION["email"]) || isset($_COOKIE["email"])) {
         <div class="vl"></div>
         <!-- navigation element for redirection to page -->
         <?php
+        //If session is started, display correct links
+        if (isset($_SESSION["email"]) || isset($_COOKIE["email"]))
+        {
+          $navlinks->show();
+        } else {
+          
+        }
+
         if (isset($_SESSION["logged_in"])) {
           if ($_SESSION["logged_in"] === true) {
             echo '<a class="nav-link george_menu" href="mygeorge">My George</a>' ;
