@@ -31,7 +31,7 @@ if (isset($_GET["email"])) {
   <div class="row mt-2 mb-2">
     <div class="col-sm-12 col-md-5">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><i class="fas fa-user"></i> <a class="george_link" href="./mygeorge">My George</a></li>
+        <li class="list-group-item"><i class="fas fa-user"></i> <a class="george_link" href="./login">Log In</a></li>
         <li class="list-group-item"><i class="far fa-calendar-check"></i> <a class="george_link" href="./bookevent">Book an event</a></li>
         <li class="list-group-item"><i class="fas fa-table"></i> <a class="george_link" href="./reservation">Reserve a table</a></li>
         <li class="list-group-item"><i class="fas fa-phone"></i> <a class="george_link" href="./contact">Contact us</a></li>
