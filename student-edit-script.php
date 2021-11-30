@@ -38,10 +38,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   } else if (isset($_POST["changepackage"])) {
     new studentEditPackage(
       $_SESSION["email"], 
-      $_POST["lessonpackage"], 
-      $_POST["teacher"],
+      $_POST["Lessonpackage"], 
+      $_POST["Teacher"],
       $_POST["password"]);
-    //header("Location: ./student-profile?page=myprofile");
+    header("Location: ./student-profile?page=myprofile");
   } else {
   echo "Error 404";
   }

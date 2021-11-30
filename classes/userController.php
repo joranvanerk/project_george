@@ -246,7 +246,7 @@ class createSelectData extends userData {
     $this->html = '<div class="form-floating mb-3">';
     $this->html .= '<select name="'. $name .'" class="form-control">';
     foreach ($data as $d) {
-      $this->html .= '<option>'. $d["$column"] .'</option>';
+      $this->html .= '<option value='. $d["$column"] .'>'. $d["$column"] .'</option>';
     }
     $this->html .= '</select>';
     $this->html .= '<label for="floatingInput">'. $name .'</label>';
