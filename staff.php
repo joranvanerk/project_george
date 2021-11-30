@@ -32,7 +32,14 @@ if(isset($_GET["load"])){
     $content_section = 'reserveringen';
   }
   if($_GET["load"] == 'restaurant'){
-    $content_section = 'restaurant';
+    $content_section = '
+    <div class="card border-dark" style="border-radius: 0px;">
+      <div class="card-body">
+        <h4 class="text-dark text-center">RESTAURANT OPTIES</h4>
+
+        </div>
+      </div>
+    </div>';
   }
   if($_GET["load"] == 'gebruikers'){
     $content_section = '  <div class="col-sm-12 col-md-12 col-lg-12">
@@ -83,7 +90,74 @@ if(isset($_GET["load"])){
     $content_section = 'geavanceerd';
   }
   if($_GET["load"] == 'statistieken'){
-    $content_section = 'statistieken';
+    $content_section = '  <div class="col-sm-7 col-md-4 col-lg-4">
+        <div class="card border-dark" style="border-radius: 0px;">
+          <div class="card-body">
+            <h4 class="text-dark">RESERVERINGEN (TOTAAL)</h4>
+            <h3 class="text-dark">27</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-7 col-md-4 col-lg-4">
+        <div class="card border-dark" style="border-radius: 0px;">
+          <div class="card-body">
+            <h4 class="text-dark">BEZOEKERS VANDAAG</h4>
+            <h3 class="text-dark">528</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-7 col-md-4 col-lg-4" style="margin-bottom: 20px;">
+        <div class="card border-dark" style="border-radius: 0px;">
+          <div class="card-body">
+            <h4 class="text-dark">AANTAL MEDEWERKERS</h4>
+            <h3 class="text-dark">3</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="card border-dark" style="border-radius: 0px;">
+        <div class="card-body">
+        <script>
+        window.onload = function () {
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+        	animationEnabled: true,
+        	theme: "light2",
+        	title:{
+        		text: "STATISTIEKEN"
+        	},
+        	data: [{
+        		type: "line",
+              	indexLabelFontSize: 16,
+        		dataPoints: [
+        			{ y: 450 },
+        			{ y: 414},
+        			{ y: 530, indexLabel: "\u2191 Hoogste",markerColor: "red", markerType: "triangle" },
+        			{ y: 460 },
+        			{ y: 450 },
+        			{ y: 500 },
+        			{ y: 480 },
+        			{ y: 480 },
+        			{ y: 410 , indexLabel: "\u2193 Laagste",markerColor: "DarkSlateGrey", markerType: "cross" },
+        			{ y: 500 },
+        			{ y: 480 },
+        			{ y: 510 },
+              { y: 490 },
+              { y: 520 },
+              { y: 510 , indexLabel: "\u2193 Vandaag",markerColor: "DarkSlateGrey", markerType: "cross" }
+        		]
+        	}]
+        });
+        chart.render();
+
+        }
+        </script>
+        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        </div>
+      </div>
+    </div>
+      ';
   }
 }else{
   $content_section = '
@@ -106,8 +180,8 @@ if(isset($_GET["load"])){
   <div class="col-sm-7 col-md-4 col-lg-4" style="margin-bottom: 20px;">
     <div class="card border-dark" style="border-radius: 0px;">
       <div class="card-body">
-        <h4 class="text-dark">RESERVERINGEN (TOTAAL)</h4>
-        <h3 class="text-dark">27</h3>
+        <h4 class="text-dark">AANTAL MEDEWERKERS</h4>
+        <h3 class="text-dark">3</h3>
       </div>
     </div>
   </div>
@@ -161,6 +235,7 @@ if(isset($_GET["load"])){
 }
 
  ?>
+
 
 <div class="container">
  <br>
