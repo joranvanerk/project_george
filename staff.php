@@ -36,7 +36,43 @@ if(isset($_GET["load"])){
     <div class="card border-dark" style="border-radius: 0px;">
       <div class="card-body">
         <h4 class="text-dark text-center">RESTAURANT OPTIES</h4>
-
+          <form action="" method="POST">
+            <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control formstyle" name="titel" id="floatingInput" value="George">
+                  <label for="floatingInput">Restaurant naam</label>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control formstyle" name="updates" id="floatingInput" value="12 december gaan wij open!">
+                  <label for="floatingInput">Latest update</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-6">
+                <select class="form-select formstyle" name="status" aria-label="Default select example">
+                  <option selected>Selecteer website status</option>
+                  <option value="open">Open</option>
+                  <option value="gesloten">Gesloten</option>
+                  <option value="onderhoud">Onderhoud</option>
+                </select>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-6">
+                <select class="form-select formstyle" name="lovetext" aria-label="Default select example">
+                  <option selected>Selecteer love tekst</option>
+                  <option value="XOXO">XOXO</option>
+                  <option value="GREETINGS">GREETINGS</option>
+                  <option value="LOVE">LOVE</option>
+                </select>
+              </div>
+            </div>
+            <div class="d-grid gap-2" style="margin-top: 20px;">
+              <button class="btn btn-h formstyle" name="submit" type="submit">INSTELLINGEN BIJWERKEN</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>';
@@ -85,9 +121,6 @@ if(isset($_GET["load"])){
         </div>
       </div>
     </div>';
-  }
-  if($_GET["load"] == 'geavanceerd'){
-    $content_section = 'geavanceerd';
   }
   if($_GET["load"] == 'statistieken'){
     $content_section = '  <div class="col-sm-7 col-md-4 col-lg-4">
@@ -253,7 +286,7 @@ if(isset($_GET["load"])){
       <a class="flex-sm-fill text-sm-center btn formstyle btn-h bookeventani" style="margin-left: 5px; margin-right: 5px;" href="staff?load=statistieken">Statistieken</a>
       <a class="flex-sm-fill text-sm-center btn formstyle btn-h bookeventani" style="margin-left: 5px; margin-right: 5px;" href="staff?load=gebruikers">Gebruikers</a>
       <a class="flex-sm-fill text-sm-center btn formstyle btn-h bookeventani" style="margin-left: 5px; margin-right: 5px;" href="staff?load=restaurant">Restaurant</a>
-      <a class="flex-sm-fill text-sm-center btn formstyle btn-h bookeventani" style="margin-left: 5px; margin-right: 5px;" href="staff?load=geavanceerd">Geavanceerd</a>
+      <a class="flex-sm-fill text-sm-center btn formstyle btn-h bookeventani" style="margin-left: 5px; margin-right: 5px;" href="staff?load=reserveringen">Reserveringen</a>
     </nav>
    </div>
    <div style="background-color:#000000; height:1px; width:100%; margin-bottom: 10px;"></div>
