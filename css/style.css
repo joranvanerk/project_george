@@ -207,6 +207,23 @@
   background-color: rgb(51, 197, 14);
 }
 
+/*  */
+.mail-rows a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.mail-rows .student-mail {
+  border: 1px solid #333333;
+  padding: .8em;
+  margin-bottom: 1em;
+}
+
+.mail-rows a strong {
+  float: right;
+  margin-right: 2em;
+}
+
 /* Student profile CSS - Steven */
 ul.student-nav {
   list-style-type: none;
