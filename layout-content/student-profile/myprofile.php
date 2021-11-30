@@ -1,10 +1,10 @@
 <?php
-include("./classes/connectDB.php");
-include("./classes/userController.php");
-$_SESSION["email"] = "327068@student.mboutrecht.nl";
-
 $stud = new userData;
-$stud->selectQuery("student","email", $_SESSION["email"]);
+if (isset($_SESSION)) {
+  $stud->selectQuery("student","email", $_SESSION["email"]);
+} else if (isset($_COOKIE)) {
+  $stud->selectQuery("student","email", $_COOKIE["email"]);
+}
 
 ?>
 

@@ -16,22 +16,7 @@ class userData {
   public $query;
   public $queryData;
 
-  //For register
-  public $newsletter;
-  public $generalterms;
-  public $salt;
-  public $temp_password;
-  public $hashed_password;
-
-  public $number;
-  public $pw;
-  public $confirmpw;
-  public $address;
-  public $zip;
-  public $region;
-  public $teacher;
-  public $lessonpackage;
-  public $abbrev;
+  
 
   // Select query.
   public function selectQuery($table, $column, $userDetail) {
@@ -47,7 +32,24 @@ class userData {
     return $this->query;
   }
 
-  public function selectRole() {
+  //Get session e-mail and put it in $this->email
+  public function getSessionEmail() 
+  {
+    if (isset($_SESSION["email"]))
+    {
+      $this->email = $_SESSION["email"];
+    } 
+    else if (isset($_COOKIE["email"]))
+    {
+      $this->email = $_COOKIE["email"];
+    } else {
+      return false;
+    }
+  }
+
+  //switch case statement determing roles.
+  public function selectRole() 
+  {
     $exp = explode("@", $this->email);
     
     if ($exp) {
@@ -67,17 +69,15 @@ class userData {
       case $exp:
         $this->role = "klant";
         break;
+      default:
+        $this->role = "klant";
       }
     }
 
     return $this->role;
   }
-}
 
-// Class with functions specific for the registering process
-class userRegister extends userData {
-
-  //Create a random 10 letter string
+  //Create a random 10 letter string (salt)
   public function salt($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
@@ -87,206 +87,174 @@ class userRegister extends userData {
     }
     return $randomString;
   }
-
-  //Create a salt and password
-  public function createPassword() {
-    //Create a random 10 letter string
-    $this->salt = $this->salt();
-    $this->temp_password = "temp";
-
-    //Add salt to password and hash them
-    $this->hashed_password = password_hash($this->temp_password.$this->salt, PASSWORD_BCRYPT);
-  }
-
-  // Check if all data is filled in and does not match to any existing accounts.
-  public function insertIntoPassword() {
-    global $conn;
-
-    $sql = "INSERT INTO `password` (`email`,
-                                    `passwd`,
-                                    `salt`,
-                                    `news`,
-                                    `terms`,
-                                    `createdAt`,
-                                    `updatedAt`)
-            VALUES                  ('$this->email',
-                                    '$this->hashed_password',
-                                    '$this->salt',
-                                    '$this->newsletter',
-                                    '$this->generalterms',
-                                    CURRENT_TIMESTAMP,
-                                    CURRENT_TIMESTAMP)";
-
-    $query = mysqli_query($conn, $sql);
-    $this->result = $query;
-
-    return $this->result;
-  }
-
-  public function updatePassword() {
-    global $conn;
-
-    //Create new salt and hash the pw+salt
-    $salt = $this->salt();
-    $hashed_password = password_hash($this->pw.$salt, PASSWORD_BCRYPT);
-
-    $sql = "UPDATE `password`
-            SET `passwd` = '$hashed_password',
-                `salt` = '$salt',
-                `updatedAt` = CURRENT_TIMESTAMP
-            WHERE `email` = '$this->email'";
-
-    $query = mysqli_query($conn, $sql);
-    $this->result = $query;
-
-    return $this->result;
-  }
-
-  //Break down name and lastname string to create an abbreviation
-  public function createAbbrev() {
-    $this->abbrev =  substr($this->name, 0, 1);
-    $this->abbrev .= substr($this->name, -1, 1);
-    $this->abbrev .= substr($this->lastname, 0, 1);
-    $this->abbrev .= substr($this->lastname, -1, 1);
-    $this->abbrev = strtoupper($this->abbrev);
-
-    return $this->abbrev;
-  }
-
-  //Add user into table based on userrole
-  public function insertUser() {
-    global $conn;
-
-    $exp = explode("@", $this->email);
-    $this->email_part1 = $exp[0];
-    $this->email_part2 = $exp[1];
-
-    $this->createAbbrev();
-
-    if ($this->role === "student") {
-      //Student
-      $insertUserSql = "INSERT INTO `student` (`studentnr`,
-                                                `voornaam`,
-                                                `tussenvoegsel`,
-                                                `achternaam`,
-                                                `mobiel`,
-                                                `email`,
-                                                `woonplaats`,
-                                                `straat`,
-                                                `postcode`,
-                                                `rol`,
-                                                `docent`,
-                                                `lespakket`)
-                          VALUES                ('$this->email_part1',
-                                                '$this->name',
-                                                NULL,
-                                                '$this->lastname',
-                                                '$this->number',
-                                                '$this->email',
-                                                '$this->region',
-                                                '$this->address',
-                                                '$this->zip',
-                                                '$this->role',
-                                                '$this->teacher',
-                                                '$this->lessonpackage')";
-    } else if ($this->role === "klant") {
-      //Klant
-      $insertUserSql = "INSERT INTO `klant` (`id`,
-                                      `achternaam`,
-                                      `tussenvoegsel`,
-                                      `voornaam`,
-                                      `email`,
-                                      `mobiel`,
-                                      `rol`,
-                                      `createdAt`,
-                                      `updatedAt`,
-                                      `emailVerified`)
-                VALUES                (NULL,
-                                      '$this->lastname',
-                                      NULL,
-                                      '$this->name',
-                                      '$this->email',
-                                      '$this->number',
-                                      '$this->role',
-                                      CURRENT_TIMESTAMP,
-                                      CURRENT_TIMESTAMP,
-                                      1)";
-    } else {
-      //Begeleider/Docent/Eigenaar
-      $insertUserSql = "INSERT INTO `medewerker` (`email`,
-                                                  `achternaam`,
-                                                  `tussenvoegsel`,
-                                                  `voornaam`,
-                                                  `mobiel`,
-                                                  `afkorting`)
-                          VALUES                ('$this->email',
-                                                  '$this->lastname',
-                                                  NULL,
-                                                  '$this->name',
-                                                  '$this->number',
-                                                  '$this->abbrev')";
-    }
-
-    $query = mysqli_query($conn, $insertUserSql);
-    $this->result = $query;
-    var_dump($insertUserSql, $this->result);
-
-    return $this->result;
-  }
 }
 
+// Class with functions specific for editing personal student information
 class studentEditDetails extends userData {
-  public $password;
-  public $expname;
-  public $id;
-
   public function __construct($email, $name, $number, $region, $address, $zip, $password) 
   {
     $expname = explode(" ", $name);
-    $studentnr = explode("@", $email);
-    $this->id = intval($studentnr[0]);
     $this->name = $expname[0];
     $this->lastname = $expname[1];
-    $this->email = $email;
-    $this->number = $number;
-    $this->region = $region;
-    $this->address = $address;
-    $this->zip = $zip;
-    $this->password = $password;
-    $this->edit_details();
+    $studentnr = explode("@", $email);
+    $id = intval($studentnr[0]);
+    $this->edit_details($email, $number, $region, $address, $zip, $id, $password);
   }
 
-  public function edit_details() 
+  public function edit_details($email, $number, $region, $address, $zip, $id, $password) 
   {
-    $this->selectQuery("password", "email", $this->email);
+    $this->selectQuery("password", "email", $email);
     //Email exists in database
     if ($this->result === 1) {
       //Password matches with database password
-      if (password_verify($this->password.$this->queryData["salt"], $this->queryData["passwd"])) {
+      if (password_verify($password.$this->queryData["salt"], $this->queryData["passwd"])) {
         //change query
         global $conn;
 
         $sql = "UPDATE `student` 
               SET `voornaam` = '$this->name', 
                   `achternaam` = '$this->lastname', 
-                  `mobiel` = '$this->number', 
-                  `woonplaats` = '$this->region', 
-                  `straat` = '$this->address', 
-                  `postcode` = '$this->zip' 
-              WHERE `student`.`studentnr` = $this->id;";
+                  `mobiel` = '$number', 
+                  `woonplaats` = '$region', 
+                  `straat` = '$address', 
+                  `postcode` = '$zip' 
+              WHERE `student`.`studentnr` = $id;";
 
         $result = mysqli_query($conn, $sql);
+
+        if ($result) {
+          echo "Personal details have been successfully edited";
+        }
+
       }
     }
   }
 
 }
 
-class studentEditPassword extends userRegister {
+// Class with functions specific for changing password
+class studentEditPassword extends userData {
+  public function __construct($email, $oldpassword, $newpassword, $confirmnewpassword) 
+  {
+    $this->edit_password($email, $oldpassword, $newpassword, $confirmnewpassword);
+  }
+
+  public function edit_password($email, $oldpassword, $newpassword, $confirmnewpassword) 
+  {
+    $this->selectQuery("password", "email", $email);
+    //Email exists in database
+    if ($this->result === 1) {
+      //Password matches with database password
+      if (password_verify($oldpassword.$this->queryData["salt"], $this->queryData["passwd"])) {
+        //newpassword and confirm new password are identical strings
+        if (strcmp($newpassword, $confirmnewpassword) === 0) {
+          
+          //change password query
+          global $conn;
+
+          $salt = $this->salt();
+          $blowfish = password_hash($newpassword.$salt, PASSWORD_BCRYPT);
+
+          $sql = "UPDATE `password`
+                  SET `passwd` = '$blowfish',
+                      `salt` = '$salt',
+                      `updatedAt` = CURRENT_TIMESTAMP
+                  WHERE `email` = '$email'";
+
+          $result = mysqli_query($conn, $sql);
+
+          if ($result) {
+            echo "Password has been successfully edited";
+          }
+        } else {
+          echo "Passwords do not match";
+        }
+      } else {
+        echo "Password could not be verified";
+      }
+    } else {
+      echo "email does not exist in database";
+    }
+  }
 
 }
 
-class studentEditPackage extends userRegister {
+//Class with functions specific for editing lessonpackage and teacher information
+class studentEditPackage extends userData {
+  public function __construct($email, $lessonpackage, $teacher, $password) 
+  {
+    $this->edit_package($email, $lessonpackage, $teacher, $password);
+  }
 
+  public function edit_package($email, $lessonpackage, $teacher, $password) 
+  {
+    $studentnr = explode("@", $email);
+    $id = intval($studentnr[0]);
+
+    $this->selectQuery("password", "email", $email);
+    //Email exists in database
+    if ($this->result === 1) {
+      //Password matches with database password
+      if (password_verify($password.$this->queryData["salt"], $this->queryData["passwd"])) {
+        //edit lessonpackage info
+        global $conn;
+
+        $sql = "UPDATE `student` 
+              SET `docent` = '$teacher', 
+                  `lespakket` = '$lessonpackage' 
+              WHERE `student`.`studentnr` = $id;";
+
+        $result = mysqli_query($conn, $sql);
+
+        if ($result) {
+          echo "Lessonpackage and teacher details have been successfully edited";
+        }
+
+      } else {
+        echo "Password could not be verified";
+      }
+    } else {
+      echo "email does not exist in database";
+    }
+  }
+
+}
+
+//Create select data for a form
+class createSelectData extends userData {
+  public $html;
+
+  //Create table with database available data
+  public function __construct($table, $column, $name) {
+    $data = $this->get_column_data($table, $column);
+    $this->create_select($data, $column, $name);
+  }
+
+  public function get_column_data($table, $column) {
+    global $conn;
+
+    $sql = "SELECT `$column` FROM `$table`;";
+    $result = mysqli_query($conn, $sql);
+
+    $temp_arr = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $temp_arr;
+  }
+
+  //Create select with array data
+  public function create_select($data, $column, $name) {
+
+    $this->html = '<div class="form-floating mb-3">';
+    $this->html .= '<select name="'. $name .'" class="form-control">';
+    foreach ($data as $d) {
+      $this->html .= '<option value='. $d["$column"] .'>'. $d["$column"] .'</option>';
+    }
+    $this->html .= '</select>';
+    $this->html .= '<label for="floatingInput">'. $name .'</label>';
+    $this->html .= '</div>';
+  }
+
+  public function show() {
+    echo $this->html;
+  }
 }
 ?>

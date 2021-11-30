@@ -19,7 +19,7 @@ include_once("./includes/header.php");
   <div class="row">
     <!-- Form to fill out the required information to finish registering -->
     <div class="offset-sm-0 offset-md-1 col-sm-6 col-md-5 george_modal">
-      <form action="./register-script.php" method="POST">
+      <form action="./test.php" method="POST">
         <!-- Add values of given link into register script -->
         <input type="hidden" value="<?php if (isset($_GET["email"])) echo $_GET["email"]; ?>" name="email">
         <div class="form-floating mb-3">
