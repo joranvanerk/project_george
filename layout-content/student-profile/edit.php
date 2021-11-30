@@ -15,12 +15,11 @@ $teacher = new createSelectData("medewerker", "afkorting", "Teacher");
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-6">
-      <ul>
-        <li><a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#personaldetails">Edit personal details</a></li>
-        <li><a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#changepassword">Change password</a></li>
-        <li><a class="nav-link george_menu" data-bs-toggle="modal" data-bs-target="#changepackage">Change lesson package / teacher</a></li>
-      </ul>
+    <div class="col-sm-12 col-md-6 student-edit">
+      <h3 class="george_title mt-3 mb-4">Edit your personal information:</h3>
+      <a data-bs-toggle="modal" data-bs-target="#personaldetails">Edit personal details</a>
+      <a data-bs-toggle="modal" data-bs-target="#changepassword">Change password</a>
+      <a data-bs-toggle="modal" data-bs-target="#changepackage">Change lesson package / teacher</a>
     </div>
     <div class="col-sm-12 col-md-6"></div>
   </div>

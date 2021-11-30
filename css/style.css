@@ -73,6 +73,26 @@
   color: #fff;
 }
 
+.student-edit > a {
+  font-family: george_menu;
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: color .15s ease-in-out,
+  background-color .15s ease-in-out,
+  border-color .15s ease-in-out;
+  border: 1px solid #333333;
+  border-radius: 0;
+  border-color: #333333;
+  color: #333333;
+  margin-bottom: 0.5rem;
+}
+
+.student-edit > a:hover {
+  color: #fff !important;
+  background-color: #333333;
+}
+
 .btn-cancel {
   color: #d41717;
   border-radius: 0;
