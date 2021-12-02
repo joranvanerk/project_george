@@ -1,6 +1,7 @@
 <?php
   require_once './classes/connectDB.php';
 
+  //This class creates the select bar and mail overview.
   class MailOverview {
     protected $html = null;
     protected $user = null;
@@ -11,12 +12,13 @@
     public function __construct() {
       $this->getArgument();
       $this->getDisplayData();
-      if (empty($data)) {
+      //If found data is not empty, create an overview.
+      if (!empty($data)) {
         $this->createOverview();
       } else {
         $this->emptyOverview();
       }
-      
+      //Show created overview
       $this->show();
     }
 
@@ -57,7 +59,7 @@
     protected function createOverview() {
       $this->html = '<div class="row mail-rows">';
       $this->html .= '<div class="student-mail">';
-      $this->html .= '<a>Er zijn geen mails voor u gevonden.</a>';
+      $this->html .= '<a href="student-mail?content=hashed_number">Subject: Aanpassing lesrooster <strong>Datum: 17-12-2021</strong><strong>Sender: Hans Odijk</strong></a>';
       $this->html .= '</div>';
       $this->html .= '</div>';
 
@@ -68,7 +70,7 @@
     protected function emptyOverview() {
       $this->html = '<div class="row mail-rows">';
       $this->html .= '<div class="student-mail">';
-      $this->html .= '<a href="student-mail?content=hashed_number">Subject: Aanpassing lesrooster <strong>Datum: 17-12-2021</strong><strong>Sender: Hans Odijk</strong></a>';
+      $this->html .= '<a>Er zijn geen mails voor u gevonden.</a>';
       $this->html .= '</div>';
       $this->html .= '</div>';
 
