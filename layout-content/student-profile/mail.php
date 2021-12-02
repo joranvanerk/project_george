@@ -1,5 +1,12 @@
 <?php
 require_once './classes/mailOverview.php';
+
+// Execute functions if user send a mail
+if (isset($_POST["sendmail"])) {
+  require_once "./classes/sendMail.php";
+  new sendMail;
+}
+
 ?>
 <!-- Black line -->
 <!-- <div class="mb-3" style="background-color:#000000; height:1px; width:100%;"></div> -->

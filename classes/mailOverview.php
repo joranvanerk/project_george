@@ -151,14 +151,14 @@
 
     //Create HTML for sending mail
     protected function createSendMailHTML() {
-      $this->html =  "<form action='classes/sendmail' method='POST'>";
+      $this->html =  "<form action='' method='POST'>";
       $this->html .= "<div class='form-floating mb-3'>";
-      $this->html .= "<input class='form-control' type='text' placeholder='".$_SESSION["email"]."' value='".$_SESSION["email"]."' readonly>";
+      $this->html .= "<input class='form-control' type='text' name='from' placeholder='".$_SESSION["email"]."' value='".$_SESSION["email"]."' readonly>";
       $this->html .= "<label for='floatingInput'>From:</label>";
       $this->html .= "</div>";
 
       $this->html .= "<div class='form-floating mb-3'>";
-      $this->html .= "<select name='search' class='form-control' id='floatingInput'>";
+      $this->html .= "<select name='to' class='form-control' id='floatingInput'>";
       foreach ($this->data as $d) {
         $this->html .= "<option value='".$d["afkorting"]."'>".$d["email"]."</option>";
       }
