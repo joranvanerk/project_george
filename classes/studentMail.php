@@ -2,18 +2,46 @@
   require_once './classes/connectDB.php';
 
   class MailOverview {
-    protected $html;
+    protected $html = null;
+    protected $user = null;
+    protected $data = [];
+    public $argument = null;
 
     //Create overview and display it
     public function __construct() {
-      $this->getRows();
+      $this->getArgument();
+      $this->getDisplayData();
       $this->createOverview();
       $this->show();
     }
 
-    //Retrieve all rows 
-    protected function getRows() {
+    //Retrieve required arguments to sort e-mails
+    protected function getArgument() {
+      //Retrieve student number based on session e-mail
+      $e = explode("@", $_SESSION["email"]);
+      if ($e[1] === "student.mboutrecht.nl") {
+        $this->user = intval($e[0]);
+      }
+      
+      if (isset($_GET["search"])) {
+        $this->argument = strtolower($_GET["search"]);
+      } else {
+        $this->argument = strtolower("all");
+      }
+      
+      return $this->argument;
+    }
 
+    //Put all displayData in an array
+    protected function getDisplayData() {
+      
+
+      global $conn;
+      $sql = "SELECT * FROM `mail` WHERE `student` = '".$this->user."'";
+      $query = mysqli_query($conn, $sql);
+      $this->data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+      return $this->data;
     }
 
     //Create overview in $html
@@ -35,7 +63,7 @@
 
   //Create mailsearch select
   class MailSearch extends userData{
-    protected $html;
+    protected $html = null;
     protected $data = [];
 
     //Initialize functions
@@ -51,7 +79,6 @@
       $sql = "SELECT * FROM `medewerker`";
       $query = mysqli_query($conn, $sql);
       $this->data = mysqli_fetch_all($query, MYSQLI_ASSOC);
-      var_dump($this->data);
 
       return $this->data;
     }
