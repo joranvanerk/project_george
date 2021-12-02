@@ -11,7 +11,12 @@
     public function __construct() {
       $this->getArgument();
       $this->getDisplayData();
-      $this->createOverview();
+      if (empty($data)) {
+        $this->createOverview();
+      } else {
+        $this->emptyOverview();
+      }
+      
       $this->show();
     }
 
@@ -22,7 +27,7 @@
       if ($e[1] === "student.mboutrecht.nl") {
         $this->user = intval($e[0]);
       }
-      
+      //Retrieve email variable based on user selection
       if (isset($_GET["search"])) {
         $this->argument = strtolower($_GET["search"]);
       } else {
@@ -34,18 +39,33 @@
 
     //Put all displayData in an array
     protected function getDisplayData() {
-      
-
       global $conn;
-      $sql = "SELECT * FROM `mail` WHERE `student` = '".$this->user."'";
-      $query = mysqli_query($conn, $sql);
-      $this->data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+      if ($this->argument === "all") {
+        $sql = "SELECT * FROM `mail` WHERE `student` = '".$this->user."'";
+        $query = mysqli_query($conn, $sql);
+        $this->data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+      } else {
+        $sql = "SELECT * FROM `mail` WHERE `student` = ".$this->user." AND `medewerker` = '".$this->argument."'";
+        $query = mysqli_query($conn, $sql);
+        $this->data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+      }
 
       return $this->data;
     }
 
     //Create overview in $html
     protected function createOverview() {
+      $this->html = '<div class="row mail-rows">';
+      $this->html .= '<div class="student-mail">';
+      $this->html .= '<a>Er zijn geen mails voor u gevonden.</a>';
+      $this->html .= '</div>';
+      $this->html .= '</div>';
+
+      return $this->html;
+    }
+
+    //Create empty mailbox message
+    protected function emptyOverview() {
       $this->html = '<div class="row mail-rows">';
       $this->html .= '<div class="student-mail">';
       $this->html .= '<a href="student-mail?content=hashed_number">Subject: Aanpassing lesrooster <strong>Datum: 17-12-2021</strong><strong>Sender: Hans Odijk</strong></a>';
@@ -93,8 +113,15 @@
       $this->html .= "<input type='hidden' name='page' value='mail'>";
       $this->html .= "<div class='form-floating mb-3'>";
       $this->html .= "<select name='search' class='form-control' id='floatingInput'>";
+      $this->html .= "<option value='all'>Alle emails</option>";
       foreach ($this->data as $d) {
-        $this->html .= "<option value='".$d["afkorting"]."'>".$d["voornaam"]." ".$d["achternaam"]."</option>";
+        $this->html .= "<option ";
+        if (isset($_GET["search"])) {
+          if (strtolower($_GET["search"]) === strtolower($d["afkorting"])) {
+            $this->html .= " selected ";
+          }
+        }
+        $this->html .= " value='".$d["afkorting"]."'>".$d["voornaam"]." ".$d["achternaam"]."</option>";
       }
       $this->html .= "</select>";
       $this->html .= "<label for='floatingInput'>Search messages from:</label>";
