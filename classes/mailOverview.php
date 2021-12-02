@@ -13,7 +13,7 @@
       $this->getArgument();
       $this->getDisplayData();
       //If found data is not empty, create an overview.
-      if (!empty($data)) {
+      if (!empty($this->data)) {
         $this->createOverview();
       } else {
         $this->emptyOverview();
@@ -27,7 +27,7 @@
       //Retrieve student number based on session e-mail
       $e = explode("@", $_SESSION["email"]);
       if ($e[1] === "student.mboutrecht.nl") {
-        $this->user = intval($e[0]);
+        $this->user = $e[0];
       }
       //Retrieve search variable based on user selection
       if (isset($_GET["search"])) {
@@ -43,11 +43,11 @@
     protected function getDisplayData() {
       global $conn;
       if ($this->argument === "all") {
-        $sql = "SELECT * FROM `mail` WHERE `student` = '".$this->user."'";
+        $sql = "SELECT * FROM `mail` WHERE `van` = '".$this->user."';";
         $query = mysqli_query($conn, $sql);
         $this->data = mysqli_fetch_all($query, MYSQLI_ASSOC);
       } else {
-        $sql = "SELECT * FROM `mail` WHERE `student` = ".$this->user." AND `medewerker` = '".$this->argument."'";
+        $sql = "SELECT * FROM `mail` WHERE `van` = ".$this->user." AND `naar` = '".$this->argument."';";
         $query = mysqli_query($conn, $sql);
         $this->data = mysqli_fetch_all($query, MYSQLI_ASSOC);
       }
@@ -58,9 +58,11 @@
     //Create overview in $html
     protected function createOverview() {
       $this->html =  '<div class="row mail-rows">';
-      $this->html .= '<div class="student-mail">';
-      $this->html .= '<a href="student-mail?content=hashed_number">Subject: Aanpassing lesrooster <strong>Datum: 17-12-2021</strong><strong>Sender: Hans Odijk</strong></a>';
-      $this->html .= '</div>';
+      foreach ($this->data as $d) {
+        $this->html .= '<div class="student-mail">';
+        $this->html .= '<a href="student-mail?content='.$d["salt"].'">Subject: '.$d["onderwerp"].' <strong>Datum: '.$d["createdAt"].'</strong><strong>To: '.$d["naar"].'</strong><strong>From: '.$d["van"].'</strong></a>';
+        $this->html .= '</div>';
+      }
       $this->html .= '</div>';
 
       return $this->html;
@@ -70,7 +72,7 @@
     protected function emptyOverview() {
       $this->html = '<div class="row mail-rows">';
       $this->html .= '<div class="student-mail">';
-      $this->html .= '<a>Er zijn geen mails voor u gevonden.</a>';
+      $this->html .= '<a>No mails found.</a>';
       $this->html .= '</div>';
       $this->html .= '</div>';
 

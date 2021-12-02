@@ -37,8 +37,8 @@
       $salt = $this->salt();
       $sql = "INSERT INTO `mail` (`mailid`, 
                                   `onderwerp`, 
-                                  `student`, 
-                                  `medewerker`, 
+                                  `van`, 
+                                  `naar`, 
                                   `createdAt`, 
                                   `updatedAt`, 
                                   `salt`, 
