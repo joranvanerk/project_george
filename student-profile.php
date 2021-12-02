@@ -1,17 +1,17 @@
 <?php 
 // Include framework
-include("./includes/framework.php");
+include_once("./includes/framework.php");
 
 //Checks if current user is allowed to visit this page
 //Accessible roles: student, klant, eigenaar, docent, begeleider
-include("./classes/logged_in.php");
+include_once("./classes/logged_in.php");
 new logged_in("student");
 
 // basefile management system for header
 $active_page_filename = basename(__FILE__);
 
 // Include header
-include("./includes/header.php"); ?>
+include_once("./includes/header.php"); ?>
 
 <!-- Student navigation bar -->
 <div class="container">
@@ -30,28 +30,28 @@ if(isset($_GET["page"])) {
   $page = $_GET["page"];
   switch($page) {
     case "myprofile":
-      include("./layout-content/student-profile/myprofile.php");
+      include_once("./layout-content/student-profile/myprofile.php");
       break;
     case "results":
-      include("./layout-content/student-profile/results.php");
+      include_once("./layout-content/student-profile/results.php");
       break;
     case "progress":
-      include("./layout-content/student-profile/progress.php");
+      include_once("./layout-content/student-profile/progress.php");
       break;
     case "mail":
-      include("./layout-content/student-profile/mail.php");
+      include_once("./layout-content/student-profile/mail.php");
       break;
     case "edit":
-      include("./layout-content/student-profile/edit.php");
+      include_once("./layout-content/student-profile/edit.php");
       break;
     default:
-      include("./layout-content/student-profile/myprofile.php");
+      include_once("./layout-content/student-profile/myprofile.php");
       break;
   }
 } else {
   //Default include without $_GET
-  include("./layout-content/student-profile/myprofile.php");
+  include_once("./layout-content/student-profile/myprofile.php");
 }
 
-include("./includes/footer.php"); 
+include_once("./includes/footer.php"); 
 ?>

@@ -4,10 +4,8 @@ require_once './classes/mailOverview.php';
 <!-- Black line -->
 <!-- <div class="mb-3" style="background-color:#000000; height:1px; width:100%;"></div> -->
 <div class="container mb-1 george_modal">
-  <!-- Generate searchbar mail -->
-  <?php new mailSearch; ?>
-  <!-- Generate mailoverview row(s)-->
-  <?php new mailOverview; ?>
+  <!-- Generate searchbar mail and overview -->
+  <?php new mailSearchBar; new mailOverview; ?>
 </div>
 
 <!-- Modal for Sending mail -->
@@ -19,6 +17,7 @@ require_once './classes/mailOverview.php';
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <!-- Echo HTML created in mailForm -->
         <?php new mailForm; ?>
       </div>
     </div>

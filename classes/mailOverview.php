@@ -57,7 +57,7 @@
 
     //Create overview in $html
     protected function createOverview() {
-      $this->html = '<div class="row mail-rows">';
+      $this->html =  '<div class="row mail-rows">';
       $this->html .= '<div class="student-mail">';
       $this->html .= '<a href="student-mail?content=hashed_number">Subject: Aanpassing lesrooster <strong>Datum: 17-12-2021</strong><strong>Sender: Hans Odijk</strong></a>';
       $this->html .= '</div>';
@@ -84,7 +84,7 @@
   }
 
   //This class creates the select bar for searching mails based on e-mail addresses.
-  class mailSearch extends userData{
+  class mailSearchBar extends userData{
     protected $html = null;
     protected $data = [];
 
@@ -129,12 +129,11 @@
       $this->html .= "</select>";
       $this->html .= "<label for='floatingInput'>Search messages from:</label>";
       $this->html .= "</div>";
+
       $this->html .= "<div class='form-floating mb-3'>";
       $this->html .= "<button type='submit' class='btn btn-outline-george'>Search</button>";
       $this->html .= "<a class='btn btn-cancel' href='student-profile?page=mail'>Remove searchdata</a>";
-      $this->html .= "</div>";
-      $this->html .= "</form>";
-      $this->html .= "</div>";
+      $this->html .= "</div></form></div>";
     }
 
     protected function show() {
@@ -142,7 +141,8 @@
     }
   }
 
-  class mailForm extends mailSearch {
+  //Creates a form with active employees on the website.
+  class mailForm extends mailSearchBar {
     public function __construct() {
       $this->getEmployee();
       $this->createSendMailHTML();
