@@ -1,8 +1,8 @@
 <?php
   require_once './classes/connectDB.php';
 
-  //This class creates the select bar and mail overview.
-  class MailOverview {
+  //This class creates the mail overview.
+  class mailOverview {
     protected $html = null;
     protected $user = null;
     protected $data = [];
@@ -29,7 +29,7 @@
       if ($e[1] === "student.mboutrecht.nl") {
         $this->user = intval($e[0]);
       }
-      //Retrieve email variable based on user selection
+      //Retrieve search variable based on user selection
       if (isset($_GET["search"])) {
         $this->argument = strtolower($_GET["search"]);
       } else {
@@ -83,20 +83,20 @@
     }
   }
 
-  //Create mailsearch select
-  class MailSearch extends userData{
+  //This class creates the select bar for searching mails based on e-mail addresses.
+  class mailSearch extends userData{
     protected $html = null;
     protected $data = [];
 
     //Initialize functions
     public function __construct() {
-      $this->getUsers();
+      $this->getEmployee();
       $this->createHTML();
       $this->show();
     }
 
     //Retrieve all mboutrecht mail senders in an array
-    protected function getUsers() {
+    protected function getEmployee() {
       global $conn;
       $sql = "SELECT * FROM `medewerker`";
       $query = mysqli_query($conn, $sql);
@@ -118,6 +118,7 @@
       $this->html .= "<option value='all'>Alle emails</option>";
       foreach ($this->data as $d) {
         $this->html .= "<option ";
+        //Make option selected if it's being searched by the user.
         if (isset($_GET["search"])) {
           if (strtolower($_GET["search"]) === strtolower($d["afkorting"])) {
             $this->html .= " selected ";
