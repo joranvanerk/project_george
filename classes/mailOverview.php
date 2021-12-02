@@ -109,7 +109,7 @@
     protected function createHTML() {
       $this->html =  "<div class='row'>";
       $this->html .= "<div class='mb-3' style='background-color:#000000; height:1px; width:99%;'></div>";
-      $this->html .= "<h1>Mail</h1>";
+      $this->html .= "<h1>Mail<a class='btn btn-sendmail' data-bs-toggle='modal' data-bs-target='#sendmail'>Send mail</a></h1>";
       $this->html .= "<div class='mb-3' style='background-color:#000000; height:1px; width:99%;'></div>";
       $this->html .= "<form action='' method='get'>";
       $this->html .= "<input type='hidden' name='page' value='mail'>";
@@ -139,6 +139,45 @@
 
     protected function show() {
       echo $this->html;
+    }
+  }
+
+  class mailForm extends mailSearch {
+    public function __construct() {
+      $this->getEmployee();
+      $this->createSendMailHTML();
+      $this->show();
+    }
+
+    //Create HTML for sending mail
+    protected function createSendMailHTML() {
+      $this->html =  "<form action='classes/sendmail' method='POST'>";
+      $this->html .= "<div class='form-floating mb-3'>";
+      $this->html .= "<input class='form-control' type='text' placeholder='".$_SESSION["email"]."' value='".$_SESSION["email"]."' readonly>";
+      $this->html .= "<label for='floatingInput'>From:</label>";
+      $this->html .= "</div>";
+
+      $this->html .= "<div class='form-floating mb-3'>";
+      $this->html .= "<select name='search' class='form-control' id='floatingInput'>";
+      foreach ($this->data as $d) {
+        $this->html .= "<option value='".$d["afkorting"]."'>".$d["email"]."</option>";
+      }
+      $this->html .= "</select><label for='floatingInput'>To:</label></div>";
+
+      $this->html .= "<div class='form-floating mb-3'>";
+      $this->html .= "<input type='text' class='form-control' id='floatingInput' name='subject' required>";
+      $this->html .= "<label for='floatingInput'>Subject</label>";
+      $this->html .= "</div>";
+
+      $this->html .= "<div class='form-floating mb-3'>";
+      $this->html .= "<textarea class='form-control' name='text' id='floatingInput' cols='30' rows='10'></textarea>";
+      $this->html .= "<label for='floatingInput'>Enter text:</label>";
+      $this->html .= "</div>";
+
+      $this->html .= "<div class='modal-footer'>";
+      $this->html .= "<button type='submit' name='sendmail' class='btn btn-outline-george'>Submit</button>";
+      $this->html .= "<button type='button' class='btn btn-cancel' data-bs-dismiss='modal'>Cancel</button>";
+      $this->html .= "</div></form>";
     }
   }
 ?>

@@ -208,6 +208,27 @@
 }
 
 /*  */
+.form-floating textarea.form-control {
+  height: 100%;
+}
+
+.btn-sendmail {
+  float: right;
+  font-weight: 700;
+  font-size: 20px;
+  color: #333333;
+  border: 2px solid #333333;
+  border-radius: 0;
+  margin-right: 25%;
+  padding: .5em 1em;
+}
+
+.btn-sendmail:hover {
+   background-color: green;
+   color: #fff;
+   border: 2px solid green;
+}
+
 .mail-rows a {
   text-decoration: none;
   color: #333333;
