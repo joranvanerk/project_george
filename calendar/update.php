@@ -3,7 +3,7 @@
 
 //update.php
 
-$connect = new PDO('mysql:host=localhost;dbname=test_GeorgeMboUtrecht', 'GeorgeUser', 'George123');
+$connect = new PDO('mysql:host=localhost;dbname=GeorgeMboUtrecht', 'GeorgeUser', 'George123');
 
 if(isset($_POST["id"]))
 {

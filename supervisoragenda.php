@@ -103,7 +103,7 @@
  </head>
  <body>
   <br />
-  <h2 align="center"><a href="#">Supervisor agenda</a></h2>
+  <h2 align="center"><a href="./index.php">Supervisor agenda</a></h2>
   <br />
   <div class="container">
    <div id="calendar"></div>
