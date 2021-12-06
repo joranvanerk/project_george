@@ -33,37 +33,35 @@ $active_page_filename = basename(__FILE__);
         </button>
       </div>
       <div class="modal-body">
-      <form class="bookeventani">
+      <form class="bookeventani" action="" method="POST">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control formstyle" id="floatingInput" placeholder="George">
+          <input type="text" name="naam" class="form-control formstyle" id="floatingInput" placeholder="George">
           <label for="floatingInput">Volledige naam</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control formstyle" id="floatingInput" placeholder="George">
+          <input type="text" name="postcode" class="form-control formstyle" id="floatingInput" placeholder="George">
           <label for="floatingInput">Postcode</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control formstyle" id="floatingInput" placeholder="George">
+          <input type="text" name=email class="form-control formstyle" id="floatingInput" placeholder="George">
           <label for="floatingInput">Email</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control formstyle" id="floatingInput" placeholder="George">
+          <input type="text" name="telefoonnummer" class="form-control formstyle" id="floatingInput" placeholder="George">
           <label for="floatingInput">Phone number</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control formstyle" id="floatingInput" placeholder="George">
+          <input type="text" name="geboortedatum" class="form-control formstyle" id="floatingInput" placeholder="George">
           <label for="floatingInput">Geboortedatum</label>
         </div>
-        <label for="exampleFormControlFile1">Importeer hier uw cv en uw motivatie brief!</label>
-    <input type="file" class="form-control-file" id="exampleFormControlFile1">
         <div class="d-grid gap-2">
       </div>
-      </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Sollicitatie verzenden</button>
+        <button type="submit" name="submit" class="btn btn-primary">Sollicitatie verzenden</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
@@ -179,5 +177,22 @@ $active_page_filename = basename(__FILE__);
 </div>
 
 </body>
+
+<?php 
+
+if(isset($_POST["submit"])){
+$naam = $_POST["naam"];
+$postcode = $_POST["postcode"];
+$email = $_POST["email"];
+$telefoonnummer = $_POST["telefoonnummer"];
+$geboortedatum = $_POST["geboortedatum"];
+
+$sql = "INSERT INTO `application` (`applicationid`, `naam`, `postcode`, `telefoonnummer`, `geboortedatum`) VALUES (NULL , '$naam', '$postcode', '$telefoonnummer', '$geboortedatum');";
+
+mysqli_query($conn, $sql);
+
+}
+
+?>
 <!-- include footer -->
 <?php include_once("./includes/footer.php"); ?>
