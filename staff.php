@@ -4,6 +4,7 @@
 $active_page_filename = basename(__FILE__);?>
 <?php include_once("./includes/header.php");
 
+// datum bepalen
 $datan = date("l");
 if ($datan == "Monday"){
   $daytent = "Maandag";
@@ -27,6 +28,7 @@ else if ($datan == "Sunday"){
   $daytent = "Zondag";
 }
 
+// het laden en navigatie regelen
 if(isset($_GET["load"])){
   if($_GET["load"] == 'reserveringen'){
     $content_section = 'reserveringen';
