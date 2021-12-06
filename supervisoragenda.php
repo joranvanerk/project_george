@@ -1,136 +1,112 @@
-<?php
-date_default_timezone_set('Europe/Amsterdam');
-
-// Last and next month
-if (isset($_GET['ym'])) {
-    $ym = $_GET['ym'];
-} else {
-    // This month
-    $ym = date('Y-m');
-}
-
-// Check format
-$timestamp = strtotime($ym . '-01');  // the first day of the month
-if ($timestamp === false) {
-    $ym = date('Y-m');
-    $timestamp = strtotime($ym . '-01');
-}
-
-// Today (Format:2018-08-8)
-$today = date('Y-m-j');
-
-// Title (Format:August, 2018)
-$title = date('F, Y', $timestamp);
-
-// Create prev & next month link
-$prev = date('Y-m', strtotime('-1 month', $timestamp));
-$next = date('Y-m', strtotime('+1 month', $timestamp));
-
-// Number of days in the month
-$day_count = date('t', $timestamp);
-
-// 1:Mon 2:Tue 3: Wed ... 7:Sun
-$str = date('N', $timestamp);
-
-// Array for calendar
-$weeks = [];
-$week = '';
-
-// Add empty cell(s)
-$week .= str_repeat('<td></td>', $str - 1);
-
-for ($day = 1; $day <= $day_count; $day++, $str++) {
-
-    $date = $ym . '-' . $day;
-
-    if ($today == $date) {
-        $week .= '<td class="today">';
-    } else {
-        $week .= '<td>';
-    }
-    $week .= $day . '</td>';
-
-    // Sunday OR last day of the month
-    if ($str % 7 == 0 || $day == $day_count) {
-
-        // last day of the month
-        if ($day == $day_count && $str % 7 != 0) {
-            // Add empty cell(s)
-            $week .= str_repeat('<td></td>', 7 - $str % 7);
-        }
-
-        $weeks[] = '<tr>' . $week . '</tr>';
-
-        $week = '';
-    }
-}
-?>
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>PHP Calendar</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <style>
-        .container {
-            font-family: 'Montserrat', sans-serif;
-            margin: 60px auto;
-        }
-        .list-inline {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .title {
-            font-weight: bold;
-            font-size: 26px;
-        }
-        th {
-            text-align: center;
-        }
-        td {
-            height: 100px;
-        }
-        th:nth-of-type(6), td:nth-of-type(6) {
-            color: blue;
-        }
-        th:nth-of-type(7), td:nth-of-type(7) {
-            color: red;
-        }
-        .today {
-            background-color: ghostwhite;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <ul class="list-inline">
-            <li class="list-inline-item"><a href="?ym=<?= $prev; ?>" class="btn btn-link">&lt; prev</a></li>
-            <li class="list-inline-item"><span class="title"><?= $title; ?> </span></li>
-            <li class="list-inline-item"><a href="?ym=<?= $next; ?>" class="btn btn-link">next &gt;</a></li>
-        </ul>
-        <p class="text-right"><a href="index.php">Go to homepage</a></p>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>M</th>
-                    <th>T</th>
-                    <th>W</th>
-                    <th>T</th>
-                    <th>F</th>
-                    <th>S</th>
-                    <th>S</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    foreach ($weeks as $week) {
-                        echo $week;
-                    }
-                ?>
-            </tbody>
-        </table>
-    </div>
-</body>
+<html>
+ <head>
+  <title>Supervisor agenda</title>
+  <link rel="stylesheet" href="./css/fullcalendar.css" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script> -->
+  <script src="./js/fullcalendar.min.js"></script>
+  <script>
+   
+  $(document).ready(function() {
+   var calendar = $('#calendar').fullCalendar({
+    editable:true,
+    header:{
+     left:'prev,next today',
+     center:'title',
+     right:'month,agendaWeek,agendaDay'
+    },
+    events: './calendar/load.php',
+    selectable:true,
+    selectHelper:true,
+    select: function(start, end, allDay)
+    {
+     var title = prompt("Enter Event Title");
+     if(title)
+     {
+      var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
+      var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+      $.ajax({
+       url:"./calendar/insert.php",
+       type:"POST",
+       data:{title:title, start:start, end:end},
+       success:function()
+       {
+        calendar.fullCalendar('refetchEvents');
+        alert("Added Successfully");
+       }
+      })
+     }
+    },
+    editable:true,
+    eventResize:function(event)
+    {
+     var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+     var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+     var title = event.title;
+     var id = event.id;
+     $.ajax({
+      url:"./calendar/update.php",
+      type:"POST",
+      data:{title:title, start:start, end:end, id:id},
+      success:function(){
+       calendar.fullCalendar('refetchEvents');
+       alert('Event Update');
+      }
+     })
+    },
+
+    eventDrop:function(event)
+    {
+     var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+     var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+     var title = event.title;
+     var id = event.id;
+     $.ajax({
+      url:"./calendar/update.php",
+      type:"POST",
+      data:{title:title, start:start, end:end, id:id},
+      success:function()
+      {
+       calendar.fullCalendar('refetchEvents');
+       alert("Event Updated");
+      }
+     });
+    },
+
+    eventClick:function(event)
+    {
+     if(confirm("Are you sure you want to remove it?"))
+     {
+      var id = event.id;
+      $.ajax({
+       url:"./calendar/delete.php",
+       type:"POST",
+       data:{id:id},
+       success:function()
+       {
+        calendar.fullCalendar('refetchEvents');
+        alert("Event Removed");
+       }
+      })
+     }
+    },
+
+   });
+  });
+   
+  </script>
+ </head>
+ <body>
+  <br />
+  <h2 align="center"><a href="#">Supervisor agenda</a></h2>
+  <br />
+  <div class="container">
+   <div id="calendar"></div>
+  </div>
+ </body>
 </html>
