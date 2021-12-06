@@ -12,14 +12,9 @@ if (isset($_GET["display"]) && isset($_GET["id"])) {
 
 ?>
 
+<!-- Display content based on requested information -->
 <div class="container">
   <div class="row">
-    <div class="buttons">
-      <a style="width: 49%;" class='btn btn-cancel' href='student-profile?page=mail'>Return to mail overview</a>
-      <a style="width: 49%;" class='btn btn-cancel' href='student-profile?page=mail'>Return to mail overview</a>
-    </div>
-    <div class="content">
-      <?php $content->show();  ?>
-    </div>
+    <?php $content->show(); ?>
   </div>
 </div>

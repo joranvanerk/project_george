@@ -60,7 +60,7 @@
       $this->html =  '<div class="row mail-rows">';
       foreach ($this->data as $d) {
         $this->html .= '<div class="student-mail">';
-        $this->html .= '<a href="student-profile?page=content&display=mail&id='.$d["salt"].'">Subject: '.$d["onderwerp"].' <strong>Datum: '.$d["createdAt"].'</strong><strong>To: '.$d["naar"].'</strong><strong>From: '.$d["van"].'</strong></a>';
+        $this->html .= '<a href="student-profile?page=content&display=mail&id='.$d["salt"].'">Subject: '.$d["onderwerp"].' <strong>Date: '.$d["createdAt"].'</strong><strong>To: '.$d["naar"].'</strong><strong>From: '.$d["van"].'</strong></a>';
         $this->html .= '</div>';
       }
       $this->html .= '</div>';

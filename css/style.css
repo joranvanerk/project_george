@@ -219,10 +219,23 @@ a {
 
 /*  */
 .content {
-  border: 1px solid #333333;
   margin: .5em .5em;
   padding: .5em .5em;
   border-radius: 0;
+}
+
+.buttons {
+  margin-top: .5em;
+}
+
+.buttons>a:first-child {
+  color: green;
+  border: 1px solid green;
+}
+
+.buttons>a:first-child:active, .buttons>a:first-child:hover {
+  color: white;
+  background-color: green;
 }
 
 .form-floating textarea.form-control {
