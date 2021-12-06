@@ -16,12 +16,24 @@ if(isset($_POST["submit"])){
 
     $check_time_query = mysqli_query($conn, "SELECT * FROM `reserveringen` WHERE `datum`='$datum $tijd' AND `tafelnummer`='$tafelnummer'");
     if(mysqli_num_rows($check_time_query)){
-        echo '<script>alert("De tijd of tafel is niet meer beschikbaar!")</script>';
+        echo '<script>alert("De tijd of tafel is niet meer beschikbaar probeer het opnieuw!")</script>';
     }else{
 
     mysqli_query($conn, "INSERT INTO `reserveringen` (`id`, `personen`, `datum`, `voornaam`, `achternaam`, `email`, `mobiel`, `opmerkingen`, `tafelnummer`) VALUES
      (NULL, '$personen', '$datum $tijd', '$voornaam', '$achternaam', '$email', '$mobiel', '$opmerkingen', '$tafelnummer');");
      echo '<script> alert("succesvol verzonden"); </script>';
+    }
+
+    
+
+    $to      = $email;
+    $subject = 'reservering george kanaleneiland';
+    $message = 'uw reservering is succesvol ontvangen en verwerkt ';
+    $headers = 'From: george-kanaleneiland@outlook.com' . "\r\n" .
+         
+               'X-Mailer: PHP/' . phpversion();
+
+    mail($to, $subject, $message, $headers);
     }
 }
 
