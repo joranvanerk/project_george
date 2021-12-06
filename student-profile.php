@@ -44,6 +44,9 @@ if(isset($_GET["page"])) {
     case "edit":
       include_once("./layout-content/student-profile/edit.php");
       break;
+    case "content":
+      include_once("./layout-content/student-profile/content.php");
+      break;
     default:
       include_once("./layout-content/student-profile/myprofile.php");
       break;

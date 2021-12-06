@@ -1,4 +1,14 @@
 /* General CSS */
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a {
+  font-family: george_menu;
+}
+
 #black_line {
   border-left: 1px solid rgb(0, 0, 0);
   height: 800px;
@@ -208,8 +218,19 @@
 }
 
 /*  */
+.content {
+  border: 1px solid #333333;
+  margin: .5em .5em;
+  padding: .5em .5em;
+  border-radius: 0;
+}
+
 .form-floating textarea.form-control {
   height: 100%;
+}
+
+.student-form {
+  padding: 0;
 }
 
 .btn-sendmail {

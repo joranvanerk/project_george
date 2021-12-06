@@ -60,7 +60,7 @@
       $this->html =  '<div class="row mail-rows">';
       foreach ($this->data as $d) {
         $this->html .= '<div class="student-mail">';
-        $this->html .= '<a href="student-mail?content='.$d["salt"].'">Subject: '.$d["onderwerp"].' <strong>Datum: '.$d["createdAt"].'</strong><strong>To: '.$d["naar"].'</strong><strong>From: '.$d["van"].'</strong></a>';
+        $this->html .= '<a href="student-profile?page=content&display=mail&id='.$d["salt"].'">Subject: '.$d["onderwerp"].' <strong>Datum: '.$d["createdAt"].'</strong><strong>To: '.$d["naar"].'</strong><strong>From: '.$d["van"].'</strong></a>';
         $this->html .= '</div>';
       }
       $this->html .= '</div>';
@@ -110,11 +110,14 @@
     //Create HTML select with all mail senders
     protected function createHTML() {
       $this->html =  "<div class='row'>";
+
       $this->html .= "<div class='mb-3' style='background-color:#000000; height:1px; width:99%;'></div>";
       $this->html .= "<h1>Mail<a class='btn btn-sendmail' data-bs-toggle='modal' data-bs-target='#sendmail'>Send mail</a></h1>";
       $this->html .= "<div class='mb-3' style='background-color:#000000; height:1px; width:99%;'></div>";
-      $this->html .= "<form action='' method='get'>";
+
+      $this->html .= "<form class='student-form' action='' method='get'>";
       $this->html .= "<input type='hidden' name='page' value='mail'>";
+
       $this->html .= "<div class='form-floating mb-3'>";
       $this->html .= "<select name='search' class='form-control' id='floatingInput'>";
       $this->html .= "<option value='all'>Alle emails</option>";
@@ -133,9 +136,11 @@
       $this->html .= "</div>";
 
       $this->html .= "<div class='form-floating mb-3'>";
-      $this->html .= "<button type='submit' class='btn btn-outline-george'>Search</button>";
-      $this->html .= "<a class='btn btn-cancel' href='student-profile?page=mail'>Remove searchdata</a>";
-      $this->html .= "</div></form></div>";
+      $this->html .= "<button style='width: 40%;' type='submit' class='btn btn-outline-george'>Search</button>";
+      $this->html .= "<a style='width: 40%;' class='btn btn-cancel' href='student-profile?page=mail'>Remove searchdata</a>";
+      $this->html .= "</div>";
+
+      $this->html .= "</form></div>";
     }
 
     protected function show() {
