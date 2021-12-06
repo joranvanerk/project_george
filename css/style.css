@@ -1,4 +1,14 @@
 /* General CSS */
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a {
+  font-family: george_menu;
+}
+
 #black_line {
   border-left: 1px solid rgb(0, 0, 0);
   height: 800px;
@@ -205,6 +215,68 @@
 .success-button {
   border: none;
   background-color: rgb(51, 197, 14);
+}
+
+/*  */
+.content {
+  margin: .5em .5em;
+  padding: .5em .5em;
+  border-radius: 0;
+}
+
+.buttons {
+  margin-top: .5em;
+}
+
+.buttons>a:first-child {
+  color: green;
+  border: 1px solid green;
+}
+
+.buttons>a:first-child:active, .buttons>a:first-child:hover {
+  color: white;
+  background-color: green;
+}
+
+.form-floating textarea.form-control {
+  height: 100%;
+}
+
+.student-form {
+  padding: 0;
+}
+
+.btn-sendmail {
+  float: right;
+  font-weight: 700;
+  font-size: 20px;
+  color: #333333;
+  border: 2px solid #333333;
+  border-radius: 0;
+  margin-right: 25%;
+  padding: .5em 1em;
+}
+
+.btn-sendmail:hover {
+   background-color: green;
+   color: #fff;
+   border: 2px solid green;
+}
+
+.mail-rows a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.mail-rows .student-mail {
+  border: 1px solid #333333;
+  padding: .8em;
+  margin-bottom: 1em;
+}
+
+.mail-rows a strong {
+  float: right;
+  margin-right: 2em;
 }
 
 /* Student profile CSS - Steven */

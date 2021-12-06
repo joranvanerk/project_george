@@ -1,6 +1,4 @@
 <?php
-var_dump($_POST);
-require_once './classes/userRegister.php';
-$login = new userRegister;
+require_once './classes/studentMail.php';
 
 ?>
