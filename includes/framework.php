@@ -5,8 +5,6 @@
   include("./classes/functions.php");
   session_start();
 ?>
-<!doctype html>
-<html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -27,20 +25,24 @@
     <!-- app.js -->
     <script src="./js/app.js"></script>
 
+<!-- bootstrap cdn for alternative use -->
 <script src=
 "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
 </script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- website title above -->
     <title>George Kanaleneiland</title>
   </head>
 
 <style>
+/* importing fonts */
 @font-face {
   font-family: 'George-title';
   src: URL('../css/george-title.ttf') format('truetype');
 }
 
+/* importing fonts */
 @font-face {
   font-family: 'George-menu';
   src: URL('../css/george-menu.ttf') format('truetype');
@@ -137,6 +139,7 @@ display: none;
   padding-right: 10px;
 }
 
+/* animation for smooth drops and loading */
 @keyframes drop_Joran {
   0% {
     opacity: 0%;
