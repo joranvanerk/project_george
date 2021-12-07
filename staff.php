@@ -31,7 +31,52 @@ else if ($datan == "Sunday"){
 // het laden en navigatie regelen
 if(isset($_GET["load"])){
   if($_GET["load"] == 'reserveringen'){
-    $content_section = 'reserveringen';
+    $content_section = '
+        <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="card border-dark" style="border-radius: 0px;">
+          <div class="card-body">
+            <h4 class="text-dark text-center">LAATSTE RESERVERINGEN</h4>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Naam</th>
+                    <th scope="col">Datum</th>
+                    <th scope="col">Tijd</th>
+                    <th scope="col">Tafelnummer</th>
+                    <th scope="col">Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark Rose</td>
+                    <td>22-06-2022</td>
+                    <td>16:20</td>
+                    <td>17</td>
+                    <td>Mark.Rose@outlook.com</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Frank Otto</td>
+                    <td>06-02-2022</td>
+                    <td>14:50</td>
+                    <td>2</td>
+                    <td>Frankotto.1998@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Kyan Dine</td>
+                    <td>28-08-2022</td>
+                    <td>10:30</td>
+                    <td>9</td>
+                    <td>K.dine@radboutuniversity.nl</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>';
   }
   if($_GET["load"] == 'restaurant'){
     $content_section = '
