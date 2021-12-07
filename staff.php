@@ -1,10 +1,12 @@
 
 <!-- include framework css and bootstrap basic -->
 <?php include_once("./includes/framework.php");
+// include the basefile for clean navigation
 $active_page_filename = basename(__FILE__);?>
+<!-- include the header -->
 <?php include_once("./includes/header.php");
 
-// datum bepalen
+// create a simple variabele with the dutch date
 $datan = date("l");
 if ($datan == "Monday"){
   $daytent = "Maandag";
@@ -28,14 +30,15 @@ else if ($datan == "Sunday"){
   $daytent = "Zondag";
 }
 
-// het laden en navigatie regelen
+// loading the navigation
 if(isset($_GET["load"])){
+  // loading the reservation content
   if($_GET["load"] == 'reserveringen'){
     $content_section = '
         <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="card border-dark" style="border-radius: 0px;">
           <div class="card-body">
-            <h4 class="text-dark text-center">LAATSTE RESERVERINGEN</h4>
+            <h4 class="text-dark text-center">ALLE RESERVERINGEN</h4>
               <table class="table">
                 <thead>
                   <tr>
@@ -78,6 +81,7 @@ if(isset($_GET["load"])){
           </div>
         </div>';
   }
+  // loading the restaurant content
   if($_GET["load"] == 'restaurant'){
     $content_section = '
     <div class="card border-dark" style="border-radius: 0px;">
@@ -124,6 +128,7 @@ if(isset($_GET["load"])){
       </div>
     </div>';
   }
+  // loading the users content
   if($_GET["load"] == 'gebruikers'){
     $content_section = '  <div class="col-sm-12 col-md-12 col-lg-12">
     <div class="card border-dark" style="border-radius: 0px;">
@@ -169,6 +174,7 @@ if(isset($_GET["load"])){
       </div>
     </div>';
   }
+  // loading the statistics content
   if($_GET["load"] == 'statistieken'){
     $content_section = '  <div class="col-sm-7 col-md-4 col-lg-4">
         <div class="card border-dark" style="border-radius: 0px;">
@@ -240,6 +246,7 @@ if(isset($_GET["load"])){
       ';
   }
 }else{
+  // loading the basic content for if something goes wrong or the field isn't full
   $content_section = '
   <div class="col-sm-7 col-md-4 col-lg-4">
     <div class="card border-dark" style="border-radius: 0px;">
@@ -316,17 +323,20 @@ if(isset($_GET["load"])){
 
  ?>
 
-
+<!-- container with the basic navigation -->
 <div class="container">
  <br>
  <div class="row">
    <div class="col-sm-5 col-md-5 col-lg-5">
+     <!-- the title for welcoming the user in dutch -->
      <h3 class="george_title bookeventani">Welkom <?php
      // echo($_SESSION["voornaam"]) echo($_SESSION["achternaam"])
      ?>Joran van Erk</h3>
+     <!-- the date that is created in the top part of the page -->
      <h5 class="george_menu bookeventani" style="margin-left: 0;">Het is vandaag <?php echo $daytent; ?> </h5>
 
    </div>
+   <!-- simple columns for the navigation of the page -->
    <div class="col-sm-5 col-md-6 col-lg-6">
      <nav class="nav nav-pills flex-column flex-sm-row">
        <a class="flex-sm-fill text-sm-center btn formstyle btn-h bookeventani" style="margin-left: 5px; margin-right: 5px;" href="staff">Overzicht</a>
@@ -339,6 +349,7 @@ if(isset($_GET["load"])){
    <div style="background-color:#000000; height:1px; width:100%; margin-bottom: 10px;"></div>
  </div>
  <div class="row">
+   <!-- the content-section, where the content is, managed in the top part of the page -->
    <?php echo $content_section; ?>
  </div>
 </div>
