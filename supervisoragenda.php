@@ -4,8 +4,6 @@ session_start();
 
 // //Checks if current user is allowed to visit this page
 // //Accessible roles: student, klant, eigenaar, docent, begeleider
-// include_once("./classes/logged_in.php");
-// new logged_in("");
 require_once './classes/userController.php';
 $role = new userData;
 $role->getSessionEmail();
@@ -13,7 +11,7 @@ $role->selectRole();
 $requiredrole = "begeleider";
 
 if (strcmp($role->role, $requiredrole) == 0) {
-    echo "rollen zijn gelijk; begeleider";
+    echo "successful security check";
 } else {
     echo '<meta http-equiv="refresh" content="0; URL=./error404">';
 }
@@ -124,7 +122,7 @@ if (strcmp($role->role, $requiredrole) == 0) {
  </head>
  <body>
   <br />
-  <h2 align="center"><a href="./index.php">Supervisor agenda</a></h2>
+  <h2 align="center"><a href="./index.php">Go back to the home page</a></h2>
   <br />
   <div class="container">
    <div id="calendar"></div>
