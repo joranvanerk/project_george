@@ -14,6 +14,24 @@ if(isset($_POST["submit"])){
     $opmerkingen = sanitize($_POST["opmerkingen"]);
     $tafelnummer = sanitize($_POST["tafelnummer"]);
 
+    if (empty($tijd)){
+        echo '<script> alert("U heeft de tijd niet ingevuld"); </script>';
+    }
+    else if (empty($datum)){
+        echo '<script> alert("U heeft de datum niet ingevuld"); </script>';
+    }
+    else if (empty($personen)){
+        echo '<script> alert("U heeft de aantal personen niet ingevuld"); </script>';
+    }
+    else if (empty($email)){
+        echo '<script> alert("U heeft uw email niet ingevuld"); </script>';
+    }
+    else if (empty($tafelnummer)){
+        echo '<script> alert("U heeft de tafelnummer niet ingevuld"); </script>';
+    }
+
+    
+
     $check_time_query = mysqli_query($conn, "SELECT * FROM `reserveringen` WHERE `datum`='$datum $tijd' AND `tafelnummer`='$tafelnummer'");
     if(mysqli_num_rows($check_time_query)){
         echo '<script>alert("De tijd of tafel is niet meer beschikbaar probeer het opnieuw!")</script>';
@@ -25,11 +43,45 @@ if(isset($_POST["submit"])){
      if ($mail) {
         echo '<script> alert("succesvol verzonden"); </script>';
         $to      = $email;
-        $subject = 'reservering george kanaleneiland';
-        $message = 'uw reservering is succesvol ontvangen en verwerkt ';
+        $headers = 'MIME-Version: 1.0';
         $headers = 'From: george-kanaleneiland@outlook.com' . "\r\n" .
-             
-                   'X-Mailer: PHP/' . phpversion();
+        $headers = 'Content-type: text/html; charset=iso-8859-1';
+        $subject = 'reservering george kanaleneiland';
+        $message = '
+        
+        <!doctype html> 
+        <html lang="en">
+
+        <head>
+
+        
+        </head>
+        <body>
+        
+        
+        
+        
+        
+        hallo '.$voornaam.' '.$achternaam.',
+        <br>
+        <p> Bedankt voor uw reservering bij George kanaleneiland <p>
+        <p> U heeft gereserveerd voor :
+        <P> '.$datum.' om '.$tijd.'  <p>
+        <p> met '.$personen.' personen  Aan tafel '.$tafelnummer.' <p>
+        
+        
+
+        
+        
+        
+        </body>
+        
+        
+        </html>
+        
+        ';
+
+                
     
         mail($to, $subject, $message, $headers);
      }
@@ -125,7 +177,6 @@ if(isset($_POST["submit"])){
             <option value="15:40">15:40</option>
             <option value="16:20">16:20</option>
             <option value="16:30">16:30</option>
-            <option selected value="Kies een tijd"></option>
             </select>
         <!-- zit plaatsen form tafel nummers -->
         <p>Kies hier uw tafel nummer</p>
