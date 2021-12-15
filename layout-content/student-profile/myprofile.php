@@ -52,7 +52,7 @@ if (isset($_SESSION)) {
   <div class="row">
     <div class="col-6 mt-3 mb-3">
       <h1 class="student-text text-upper">Book a work night</h1>
-      <a class="btn btn-outline-george btn-lg" href="#bookshift">Book a shift</a>
+      <a class="btn btn-outline-george btn-lg" data-bs-toggle="modal" data-bs-target="#reservation">Book a shift</a>
       <a class="btn btn-outline-george btn-lg" href="#signoff">Sign out of shift</a>
     </div>
     <div class="col-6 vl mt-3 mb-3">
@@ -62,3 +62,5 @@ if (isset($_SESSION)) {
     </div>
   </div>
 </div>
+
+<?php require_once './layout-content/student-profile/timeslot-modal.php'; ?>
