@@ -83,6 +83,19 @@ a {
   color: #fff;
 }
 
+#reservation .nav-pills {
+  margin-bottom: .2em;
+}
+#reservation .nav-pills .nav-link {
+  border-radius: 0;
+  margin-right: .2em;
+  color: #333333;
+}
+#reservation .nav-pills .nav-link.active, #reservation .nav-pills .nav-link:active {
+  background-color: #333333;
+  color: #fff;
+} 
+
 .student-edit > a {
   font-family: george_menu;
   display: block;

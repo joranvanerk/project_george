@@ -16,7 +16,7 @@ $reservation = new studentReservation;
       </div>
       <div class="modal-body">
         <form action="test" method="POST">
-          <ul class="nav nav-pill">
+          <ul class="nav nav-pills">
             <li class="nav-item"><a class="nav-link active" data-toggle="pill" href="#monday">Monday</a></li>
             <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#tuesday">Tuesday</a></li>
             <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#wednesday">Wednesday</a></li>
@@ -28,8 +28,8 @@ $reservation = new studentReservation;
             <!-- Display content on student reservation base -->
             <?php $reservation->show(); ?>
           </div>
-            <button style="width: 100%;" type="submit" name="reservation" class="btn btn-outline-george mb-2">Submit</button>
-            <button style="width: 100%;" type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
+            <button style="width: 100%;" type="submit" name="reservation" class="btn btn-outline-george mt-2">Submit</button>
+            <button style="width: 100%;" type="button" class="btn btn-cancel mt-2" data-bs-dismiss="modal">Cancel</button>
         </form>
       </div>
     </div>
