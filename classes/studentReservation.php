@@ -51,10 +51,10 @@
         }
         $this->html .= "<div class='form-group'>";
         $this->html .= "<label for='".$day."'>Available timeslots for: ".$day."</label>";
-        $this->html .= "<select multiple class='form-control' id='".$date."' name='".$day."'>";
-        $this->html .= "<option>18:00 - 19:00</option>";
-        $this->html .= "<option>19:00 - 20:00</option>";
-        $this->html .= "<option>20:00 - 21:00</option>";
+        $this->html .= "<select multiple class='form-control' id='".$date."' name='".$day."[]'>";
+        $this->html .= "<option value='18:00'>18:00 - 19:00</option>";
+        $this->html .= "<option value='19:00'>19:00 - 20:00</option>";
+        $this->html .= "<option value='20:00'>20:00 - 21:00</option>";
         $this->html .= "</select>";
         $this->html .= "</div>";
         $this->html .= "</div>";
