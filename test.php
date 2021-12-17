@@ -1,6 +1,6 @@
 <?php
 require_once './classes/studentReservation.php';
-$reservation = new studentReservation;
+$reservation = new studentReservation($_POST["email"]);
 
-var_dump($_POST);
+$reservation->saveTimeslots();
 ?>

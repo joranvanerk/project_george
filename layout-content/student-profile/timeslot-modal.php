@@ -4,6 +4,7 @@ require_once './classes/studentReservation.php';
 
 // Generate Tab content 
 $reservation = new studentReservation;
+$reservation->createTabContent();
 ?>
 
 <!-- Modal for Placing a reservation -->
