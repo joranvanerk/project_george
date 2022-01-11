@@ -209,7 +209,7 @@ if(isset($_POST["submit"])){
 </form>
 </div>
 
-
+<?php include_once("./includes/footer.php"); ?>
 
 
 
