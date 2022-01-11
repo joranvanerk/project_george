@@ -17,8 +17,8 @@ $active_page_filename = basename(__FILE__);
       <br>
       <h3 class="george_menu bookeventani" style="font-weight: 400; text-transform: none; margin-left: 0;">To get to know about our current rules in <u>all our restaurants</u>, want more specific information before you <u>visit</u> our Amsterdam styled restaurants? Contact us through our <u>Contact page</u>.</h3>
       <br>
-      <h3 class="george_menu bookeventani" style="font-weight: 600; margin-left: 0; margin-top: 5rem;">Safe greetings from <u>Amsterdam</u></h3>
-      <h3 class="george_menu bookeventani" style="font-weight: 600; margin-left: 0; color: red !important;">A AIR-XOXO 💋</h3>
+      <h3 class="george_menu bookeventani" style="font-weight: 600; margin-left: 0; margin-top: 5rem;">Greetings from <u>Amsterdam</u></h3>
+      <h3 class="george_menu bookeventani" style="font-weight: 600; margin-left: 0; color: red !important;">XOXO 💋</h3>
     </div>
     <div class="col-1" style="margin-right: -5rem;">
       <div class="vl mobielhide" style="height: 95%;"></div>
