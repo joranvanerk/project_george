@@ -39,7 +39,8 @@ if(isset($_POST["submit"])){
 
     $mail = mysqli_query($conn, "INSERT INTO `reserveringen` (`id`, `personen`, `datum`, `voornaam`, `achternaam`, `email`, `mobiel`, `opmerkingen`, `tafelnummer`) VALUES
      (NULL, '$personen', '$datum $tijd', '$voornaam', '$achternaam', '$email', '$mobiel', '$opmerkingen', '$tafelnummer');");
-
+    
+    
      if ($mail) {
         echo '<script> alert("succesvol verzonden"); </script>';
         $to      = $email;

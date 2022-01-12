@@ -2,11 +2,63 @@
 <?php include_once("./includes/framework.php");
 
 $active_page_filename = basename(__FILE__);
-?>
 
 
+if(isset($_POST["submit"])){
+  $sterren = sanitize($_POST["sterren"]);
+  $commentaar = sanitize($_POST["commentaar"]); 
+  $email = sanitize($_POST["email"]);
 
 
+  $mail= mysqli_query($conn, "INSERT INTO `reviewklant` (`sterren`, `commentaar`, `email`) VALUES
+  (NULL, '$sterren', '$commentaar', '$email');");
+ if ($mail) {
+        echo '<script> alert("succesvol verzonden"); </script>';
+        $to      = $email;
+        $headers = 'MIME-Version: 1.0';
+        $headers = 'From: george-kanaleneiland@outlook.com' . "\r\n" .
+        $headers = 'Content-type: text/html; charset=iso-8859-1';
+        $subject = 'review george kanaleneiland';
+        $message = '
+        
+        <!doctype html> 
+        <html lang="en">
+
+        <head>
+
+        
+        </head>
+        <body>
+        
+        
+        
+        
+        
+        hallo '.$email.',
+        <br>
+        <p> bedankt voor uw review  <p>
+        
+        
+        
+
+        
+        
+        
+        </body>
+        
+        
+        </html>
+        
+        ';
+
+                
+    
+        mail($to, $subject, $message, $headers);
+     }
+    } 
+
+
+    ?>
 <!-- include header -->
 <?php include_once("./includes/header.php"); ?>
 
@@ -23,23 +75,30 @@ $active_page_filename = basename(__FILE__);
 
 
 <body>
+<form action="" method="POST">
 <div class="container">
   <div class="row">
-    <div class ="col">
+    <div class ="col-5">
     </div>
     <div class="col-sm-1-12 col-md-9 ">
     <br>
     <h2>Beoordeel ons!</h2>
     <br>
+    <span name="sterren">
     <span class="fa fa-star"></span>
     <span class="fa fa-star"></span>
     <span class="fa fa-star"></span>
     <span class="fa fa-star"></span>
     <span class="fa fa-star"></span>
+    </span>
     <br>
-    <div class="mb-3">
-    <label for="exampleFormControlTextarea1" class="form-label">Voeg hier uw comentaar</label>
+    <div class="mb-4">
+    <label for="exampleFormControlTextarea1" class="form-label" name="commentaar">Voer hier uw commentaar</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+    <div class="form-floating mb-3">
+    <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
+    <label for="floatingInput" >voeg hier uw email address</label>
+    </div>
     <button type="submit" class="btn-lg btn-outline-george" name="submit">Verstuur</button>
     </div>
     <div class="col-sm-12 col-md-5">
@@ -51,37 +110,11 @@ $active_page_filename = basename(__FILE__);
 
 
 
-
+</form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
 
 
 <?php include_once("./includes/footer.php");?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
