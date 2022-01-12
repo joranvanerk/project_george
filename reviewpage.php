@@ -9,7 +9,7 @@ if(isset($_POST["submit"])){
   $commentaar = sanitize($_POST["commentaar"]); 
   $email = sanitize($_POST["email"]);
 
-
+  $check_time_query = mysqli_query($conn, "SELECT * FROM `reviewklanten` WHERE `email`='$commentaar $sterren`");
   $mail= mysqli_query($conn, "INSERT INTO `reviewklant` (`sterren`, `commentaar`, `email`) VALUES
   (NULL, '$sterren', '$commentaar', '$email');");
  if ($mail) {
@@ -92,9 +92,13 @@ if(isset($_POST["submit"])){
     <span class="fa fa-star"></span>
     </span>
     <br>
-    <div class="mb-4">
-    <label for="exampleFormControlTextarea1" class="form-label" name="commentaar">Voer hier uw commentaar</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+    <br>
+    <dic class="row-2">
+    <div class="col-mb-6 col-sm-12">
+    <div class="form-floating">
+    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
+    <label for="floatingTextarea2">typ hier uw commentaar</label>
+    </div>
     <div class="form-floating mb-3">
     <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
     <label for="floatingInput" >voeg hier uw email address</label>
