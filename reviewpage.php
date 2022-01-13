@@ -5,13 +5,16 @@ $active_page_filename = basename(__FILE__);
 
 
 if(isset($_POST["submit"])){
-  $sterren = sanitize($_POST["sterren"]);
+  //$sterren = sanitize($_POST["sterren"]);
   $commentaar = sanitize($_POST["commentaar"]); 
   $email = sanitize($_POST["email"]);
+  
 
-  $check_time_query = mysqli_query($conn, "SELECT * FROM `reviewklanten` WHERE `email`='$commentaar $sterren`");
-  $mail= mysqli_query($conn, "INSERT INTO `reviewklant` (`sterren`, `commentaar`, `email`) VALUES
-  (NULL, '$sterren', '$commentaar', '$email');");
+  mysqli_query($conn, "SELECT * FROM `reviewklant` WHERE ``='$commentaar $email`");
+
+  $mail= mysqli_query($conn, "INSERT INTO `reviewklant` (`commentaar`, `email`) VALUES
+  (NULL, '$commentaar', '$email');");
+
  if ($mail) {
         echo '<script> alert("succesvol verzonden"); </script>';
         $to      = $email;
@@ -80,7 +83,7 @@ if(isset($_POST["submit"])){
   <div class="row">
     <div class ="col-5">
     </div>
-    <div class="col-sm-1-12 col-md-9 ">
+    <div class="col-sm-12 col-md-9 ">
     <br>
     <h2>Beoordeel ons!</h2>
     <br>
@@ -96,8 +99,8 @@ if(isset($_POST["submit"])){
     <dic class="row-2">
     <div class="col-mb-6 col-sm-12">
     <div class="form-floating">
-    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
-    <label for="floatingTextarea2">typ hier uw commentaar</label>
+    <textarea class="form-control" name="commentaar" placeholder="Leave a comment here" id="commentaar" style="height: 200px"></textarea>
+    <label for="commentaar">typ hier uw commentaar</label>
     </div>
     <div class="form-floating mb-3">
     <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
