@@ -3,7 +3,7 @@
 
 $active_page_filename = basename(__FILE__);
 
-
+//database
 if(isset($_POST["submit"])){
   //$sterren = sanitize($_POST["sterren"]);
   $commentaar = sanitize($_POST["commentaar"]); 
