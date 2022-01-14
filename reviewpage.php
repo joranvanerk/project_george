@@ -6,7 +6,7 @@ $ster = "";
 
 //database
 if(isset($_POST["submit"])){
-  //$sterren = sanitize($_POST["sterren"]);
+  
   $commentaar = sanitize($_POST["commentaar"]); 
   $email = sanitize($_POST["email"]);
 
@@ -57,7 +57,12 @@ if(isset($_POST["submit"])){
         
         hallo '.$email.',
         <br>
-        <p> bedankt voor uw review  <p>
+        
+        <p> Bedankt voor uw review,  <p>
+        <p> U heeft ons '.$ster.' ster gegeven, <p>
+        <p> We zien u graag terug, tot de volgende keer. <p>
+        <a href="http://www.project-george.com/reservation" style="text-decoration: none;"><u>Klik hier als u een nieuw reservering wilt plaatsen</u></a>
+
         
         
         
