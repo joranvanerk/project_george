@@ -2,18 +2,36 @@
 <?php include_once("./includes/framework.php");
 
 $active_page_filename = basename(__FILE__);
+$ster = "";
 
 //database
 if(isset($_POST["submit"])){
   //$sterren = sanitize($_POST["sterren"]);
   $commentaar = sanitize($_POST["commentaar"]); 
   $email = sanitize($_POST["email"]);
-  
 
-  mysqli_query($conn, "SELECT * FROM `reviewklant` WHERE ``='$commentaar $email`");
+  if(isset($_POST["1sterren"])){
+    $ster = 1;
+  }
 
-  $mail= mysqli_query($conn, "INSERT INTO `reviewklant` (`commentaar`, `email`) VALUES
-  (NULL, '$commentaar', '$email');");
+  if(isset($_POST["2sterren"])){
+    $ster = 2;
+  }
+
+  if(isset($_POST["3sterren"])){
+    $ster = 3;
+  }
+
+  if(isset($_POST["4sterren"])){
+    $ster = 4;
+  }
+
+  if(isset($_POST["5sterren"])){
+    $ster = 5;
+  }
+
+  $mail= mysqli_query($conn, "INSERT INTO `reviewklant` (`email`, `sterren`, `commentaar`) 
+  VALUES ('$email', '$ster', '$commentaar');");
 
  if ($mail) {
         echo '<script> alert("succesvol verzonden"); </script>';
@@ -88,12 +106,13 @@ if(isset($_POST["submit"])){
     <h2>Beoordeel ons!</h2>
     <br>
     <span name="sterren">
-    <span class="fa fa-star"></span>
-    <span class="fa fa-star"></span>
-    <span class="fa fa-star"></span>
-    <span class="fa fa-star"></span>
-    <span class="fa fa-star"></span>
+    <input class="form-check-input" type="radio" name="1sterren" id="flexRadioDefault1">
+    <input class="form-check-input" type="radio" name="2sterren" id="flexRadioDefault1">
+    <input class="form-check-input" type="radio" name="3sterren" id="flexRadioDefault1">
+    <input class="form-check-input" type="radio" name="4sterren" id="flexRadioDefault1">
+    <input class="form-check-input" type="radio" name="5sterren" id="flexRadioDefault1">
     </span>
+
     <br>
     <br>
     <dic class="row-2">
