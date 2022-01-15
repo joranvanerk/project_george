@@ -1,21 +1,4 @@
 <?php
-//Check if user has submitted a form
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  //If user send a register $_POST, include userRegister.php
-  if (isset($_POST["register"])) {
-    include_once("./classes/userRegister.php");
-    new userRegister;
-    //If user send a login $_POST, include login.php
-  } elseif (isset($_POST["login"])) {
-    include_once("./login-script.php");
-  } else {
-    // $_POST value is not register or login
-    include_once("./classes/sendMessage.php");
-    $msg = new messageError;
-    $msg->text = "User did not send a POST value.";
-  }
-}
-
 //Include navbar redirect class if user is logged in
 if (isset($_SESSION["email"]) || isset($_COOKIE["email"])) {
   require_once './classes/navbarRedirect.php';
@@ -125,7 +108,7 @@ if (isset($_SESSION["email"]) || isset($_COOKIE["email"])) {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="" method="POST">
+        <form action="./register-script.php" method="POST">
           <div class="form-floating mb-3">
             <input type="email" class="form-control" id="floatingInput" name="email" required>
             <label for="floatingInput">E-mail Address</label>

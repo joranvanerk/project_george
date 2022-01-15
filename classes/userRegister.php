@@ -13,6 +13,7 @@
     private $hashed_password = null;
 
     public $userdata = [];
+    public $status = null;
     
     protected $number = null;
     private $pw = null;
@@ -26,8 +27,6 @@
       //if POST is send, sanitize all fields and start register process
       if ($this->registerType != false) {
         $this->sanitizeFields();
-        // var_dump($this->registerType != false);
-        // var_dump($this->registerType);
         $this->register();
       }
     }
@@ -103,6 +102,7 @@
                 //Send e-mail
                 $email = $this->userdata[0];
                 include_once("./sendmail.php");
+                $this->status = "Success";
               } else {
                 //Email did not send
                 return false;
