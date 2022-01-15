@@ -38,7 +38,7 @@
         break;
         case "begeleider":
         case "docent":
-          $this->html = "<a class='nav-link george_menu' href='#'>My George</a>";
+          $this->html = "<a class='nav-link george_menu' href='staff'>My George</a>";
           $this->html .= "<div class='vl'></div>";
           $this->html .= "<a class='nav-link george_menu' href='logout'>Log Out</a>";
         break;

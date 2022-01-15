@@ -6,6 +6,10 @@ $active_page_filename = basename(__FILE__);
 
 //include header
 include_once("./includes/header.php");
+
+if (isset($_POST)) {
+  include_once("./classes/userRegister.php");
+}
 ?>
 
 <div class="container">
