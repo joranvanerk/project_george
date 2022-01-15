@@ -13,7 +13,6 @@
     private $hashed_password = null;
 
     public $userdata = [];
-    public $status = null;
     
     protected $number = null;
     private $pw = null;
@@ -102,7 +101,8 @@
                 //Send e-mail
                 $email = $this->userdata[0];
                 include_once("./sendmail.php");
-                $this->status = "Success";
+                echo 'User has been successfully made.';
+                echo '<meta http-equiv="refresh" content="4; URL=./index">';
               } else {
                 //Email did not send
                 return false;
