@@ -10,7 +10,7 @@ if(isset($_POST["submit"])){
   $commentaar = sanitize($_POST["commentaar"]); 
   $email = sanitize($_POST["email"]);
 
-  if(isset($_POST["1sterren"])){
+  if(isset($_POST["1ster"])){
     $ster = 1;
   }
 
@@ -111,7 +111,8 @@ if(isset($_POST["submit"])){
     <h2>Beoordeel ons!</h2>
     <br>
     <span name="sterren">
-    <input class="form-check-input" type="radio" name="1sterren" id="flexRadioDefault1">
+    <p>geef hier een cijfer 1 to 5</p>
+    <input class="form-check-input" type="radio" name="1ster" id="flexRadioDefault1">
     <input class="form-check-input" type="radio" name="2sterren" id="flexRadioDefault1">
     <input class="form-check-input" type="radio" name="3sterren" id="flexRadioDefault1">
     <input class="form-check-input" type="radio" name="4sterren" id="flexRadioDefault1">
