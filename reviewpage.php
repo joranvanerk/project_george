@@ -59,7 +59,7 @@ if(isset($_POST["submit"])){
         <br>
         
         <p> Bedankt voor uw review,  <p>
-        <p> U heeft ons '.$ster.' ster gegeven, <p>
+        <p> U heeft ons '.$ster.' sterren gegeven, <p>
         <p> We zien u graag terug, tot de volgende keer. <p>
         <a href="http://www.project-george.com/reservation" style="text-decoration: none;"><u>Klik hier als u een nieuw reservering wilt plaatsen</u></a>
 
@@ -112,11 +112,11 @@ if(isset($_POST["submit"])){
     <br>
     <span name="sterren">
     <p>geef hier een cijfer 1 to 5</p>
-    <input class="form-check-input" type="radio" name="1ster" id="flexRadioDefault1">
-    <input class="form-check-input" type="radio" name="2sterren" id="flexRadioDefault1">
-    <input class="form-check-input" type="radio" name="3sterren" id="flexRadioDefault1">
-    <input class="form-check-input" type="radio" name="4sterren" id="flexRadioDefault1">
-    <input class="form-check-input" type="radio" name="5sterren" id="flexRadioDefault1">
+    <input class="form-check-input" type="radio" name="1ster" id="flexRadioDefault1">1
+    <input class="form-check-input" type="radio" name="2sterren" id="flexRadioDefault1">2
+    <input class="form-check-input" type="radio" name="3sterren" id="flexRadioDefault1">3
+    <input class="form-check-input" type="radio" name="4sterren" id="flexRadioDefault1">4
+    <input class="form-check-input" type="radio" name="5sterren" id="flexRadioDefault1">5
     </span>
 
     <br>
