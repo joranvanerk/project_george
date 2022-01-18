@@ -19,8 +19,13 @@ $active_page_filename = basename(__FILE__);
   <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Serveerster sollicitatie, ....... ........</h5>
-    <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperia</p>
-    <a href="#" class="btn btn-primary">Klik om te openen</a>
+    <p class="card-text">Brian Segakindi, 3438HJ, brian.segakindi@gmail.com, 0622334455, / </p>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Chef sollicitatie, ....... ........</h5>
+    <p class="card-text">Test Test, 1111AA, test@mail.com, 0611111111, / </p>
   </div>
 </div>
 
