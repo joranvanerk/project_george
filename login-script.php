@@ -33,16 +33,16 @@
             $user_role = $login_user->selectRole();
             switch ($user_role) {
                 case "eigenaar":
-                    echo '<meta http-equiv="refresh" content="0; URL=./staff">';
+                    echo '<meta http-equiv="refresh" content="0; URL=./ownerprofile">';
                     break;
                 case "student":
                     echo '<meta http-equiv="refresh" content="0; URL=./student-profile">';
                     break;
                 case "begeleider":
-                    echo '<meta http-equiv="refresh" content="0; URL=./index">';
+                    echo '<meta http-equiv="refresh" content="0; URL=./staff">';
                     break;
                 case "docent":
-                    echo '<meta http-equiv="refresh" content="0; URL=./index">';
+                    echo '<meta http-equiv="refresh" content="0; URL=./staff">';
                     break;
                 case "klant":
                     echo '<meta http-equiv="refresh" content="0; URL=./customer">';
