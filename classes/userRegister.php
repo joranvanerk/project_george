@@ -26,8 +26,6 @@
       //if POST is send, sanitize all fields and start register process
       if ($this->registerType != false) {
         $this->sanitizeFields();
-        // var_dump($this->registerType != false);
-        // var_dump($this->registerType);
         $this->register();
       }
     }
@@ -103,6 +101,8 @@
                 //Send e-mail
                 $email = $this->userdata[0];
                 include_once("./sendmail.php");
+                echo 'User has been successfully made.';
+                echo '<meta http-equiv="refresh" content="4; URL=./index">';
               } else {
                 //Email did not send
                 return false;
