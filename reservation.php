@@ -65,12 +65,12 @@ if(isset($_POST["submit"])){
         
         hallo '.$voornaam.' '.$achternaam.',
         <br>
-        <p> Bedankt voor uw reservering bij George kanaleneiland <p>
-        <p> U heeft gereserveerd voor :
-        <P> '.$datum.' om '.$tijd.'  <p>
-        <p> met '.$personen.' personen  Aan tafel '.$tafelnummer.' <p>
+        <p> Bedankt voor uw reservering bij George kanaleneiland </p>
+        <p> U heeft gereserveerd voor : </p>
+        <p> '.$datum.' om '.$tijd.'  </p>
+        <p> met '.$personen.' personen  Aan tafel '.$tafelnummer.' </p>
         
-        
+        <a href="http://www.project-george.com/reviewpage" style="text-decoration: none;"><u> Tevreden met uw bezoek? Laat het ons weten! </u></a>
 
         
         
