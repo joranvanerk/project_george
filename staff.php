@@ -344,6 +344,7 @@ if(isset($_GET["load"])){
       <a class="flex-sm-fill text-sm-center btn formstyle btn-h bookeventani" style="margin-left: 5px; margin-right: 5px;" href="staff?load=gebruikers">Gebruikers</a>
       <a class="flex-sm-fill text-sm-center btn formstyle btn-h bookeventani" style="margin-left: 5px; margin-right: 5px;" href="staff?load=restaurant">Restaurant</a>
       <a class="flex-sm-fill text-sm-center btn formstyle btn-h bookeventani" style="margin-left: 5px; margin-right: 5px;" href="staff?load=reserveringen">Reserveringen</a>
+      <a class="flex-sm-fill text-sm-center btn formstyle btn-h bookeventani" style="margin-left: 5px; margin-right: 5px;" href="staff-email">Mailing</a>
       <a class="flex-sm-fill text-sm-center btn formstyle btn-h bookeventani" style="margin-left: 5px; margin-right: 5px;" href="supervisoragenda">Agenda begeleider</a>
     </nav>
    </div>

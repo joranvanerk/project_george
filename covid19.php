@@ -9,8 +9,11 @@ $active_page_filename = basename(__FILE__);
 <?php include_once("./includes/header.php"); ?>
 
 <div class="container">
+  <!-- spacing -->
   <br>
+  <!-- row for spacing -->
   <div class="row">
+    <!-- collumns for information page -->
     <div class="col-sm-12 col-md-7">
       <br>
       <h3 class="george_title bookeventani" style="margin-top: 4rem; margin-bottom: 4rem;">Information about the <u>Covid-19 virus</u></h3>

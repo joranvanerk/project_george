@@ -115,6 +115,7 @@ display: none;
 }
 }
 
+/* form styling */
 .formstyle{
   border-radius: 0;
   border-color: black;
