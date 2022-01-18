@@ -47,7 +47,7 @@ $active_page_filename = basename(__FILE__);
     <div class="col-6 mt-3 mb-3">
       <h1 class="student-text text-upper">Admin logs</h1>
       <a class="btn btn-outline-george btn-lg" href="#studentlogs">View student logs</a>
-      <a class="btn btn-outline-george btn-lg" href="#jobapplications">View job-applications</a>
+      <a class="btn btn-outline-george btn-lg" href="viewapplications.php">View job-applications</a>
     </div>
     <div class="col-6 vl mt-3 mb-3">
       <h1 class="student-text text-upper">Quick Links</h1>
